@@ -8,6 +8,7 @@
   "license": "GNU Affero General Public License v3.0",
   "private": false,
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "4.16.x",
+    "node-dependency-injection-express-middleware": "1.1.x"
   }
 }
