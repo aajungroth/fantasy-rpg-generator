@@ -1,0 +1,7 @@
+class command-transpiler {
+  constructor() {
+
+  }
+}
+
+export default command-transpiler;

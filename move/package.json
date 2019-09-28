@@ -1,0 +1,16 @@
+{
+  "name": "fantasy-rpg-generator",
+  "version": "1.0.0",
+  "description": "The actual generator for the fantasy rpg that builds the world and executes all actions in the game.",
+  "main": "server.js",
+  "repository": "https://github.com/aajungroth/fantasy-rpg-generator.git",
+  "author": "aajungroth <aajungroth@ucdavis.edu>",
+  "license": "GNU Affero General Public License v3.0",
+  "private": false,
+  "dependencies": {
+    "babel-preset-env": "1.7.x",
+    "babel-register": "6.26.x",
+    "express": "4.16.x",
+    "node-dependency-injection": "2.3.x"
+  }
+}

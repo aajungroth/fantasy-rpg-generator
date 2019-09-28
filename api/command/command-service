@@ -1,0 +1,7 @@
+class command-service {
+  constructor () {
+
+  }
+}
+
+export default command-service;
