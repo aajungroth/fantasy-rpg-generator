@@ -1,7 +1,0 @@
-class command-router {
-  constructor () {
-
-  }
-}
-
-export default command-router;
