@@ -29,6 +29,30 @@ let CharacterController = class CharacterController {
         }
         return `Received #${id}`;
     }
+    findAllAncestries(params) {
+        return params;
+    }
+    findOneAncestry(params) {
+        return params;
+    }
+    findAllBackgounds(params) {
+        return params;
+    }
+    findOneBackound(params) {
+        return params;
+    }
+    findAllClasses(params) {
+        return params;
+    }
+    findOneClass(params) {
+        return params;
+    }
+    findAllAbilities(params) {
+        return params;
+    }
+    findOneAbility(params) {
+        return params;
+    }
 };
 __decorate([
     common_1.Get(),
@@ -43,6 +67,62 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", String)
 ], CharacterController.prototype, "findOne", null);
+__decorate([
+    common_1.Get(':id/ancestry'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findAllAncestries", null);
+__decorate([
+    common_1.Get(':id/ancestry/:ancestryID'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findOneAncestry", null);
+__decorate([
+    common_1.Get(':id/background'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findAllBackgounds", null);
+__decorate([
+    common_1.Get(':id/background/:backgroundID'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findOneBackound", null);
+__decorate([
+    common_1.Get(':id/class'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findAllClasses", null);
+__decorate([
+    common_1.Get(':id/class/:classID'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findOneClass", null);
+__decorate([
+    common_1.Get(':id/class/:classID/ability'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findAllAbilities", null);
+__decorate([
+    common_1.Get(':id/class/:classID/ability/:abilityID'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "findOneAbility", null);
 CharacterController = __decorate([
     common_1.Controller('character')
 ], CharacterController);

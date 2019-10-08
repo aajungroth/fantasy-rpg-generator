@@ -1106,8 +1106,8 @@
         "signature": "0ec0881d39a574e39b856aff2bb42cda688ca28c94291667a03eaefc0d28d737"
       },
       "../src/character/character.controller.ts": {
-        "version": "6b3264959346f439fda1e1491b41b378c03b45c67ec387d7ead3c9dcb4e82a2b",
-        "signature": "a64f29b197a5f0980fabe2074a21ea410cf2e71ea9fa01745c77a39310e05d66"
+        "version": "ed6a88bfd8dabfb8273c50662b9e1cae2cd1b8bcc101def42be3bac342a38bce",
+        "signature": "befdded23975903bb190abe351c11d7bea5115f4b746032f96d51eb20ee2959c"
       },
       "../src/app.module.ts": {
         "version": "d797be67f87f8ac4cb1d1dfc10bd0b82fd9787ec9957daf322821c34369fb140",
