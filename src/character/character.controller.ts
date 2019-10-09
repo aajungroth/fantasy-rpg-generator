@@ -1,6 +1,6 @@
 'use strict';
 
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post } from '@nestjs/common';
 
 import { GetCharacterDto } from './dto/get-character.dto';
 
@@ -86,6 +86,10 @@ export class CharacterController {
       return params;
   }
 
-  /* todo: post an ability to request an action */
+  // Post an ability id to request an action
+  @Post(':id/class/:classID/ability/:abilityID')
+  public requestAction(@Param() params): string {
+    return `post ${params}`;
+  }
 
 }
