@@ -53,6 +53,9 @@ let CharacterController = class CharacterController {
     findOneAbility(params) {
         return params;
     }
+    requestAction(params) {
+        return `post ${params}`;
+    }
 };
 __decorate([
     common_1.Get(),
@@ -123,6 +126,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", String)
 ], CharacterController.prototype, "findOneAbility", null);
+__decorate([
+    common_1.Post(':id/class/:classID/ability/:abilityID'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], CharacterController.prototype, "requestAction", null);
 CharacterController = __decorate([
     common_1.Controller('character')
 ], CharacterController);

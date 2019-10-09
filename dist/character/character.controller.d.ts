@@ -10,4 +10,5 @@ export declare class CharacterController {
     findOneClass(params: any): string;
     findAllAbilities(params: any): string;
     findOneAbility(params: any): string;
+    requestAction(params: any): string;
 }
