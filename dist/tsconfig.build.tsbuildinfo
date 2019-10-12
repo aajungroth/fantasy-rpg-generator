@@ -1109,8 +1109,12 @@
         "version": "2d3b0d0a513d7a875c6eee7b58dce208ba894730a11ef3e64ab65a3d6d31057e",
         "signature": "6dc68f24c4ddbaa499f32109ce313f2c24e4fd375d64390822b4d37c41040ebc"
       },
+      "../src/character/character.service.ts": {
+        "version": "9af4317444f08d2ced3be44a6cc8c2cd39ee2f7875461546db02d94c37ac8bd4",
+        "signature": "a2e556f3ee2e089feb16bdb77150df79b94dd5f1ac8a42a9067f5f200700e119"
+      },
       "../src/app.module.ts": {
-        "version": "d797be67f87f8ac4cb1d1dfc10bd0b82fd9787ec9957daf322821c34369fb140",
+        "version": "aa18d8eb133c2d66e2b116dba0ad00e1d03ded4f9ac9903b92bf8974bf7f508a",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -3027,11 +3031,17 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/character/character.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
         "../src/character/character.controller.ts",
+        "../src/character/character.service.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -5737,7 +5747,7 @@
       "../src/app.service.ts",
       "../src/app.controller.ts",
       "../src/character/dto/get-character.dto.ts",
-      "../src/app.module.ts",
+      "../src/character/character.controller.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -5804,7 +5814,8 @@
       "../node_modules/@types/webpack/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/character/character.controller.ts"
+      "../src/character/character.service.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.6.3"
