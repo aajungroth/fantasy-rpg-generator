@@ -4,31 +4,24 @@ import { Controller, Get, Param, Post } from '@nestjs/common';
 
 import { GetCharacterDto } from './dto/get-character.dto';
 
+import { CharacterService } from './character.service';
+
 @Controller('character')
 export class CharacterController {
+  constructor(private readonly characterService: CharacterService) {}
 
   // Get all characters in the game
   @Get()
-  public findall(): GetCharacterDto[]{
-    const result: GetCharacterDto[] = [
-      {
-        'name': 'Tester'
-      }
-    ];
+  public findall(): GetCharacterDto[] {
+    const result: GetCharacterDto[] = this.characterService.findAll();
 
     return result;
   }
 
   // Get the requested character if it exists
   @Get(':id')
-  public findOne(@Param() params): string {
-    let id = Math.abs(parseInt(params.id, 10));
-
-    if (Number.isInteger(id) === false) {
-      return `Must be integer`;
-    }
-
-    return `Received #${id}`;
+  public findOne(@Param() params): GetCharacterDto {
+    return this.characterService.findOne(params.id);
   }
 
   // Get all of the character's ancestries
