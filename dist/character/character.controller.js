@@ -13,21 +13,18 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
+const get_character_dto_1 = require("./dto/get-character.dto");
+const character_service_1 = require("./character.service");
 let CharacterController = class CharacterController {
+    constructor(characterService) {
+        this.characterService = characterService;
+    }
     findall() {
-        const result = [
-            {
-                'name': 'Tester'
-            }
-        ];
+        const result = this.characterService.findAll();
         return result;
     }
     findOne(params) {
-        let id = Math.abs(parseInt(params.id, 10));
-        if (Number.isInteger(id) === false) {
-            return `Must be integer`;
-        }
-        return `Received #${id}`;
+        return this.characterService.findOne(params.id);
     }
     findAllAncestries(params) {
         return params;
@@ -68,7 +65,7 @@ __decorate([
     __param(0, common_1.Param()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", get_character_dto_1.GetCharacterDto)
 ], CharacterController.prototype, "findOne", null);
 __decorate([
     common_1.Get(':id/ancestry'),
@@ -134,7 +131,8 @@ __decorate([
     __metadata("design:returntype", String)
 ], CharacterController.prototype, "requestAction", null);
 CharacterController = __decorate([
-    common_1.Controller('character')
+    common_1.Controller('character'),
+    __metadata("design:paramtypes", [character_service_1.CharacterService])
 ], CharacterController);
 exports.CharacterController = CharacterController;
 //# sourceMappingURL=character.controller.js.map

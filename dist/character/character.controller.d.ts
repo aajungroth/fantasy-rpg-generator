@@ -1,7 +1,10 @@
 import { GetCharacterDto } from './dto/get-character.dto';
+import { CharacterService } from './character.service';
 export declare class CharacterController {
+    private readonly characterService;
+    constructor(characterService: CharacterService);
     findall(): GetCharacterDto[];
-    findOne(params: any): string;
+    findOne(params: any): GetCharacterDto;
     findAllAncestries(params: any): string;
     findOneAncestry(params: any): string;
     findAllBackgounds(params: any): string;

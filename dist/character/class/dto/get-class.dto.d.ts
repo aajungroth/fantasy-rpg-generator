@@ -1,4 +1,4 @@
-export declare class GetCharacterDto {
+export declare class GetClassDto {
     readonly id: number;
     readonly name: string;
 }
