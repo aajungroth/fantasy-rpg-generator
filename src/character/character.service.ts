@@ -35,151 +35,121 @@ export class CharacterService {
     }
   ];
 
-  private readonly ancestryList: GetAncestryDto[] = [
-    {
-      'id': 1,
-      'name': 'Half Elf'
-    },
-    {
-      'id': 2,
-      'name': 'Dwarf'
-    },
+  private readonly characterAncestryList: GetAncestryDto[] = [
     {
       'id': 3,
-      'name': 'Elemental Humanoid'
+      'name': 'Elf'
+    },
+    {
+      'id': 4,
+      'name': 'Human'
     }
   ];
 
-  private readonly backgroundList: GetBackgroundDto[] = [
-    {
-      'id': 1,
-      'name': 'Farmer'
-    },
-    {
-      'id': 2,
-      'name': 'Inn Keeper'
-    },
-    {
-      'id': 3,
-      'name': 'Miner'
-    },
+  private readonly characterBackgroundList: GetBackgroundDto[] = [
     {
       'id': 4,
       'name': 'Wanderer'
     }
   ];
 
-  private readonly classList: GetClassDto[] = [
-    {
-      'id': 1,
-      'name': 'Archer'
-    },
-    {
-      'id': 2,
-      'name': 'Bard'
-    },
-    {
-      'id': 3,
-      'name': 'Beserker'
-    },
-    {
-      'id': 4,
-      'name': 'Cleric'
-    },
-    {
-      'id': 5,
-      'name': 'Druid'
-    },
-    {
-      'id': 6,
-      'name': 'Elementalist'
-    },
+  private readonly characterClassList: GetClassDto[] = [
     {
       'id': 7,
-      'name': 'Fighter'
-    },
-    {
-      'id': 8,
-      'name': 'Healer'
-    },
-    {
-      'id': 9,
-      'name': 'Illusionist'
+      'name': 'Fighter',
     },
     {
       'id': 10,
       'name': 'Lancer'
-    },
-    {
-      'id': 11,
-      'name': 'Monk'
-    },
-    {
-      'id': 12,
-      'name': 'Rogue'
     }
   ];
 
-  public findAll(): GetCharacterDto[] {
-    return this.characterList;
-  }
+  private readonly characterClassAbilityList: GetAbilityDto[] = [
+    {
+      'id': 1,
+      'name': 'Slash'
+    },
+    {
+      'id': 2,
+      'name': 'Block'
+    }
+  ];
 
-  public findOne(id): GetCharacterDto {
+  public findOne(id, list): any {
+    // Convert id from a string to an integer
     id = Math.abs(parseInt(id, 10));
 
+    // Throw an error for invalid input
     if (Number.isInteger(id) === false) {
       throw(`Must be integer`);
     }
 
-    return this.characterList.find(character => {
-      if (character.id === id) {
-        return character;
+    // Find the element with the id
+    return list.find(element => {
+      if (element.id === id) {
+        return element;
       }
-     });
+    });
+  }
+
+  public findAllCharacters(): GetCharacterDto[] {
+    return this.characterList;
+  }
+
+  public findOneCharacter(characterID): GetCharacterDto {
+    return this.findOne(characterID, this.characterList);
   }
 
   // Get all of the character's ancestries
-  public findAllAncestries(): GetAncestryDto[] {
-    return this.ancestryList;
+  public findAllAncestries(characterID): GetAncestryDto[] {
+    return this.characterAncestryList;
   }
 
   // Get the requested ancestry if the character has that ancestry
-  public findOneAncestry(ancestryID): GetAncestryDto {
-     return this.ancestryList[ancestryID];
+  public findOneAncestry(characterID, ancestryID): GetAncestryDto {
+    return this.findOne(ancestryID, this.characterAncestryList);
   }
 
   // Get all of the character's backgounds
-  public findAllBackgounds(): GetBackgroundDto[] {
-     return this.backgroundList;
+  public findAllBackgounds(characterID): GetBackgroundDto[] {
+    return this.characterBackgroundList;
   }
 
   // Get the requested background if the character has that background
-  public findOneBackound(backgroundID): GetBackgroundDto {
-    return this.backgroundList[backgroundID];
+  public findOneBackground(characterID, backgroundID): GetBackgroundDto {
+    return this.findOne(backgroundID, this.characterBackgroundList);
   }
 
   // Get all of the character's classes
-  public findAllClasses(): GetClassDto[] {
-    return this.classList;
+  public findAllClasses(characterID): GetClassDto[] {
+    return this.characterClassList;
   }
 
   // Get the requested class if the character has that class
-  public findOneClass(classID): GetClassDto {
-     return this.classList[classID];
+  public findOneClass(characterID, classID): GetClassDto {
+    return this.findOne(classID, this.characterClassList);
   }
 
-  // // Get all abilities for the requested character's class
-  // public findAllAbilities(@Param() params): string {
-  //     return params;
-  // }
+  // Get all abilities for the requested character's class
+  public findAllAbilities(characterID, classID): GetAbilityDto[] {
+    return this.characterClassAbilityList;
+  }
 
-  // // Get the requested ability if the character's class has that ability
-  // public findOneAbility(@Param() params): string {
-  //     return params;
-  // }
+  // Get the requested ability if the character's class has that ability
+  public findOneAbility(characterID, classID, abilityID): GetAbilityDto {
+    return this.findOne(abilityID, this.characterClassAbilityList);
+  }
 
-  // // Post an ability id to request an action
-  // public requestAction(@Param() params): string {
-  //   return `post ${params}`;
-  // }
+  // Post an ability id to request an action
+  public requestAction(characterID, classID, abilityID, targetID): PostAbilityDto {
+    const result : PostAbilityDto = {
+      'id': abilityID,
+      'name': 'test',
+      'characterID': characterID,
+      'classID': classID,
+      'targetID': targetID
+    };
+
+    return result;
+  }
 }
