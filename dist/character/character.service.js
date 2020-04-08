@@ -27,120 +27,93 @@ let CharacterService = class CharacterService {
                 'name': 'Wonder Gal'
             }
         ];
-        this.ancestryList = [
-            {
-                'id': 1,
-                'name': 'Half Elf'
-            },
-            {
-                'id': 2,
-                'name': 'Dwarf'
-            },
+        this.characterAncestryList = [
             {
                 'id': 3,
-                'name': 'Elemental Humanoid'
+                'name': 'Elf'
+            },
+            {
+                'id': 4,
+                'name': 'Human'
             }
         ];
-        this.backgroundList = [
-            {
-                'id': 1,
-                'name': 'Farmer'
-            },
-            {
-                'id': 2,
-                'name': 'Inn Keeper'
-            },
-            {
-                'id': 3,
-                'name': 'Miner'
-            },
+        this.characterBackgroundList = [
             {
                 'id': 4,
                 'name': 'Wanderer'
             }
         ];
-        this.classList = [
-            {
-                'id': 1,
-                'name': 'Archer'
-            },
-            {
-                'id': 2,
-                'name': 'Bard'
-            },
-            {
-                'id': 3,
-                'name': 'Beserker'
-            },
-            {
-                'id': 4,
-                'name': 'Cleric'
-            },
-            {
-                'id': 5,
-                'name': 'Druid'
-            },
-            {
-                'id': 6,
-                'name': 'Elementalist'
-            },
+        this.characterClassList = [
             {
                 'id': 7,
-                'name': 'Fighter'
-            },
-            {
-                'id': 8,
-                'name': 'Healer'
-            },
-            {
-                'id': 9,
-                'name': 'Illusionist'
+                'name': 'Fighter',
             },
             {
                 'id': 10,
                 'name': 'Lancer'
+            }
+        ];
+        this.characterClassAbilityList = [
+            {
+                'id': 1,
+                'name': 'Slash'
             },
             {
-                'id': 11,
-                'name': 'Monk'
-            },
-            {
-                'id': 12,
-                'name': 'Rogue'
+                'id': 2,
+                'name': 'Block'
             }
         ];
     }
-    findAll() {
-        return this.characterList;
-    }
-    findOne(id) {
+    findOne(id, list) {
         id = Math.abs(parseInt(id, 10));
         if (Number.isInteger(id) === false) {
             throw (`Must be integer`);
         }
-        return this.characterList.find(character => {
-            if (character.id === id) {
-                return character;
+        return list.find(element => {
+            if (element.id === id) {
+                return element;
             }
         });
     }
-    findAllAncestries() {
-        return this.ancestryList;
+    findAllCharacters() {
+        return this.characterList;
     }
-    findOneAncestry(ancestryID) {
-        return this.ancestryList[ancestryID];
+    findOneCharacter(characterID) {
+        return this.findOne(characterID, this.characterList);
     }
-    findAllBackgounds() {
-        return this.backgroundList;
+    findAllAncestries(characterID) {
+        return this.characterAncestryList;
     }
-    findOneBackound(backgroundID) {
-        return this.backgroundList[backgroundID];
+    findOneAncestry(characterID, ancestryID) {
+        return this.findOne(ancestryID, this.characterAncestryList);
     }
-    findAllClasses() {
-        return this.classList;
+    findAllBackgounds(characterID) {
+        return this.characterBackgroundList;
     }
-    findOneClass(classID) {
-        return this.classList[classID];
+    findOneBackground(characterID, backgroundID) {
+        return this.findOne(backgroundID, this.characterBackgroundList);
+    }
+    findAllClasses(characterID) {
+        return this.characterClassList;
+    }
+    findOneClass(characterID, classID) {
+        return this.findOne(classID, this.characterClassList);
+    }
+    findAllAbilities(characterID, classID) {
+        return this.characterClassAbilityList;
+    }
+    findOneAbility(characterID, classID, abilityID) {
+        return this.findOne(abilityID, this.characterClassAbilityList);
+    }
+    requestAction(characterID, classID, abilityID, targetID) {
+        const result = {
+            'id': abilityID,
+            'name': 'test',
+            'characterID': characterID,
+            'classID': classID,
+            'targetID': targetID
+        };
+        return result;
     }
 };
 CharacterService = __decorate([

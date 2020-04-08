@@ -11,13 +11,14 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const character_controller_1 = require("./character/character.controller");
 const character_service_1 = require("./character/character.service");
+const character_dao_1 = require("./character/character.dao");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [],
         controllers: [app_controller_1.AppController, character_controller_1.CharacterController],
-        providers: [app_service_1.AppService, character_service_1.CharacterService],
+        providers: [app_service_1.AppService, character_service_1.CharacterService, character_dao_1.CharacterDao],
     })
 ], AppModule);
 exports.AppModule = AppModule;
