@@ -1,6 +1,6 @@
 'use strict';
 
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 import { GetCharacterDto } from './dto/get-character.dto';
 
@@ -81,7 +81,7 @@ export class CharacterService {
 
     // Throw an error for invalid input
     if (Number.isInteger(id) === false) {
-      throw(`Must be integer`);
+      throw new HttpException(`ID must be an integer.`, HttpStatus.BAD_REQUEST);
     }
 
     // Find the element with the id
