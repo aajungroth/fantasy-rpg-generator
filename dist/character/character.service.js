@@ -67,7 +67,7 @@ let CharacterService = class CharacterService {
     findOne(id, list) {
         id = Math.abs(parseInt(id, 10));
         if (Number.isInteger(id) === false) {
-            throw (`Must be integer`);
+            throw new common_1.HttpException(`Must be integer`, common_1.HttpStatus.BAD_REQUEST);
         }
         return list.find(element => {
             if (element.id === id) {
