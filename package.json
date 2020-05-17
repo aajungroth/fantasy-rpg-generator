@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@nestjs/common": "7.x.x",
+    "@nestjs/config": "0.x.x",
     "@nestjs/core": "7.x.x",
     "@nestjs/platform-express": "7.x.x",
     "@nestjs/typeorm": "7.x.x",
