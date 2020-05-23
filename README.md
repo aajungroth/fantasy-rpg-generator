@@ -48,7 +48,12 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-## Starting the postgres docker image
+
+## Starting the postgres docker image with the bash script (password redacted)
+./script/start-db.sh <redacted>
+
+
+## Starting the postgres docker image with the docker command
 docker run --name local-postgres -p 5432:5432 -e POSTGRES_PASSWORD=<redacted> -d postgres -rm
 
 ## Test
