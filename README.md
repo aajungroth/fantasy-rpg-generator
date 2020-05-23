@@ -49,7 +49,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Starting the postgres docker image with the bash script (password redacted)
+## Starting the postgres docker image with the bash script (password redacted, supply your own password)
 ./script/start-db.sh <redacted>
 
 
