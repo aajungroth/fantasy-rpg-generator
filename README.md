@@ -30,6 +30,15 @@ The actual generator for the fantasy rpg that builds the world and executes all 
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## A Note About Passwords
+
+<redacted> means that a password has removed.
+
+The goal of redacting passwords is to prevent this project from ending up on plain text offenders.
+https://github.com/plaintextoffenders/plaintextoffenders/blob/master/offenders.csv
+
+Supply your own password for the database. Avoid committing it to git in plain text.
+
 ## Installation
 
 ```bash
@@ -37,6 +46,20 @@ $ npm install
 ```
 
 ## Running the app
+
+Add this to a .env file in the root of the project directory
+```env
+TYPEORM_TYPE           = "postgres"
+TYPEORM_HOST           = "localhost"
+TYPEORM_USERNAME       = "postgres"
+TYPEORM_PASSWORD       = <redacted>
+TYPEORM_DATABASE       = "frg_db"
+TYPEORM_PORT           = 5432
+TYPEORM_LOGGING        = true
+TYPEORM_ENTITIES       = "dist/**/*.entity{.ts,.js}"
+TYPEORM_MIGRATIONS_RUN = true
+TYPEORM_SYNCHRONIZE    = true
+```
 
 ```bash
 # development
@@ -49,7 +72,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Starting the postgres docker image with the bash script (password redacted, supply your own password)
+## Starting the postgres docker image with the bash script
 ./script/start-db.sh <redacted>
 
 
