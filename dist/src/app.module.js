@@ -24,24 +24,19 @@ let AppModule = (() => {
             imports: [
                 config_1.ConfigModule.forRoot({
                     isGlobal: true,
-                    load: [configuration_1.default],
+                    load: [configuration_1.default]
                 }),
                 typeorm_1.TypeOrmModule.forRootAsync({
+                    imports: [config_1.ConfigModule],
                     inject: [config_1.ConfigService],
-                    useFactory: (configService) => {
-                        return {
-                            type: configService.get('type'),
-                            host: configService.get('host'),
-                            port: configService.get('port'),
-                            username: configService.get('username'),
-                            password: configService.get('password'),
-                            database: configService.get('database'),
-                            entities: configService.get('entities'),
-                            synchronize: configService.get('synchronize'),
-                            logging: configService.get('logging'),
-                            migrationsRun: configService.get('migrationsRun'),
-                        };
-                    },
+                    useFactory: async (configService) => ({
+                        type: 'postgres',
+                        host: configService.get('DATABASE_HOST', 'localhost'),
+                        port: configService.get('DATABASE_PORT', 5432),
+                        username: configService.get('DATABASE_USER', 'postgres'),
+                        password: configService.get('DATABASE_PASS', 'postgres'),
+                        database: configService.get('DATABASE_SCHEMA', 'public'),
+                    }),
                 }),
             ],
             controllers: [app_controller_1.AppController, character_controller_1.CharacterController],
