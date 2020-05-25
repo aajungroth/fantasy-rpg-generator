@@ -2726,6 +2726,16 @@
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
+      "../src/model/base.entity.ts": {
+        "version": "f2c2132ab7ad1509ed60f0e2649d1373955499e69f42e55b82fe6caca97671da",
+        "signature": "d8128ebe88945c79ab79480de9018c9bcf14907f53e2c94b76a945797699b196",
+        "affectsGlobalScope": false
+      },
+      "../src/model/character.entity.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/anymatch/index.d.ts": {
         "version": "48b52264fa193879a074197839dbb4796fa07e86350ff888e5361e06aa46df76",
         "signature": "48b52264fa193879a074197839dbb4796fa07e86350ff888e5361e06aa46df76",
@@ -9136,6 +9146,21 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../src/app.module.ts"
+      ],
+      "../src/model/base.entity.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../src/model/character.entity.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -15599,7 +15624,9 @@
       "../src/character/class/dto/get-class.dto.ts",
       "../src/character/dto/get-character.dto.ts",
       "../src/config/configuration.ts",
-      "../src/main.ts"
+      "../src/main.ts",
+      "../src/model/base.entity.ts",
+      "../src/model/character.entity.ts"
     ]
   },
   "version": "3.9.2"
