@@ -58,7 +58,7 @@ TYPEORM_PORT           = 5432
 TYPEORM_LOGGING        = true
 TYPEORM_ENTITIES       = "dist/**/*.entity{.ts,.js}"
 TYPEORM_MIGRATIONS_RUN = true
-TYPEORM_SYNCHRONIZE    = true
+TYPEORM_SYNCHRONIZE    = false
 ```
 
 ```bash
