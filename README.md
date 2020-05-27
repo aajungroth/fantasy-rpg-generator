@@ -47,7 +47,8 @@ $ npm install
 
 ## Running the app
 
-Add this to a .env file in the root of the project directory
+Add this to a .env file in the root of the project directory.
+This is for Nest.JS so it can connect to the postgres databse.
 ```env
 TYPEORM_TYPE           = "postgres"
 TYPEORM_HOST           = "localhost"
@@ -59,6 +60,25 @@ TYPEORM_LOGGING        = true
 TYPEORM_ENTITIES       = "dist/**/*.entity{.ts,.js}"
 TYPEORM_MIGRATIONS_RUN = true
 TYPEORM_SYNCHRONIZE    = false
+```
+
+Add this to a ormconfig.json in the root of the project directory.
+This is for typeORM so it can run migrations.
+```json
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": <redacted>,
+    "database": "frg_db",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "migrationsTableName": "frg_migration_table",
+    "migrations": ["migration/*.js"],
+    "cli": {
+        "migrationsDir": "migration"
+    }
+}
 ```
 
 ```bash
