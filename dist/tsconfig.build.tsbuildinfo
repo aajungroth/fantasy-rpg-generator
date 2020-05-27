@@ -2727,13 +2727,13 @@
         "affectsGlobalScope": false
       },
       "../src/model/base.entity.ts": {
-        "version": "f2c2132ab7ad1509ed60f0e2649d1373955499e69f42e55b82fe6caca97671da",
+        "version": "cf4838769fb611252c55041c8969d6fb679a8c67a3bf4867396cd00c80b27e13",
         "signature": "d8128ebe88945c79ab79480de9018c9bcf14907f53e2c94b76a945797699b196",
         "affectsGlobalScope": false
       },
       "../src/model/character.entity.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "version": "b9c404d37773f8d9e1085cfa61f4b33d37886eb03432c6d944df21c9a211bc1f",
+        "signature": "185253a055172fe203506a77e30468c0d3f94a449f8e1bf4c9d72e46f6646fff",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -9160,7 +9160,8 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -15626,7 +15627,27 @@
       "../src/config/configuration.ts",
       "../src/main.ts",
       "../src/model/base.entity.ts",
-      "../src/model/character.entity.ts"
+      [
+        "../src/model/character.entity.ts",
+        [
+          {
+            "file": "../src/model/character.entity.ts",
+            "start": 69,
+            "length": 15,
+            "messageText": "Cannot find module './base/entity' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../src/model/character.entity.ts",
+            "start": 149,
+            "length": 9,
+            "messageText": "Cannot find name 'BasEntity'. Did you mean 'BaseEntity'?",
+            "category": 1,
+            "code": 2552
+          }
+        ]
+      ]
     ]
   },
   "version": "3.9.2"

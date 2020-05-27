@@ -31,7 +31,7 @@ let BaseEntity = (() => {
         __metadata("design:type", Date)
     ], BaseEntity.prototype, "createDateTime", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 300 }),
+        typeorm_1.Column({ type: 'varchar', length: 255 }),
         __metadata("design:type", String)
     ], BaseEntity.prototype, "createdBy", void 0);
     __decorate([
@@ -39,11 +39,11 @@ let BaseEntity = (() => {
         __metadata("design:type", Date)
     ], BaseEntity.prototype, "lastChangedDateTime", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 300 }),
+        typeorm_1.Column({ type: 'varchar', length: 255 }),
         __metadata("design:type", String)
     ], BaseEntity.prototype, "lastChangedBy", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'varchar', length: 300, nullable: true }),
+        typeorm_1.Column({ type: 'varchar', length: 255, nullable: true }),
         __metadata("design:type", String)
     ], BaseEntity.prototype, "internalComment", void 0);
     return BaseEntity;
