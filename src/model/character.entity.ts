@@ -1,0 +1,11 @@
+import { Entity, Column } from 'typeorm';
+import { BaseEntity } from './base/entity';
+
+@Entity({ name: 'character' })
+export class Character extends BasEntity {
+  @Column({ type: 'varchar', length: 255 })
+  name: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  description: string;
+}
