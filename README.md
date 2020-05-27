@@ -1,4 +1,19 @@
-The actual generator for the fantasy rpg that builds the world and executes all actions in the game.
+```text
+ ______ ______  __   __  ______ ______  ______  __  __       ______  ______ ______       ______  ______  __   __  ______  ______  ______  ______ ______  ______
+/\  ___/\  __ \/\ "-.\ \/\__  _/\  __ \/\  ___\/\ \_\ \     /\  == \/\  == /\  ___\     /\  ___\/\  ___\/\ "-.\ \/\  ___\/\  == \/\  __ \/\__  _/\  __ \/\  == \
+\ \  __\ \  __ \ \ \-.  \/_/\ \\ \  __ \ \___  \ \____ \    \ \  __<\ \  _-\ \ \__ \    \ \ \__ \ \  __\\ \ \-.  \ \  __\\ \  __<\ \  __ \/_/\ \\ \ \/\ \ \  __<
+ \ \_\  \ \_\ \_\ \_\\"\_\ \ \_\\ \_\ \_\/\_____\/\_____\    \ \_\ \_\ \_\  \ \_____\    \ \_____\ \_____\ \_\\"\_\ \_____\ \_\ \_\ \_\ \_\ \ \_\\ \_____\ \_\ \_\
+  \/_/   \/_/\/_/\/_/ \/_/  \/_/ \/_/\/_/\/_____/\/_____/     \/_/ /_/\/_/   \/_____/     \/_____/\/_____/\/_/ \/_/\/_____/\/_/ /_/\/_/\/_/  \/_/ \/_____/\/_/ /_/
+```
+version 0.0.1
+
+
+The generator that acts as the server for games.
+It starts the game, takes input from players, passes that input to the game,
+and then sends the game's responses to the player.
+
+It also maintains public information that players can read to learn more about the game.
+The database is not for storing save files or player accounts.
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
