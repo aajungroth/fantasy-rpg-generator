@@ -32,7 +32,7 @@ The actual generator for the fantasy rpg that builds the world and executes all 
 
 ## A Note About Passwords
 
-<redacted> means that a password has removed.
+\<redacted\> means that a password has removed.
 
 The goal of redacting passwords is to prevent this project from ending up on plain text offenders.
 https://github.com/plaintextoffenders/plaintextoffenders/blob/master/offenders.csv
@@ -52,7 +52,7 @@ Add this to a .env file in the root of the project directory
 TYPEORM_TYPE           = "postgres"
 TYPEORM_HOST           = "localhost"
 TYPEORM_USERNAME       = "postgres"
-TYPEORM_PASSWORD       = <redacted>
+TYPEORM_PASSWORD       = \<redacted\>
 TYPEORM_DATABASE       = "frg_db"
 TYPEORM_PORT           = 5432
 TYPEORM_LOGGING        = true
@@ -73,7 +73,7 @@ $ npm run start:prod
 ```
 
 ## Starting the postgres docker image with the bash script
-./script/start-db.sh <redacted>
+./script/start-db.sh \<redacted\>
 
 
 ## Starting the postgres docker image with the docker command
