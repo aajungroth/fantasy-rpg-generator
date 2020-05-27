@@ -3,3 +3,6 @@
 
 # environment variables
 .env
+
+# typeORM configuration
+ormconfig.json
