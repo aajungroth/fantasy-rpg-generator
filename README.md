@@ -52,7 +52,7 @@ Add this to a .env file in the root of the project directory
 TYPEORM_TYPE           = "postgres"
 TYPEORM_HOST           = "localhost"
 TYPEORM_USERNAME       = "postgres"
-TYPEORM_PASSWORD       = \<redacted\>
+TYPEORM_PASSWORD       = <redacted>
 TYPEORM_DATABASE       = "frg_db"
 TYPEORM_PORT           = 5432
 TYPEORM_LOGGING        = true
