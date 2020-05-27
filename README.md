@@ -63,7 +63,7 @@ TYPEORM_SYNCHRONIZE    = false
 ```
 
 Add this to a ormconfig.json in the root of the project directory.
-This is for typeORM so it can run migrations.
+This is for typeORM so it can run migrations against the postgres database.
 ```json
 {
     "type": "postgres",
