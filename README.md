@@ -13,14 +13,18 @@
 
 ```
 version 0.0.1
+<p>
 (Sub-Zero font from http://patorjk.com/software/taag/)
+</p>
 
+<p>
 The generator that acts as the server for games.
 It starts the game, takes input from players, passes that input to the game,
 and then sends the game's responses to the player.
 
 It also maintains public information that players can read to learn more about the game.
 The database is not for storing save files or player accounts.
+</p>
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
