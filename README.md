@@ -32,7 +32,7 @@ The actual generator for the fantasy rpg that builds the world and executes all 
 
 ## A Note About Passwords
 
-\<redacted\> means that a password has removed.
+\<redacted\> means that a password has been removed.
 
 The goal of redacting passwords is to prevent this project from ending up on plain text offenders.
 https://github.com/plaintextoffenders/plaintextoffenders/blob/master/offenders.csv
