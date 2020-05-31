@@ -19,6 +19,14 @@ let BaseEntity = (() => {
         __metadata("design:type", String)
     ], BaseEntity.prototype, "id", void 0);
     __decorate([
+        typeorm_1.Column({ type: 'varchar', length: 255 }),
+        __metadata("design:type", String)
+    ], BaseEntity.prototype, "name", void 0);
+    __decorate([
+        typeorm_1.Column({ type: 'varchar', length: 255 }),
+        __metadata("design:type", String)
+    ], BaseEntity.prototype, "description", void 0);
+    __decorate([
         typeorm_1.Column({ type: 'boolean', default: true }),
         __metadata("design:type", Boolean)
     ], BaseEntity.prototype, "isActive", void 0);
