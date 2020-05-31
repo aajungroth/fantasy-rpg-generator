@@ -39,7 +39,7 @@ Supply your own password for the database. Avoid committing it to git in plain t
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Running the app
