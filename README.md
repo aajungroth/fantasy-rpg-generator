@@ -69,8 +69,8 @@ This is for typeORM so it can run migrations against the postgres database.
     "username"  : "postgres",
     "password"  : <redacted>,
     "database"  : "frg_db",
-    "entities"  : ["dist/**/*.entity{.ts,.js}"],
-    "migrations": ["migration/*{.ts,.js}"],
+    "entities"  : ["dist/model/*.entity.js"],
+    "migrations": ["dist/migration/*.js"],
     "cli"       : {
       "migrationsDir": "migration"
     }
