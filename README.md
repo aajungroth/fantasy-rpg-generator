@@ -54,7 +54,7 @@ TYPEORM_PASSWORD       = <redacted>
 TYPEORM_DATABASE       = "frg_db"
 TYPEORM_PORT           = 5432
 TYPEORM_LOGGING        = true
-TYPEORM_ENTITIES       = "dist/**/*.entity{.ts,.js}"
+TYPEORM_ENTITIES       = "dist/model/*.entity.js"
 TYPEORM_MIGRATIONS_RUN = true
 TYPEORM_SYNCHRONIZE    = false
 ```
