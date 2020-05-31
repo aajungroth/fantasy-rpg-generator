@@ -63,17 +63,16 @@ Add this to a ormconfig.json in the root of the project directory.
 This is for typeORM so it can run migrations against the postgres database.
 ```json
 {
-    "type": "postgres",
-    "host": "localhost",
-    "port": 5432,
-    "username": "postgres",
-    "password": <redacted>,
-    "database": "frg_db",
-    "entities": ["dist/**/*.entity{.ts,.js}"],
-    "migrationsTableName": "frg_migration_table",
-    "migrations": ["migration/*.js"],
-    "cli": {
-        "migrationsDir": "migration"
+    "type"      : "postgres",
+    "host"      : "localhost",
+    "port"      : 5432,
+    "username"  : "postgres",
+    "password"  : <redacted>,
+    "database"  : "frg_db",
+    "entities"  : ["dist/**/*.entity{.ts,.js}"],
+    "migrations": ["migration/*{.ts,.js}"],
+    "cli"       : {
+      "migrationsDir": "migration"
     }
 }
 ```
@@ -87,6 +86,16 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# Generates a new migration script
+$ npm run typeorm:migration:generate -- add_informative_migration_name
+
+# Runs all of the migrations that are not in the migration
+$ npm run typeorm:migration:run
+
+# Reverts the most recent migration
+$ npm run typeorm:migration:revert"
+
 ```
 
 ## Starting the postgres docker image with the bash script
