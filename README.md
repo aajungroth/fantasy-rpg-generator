@@ -77,6 +77,7 @@ This is for typeORM so it can run migrations against the postgres database.
 }
 ```
 
+When developing, start by running the migration run command and then start the app.
 ```bash
 # development
 $ npm run start
@@ -95,7 +96,6 @@ $ npm run typeorm:migration:run
 
 # Reverts the most recent migration
 $ npm run typeorm:migration:revert"
-
 ```
 
 ## Starting the postgres docker image with the bash script
