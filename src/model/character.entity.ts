@@ -1,11 +1,20 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, ManyToMany, JoinTable } from 'typeorm';
 import { BaseEntity } from './base.entity';
+import { Ancestry } from './ancestry.entity';
+import { Background } from './background.entity';
+import { Class } from './class.entity';
 
 @Entity({ name: 'character' })
 export class Character extends BaseEntity {
-  @Column({ type: 'varchar', length: 255 })
-  name: string;
+  @ManyToMany(type => Ancestry)
+  @JoinTable()
+  abilities: Ancestry[];
 
-  @Column({ type: 'varchar', length: 255 })
-  description: string;
+  @ManyToMany(type => Background)
+  @JoinTable()
+  backgrounds: Background[];
+
+  @ManyToMany(type => Class)
+  @JoinTable()
+  classes: Class[];
 }
