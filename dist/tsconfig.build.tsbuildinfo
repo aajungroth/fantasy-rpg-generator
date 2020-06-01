@@ -2562,7 +2562,7 @@
         "affectsGlobalScope": false
       },
       "../src/character/character.service.ts": {
-        "version": "cce5ce7c534dd062f3fc967ed9811e7b36668e920b3e2bc3122f570bdd70cb0a",
+        "version": "d36690d0369884705a8f034ba4b9f614e3120657955a92d77919815fb4e2a225",
         "signature": "41165cfd95111e4140853588fbb359dfae1b0c92a9394c288ab220c4f88a3ac2",
         "affectsGlobalScope": false
       },
