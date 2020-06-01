@@ -4,7 +4,10 @@ import { GetBackgroundDto } from './background/dto/get-background.dto';
 import { GetClassDto } from './class/dto/get-class.dto';
 import { GetAbilityDto } from './class/ability/dto/get-ability.dto';
 import { PostAbilityDto } from './class/ability/dto/post-ability.dto';
+import { CharacterDao } from './character.dao';
 export declare class CharacterService {
+    private readonly characterDao;
+    constructor(characterDao: CharacterDao);
     private readonly characterList;
     private readonly characterAncestryList;
     private readonly characterBackgroundList;

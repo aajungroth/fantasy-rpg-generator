@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CharacterDao = void 0;
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("typeorm");
+const character_entity_1 = require("../model/character.entity");
 let CharacterDao = (() => {
     let CharacterDao = class CharacterDao {
         constructor() {
@@ -115,6 +117,13 @@ let CharacterDao = (() => {
                     'name': 'Rogue'
                 }
             ];
+        }
+        async findAllCharacters() {
+            return await typeorm_1.getConnection()
+                .createQueryBuilder()
+                .select('character')
+                .from(character_entity_1.Character, 'charcter')
+                .getMany();
         }
     };
     CharacterDao = __decorate([
