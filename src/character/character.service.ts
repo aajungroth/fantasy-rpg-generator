@@ -158,4 +158,10 @@ export class CharacterService {
     return result;
   }
 
+  // Todo add insertCharacter
+
+  // Todo add updateCharacter
+
+  // Todo add deleteCharacter
+
 }
