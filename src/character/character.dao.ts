@@ -2,6 +2,10 @@
 
 import { Injectable } from '@nestjs/common';
 
+import { getConnection } from 'typeorm';
+
+import { Character } from '../model/character.entity';
+
 import { GetCharacterDto } from './dto/get-character.dto';
 
 import { GetAncestryDto } from './ancestry/dto/get-ancestry.dto';
@@ -16,6 +20,15 @@ import { PostAbilityDto } from './class/ability/dto/post-ability.dto';
 
 @Injectable()
 export class CharacterDao {
+
+  public async findAllCharacters(): Promise<GetCharacterDto[]> {
+    return await getConnection()
+      .createQueryBuilder()
+      .select('character')
+      .from(Character, 'charcter')
+      .getMany();
+  }
+
   private readonly characterList: GetCharacterDto[] = [
     {
       'id': 1,
