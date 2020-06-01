@@ -72,7 +72,7 @@ This is for typeORM so it can run migrations against the postgres database.
     "entities"  : ["dist/model/*.entity.js"],
     "migrations": ["dist/migration/*.js"],
     "cli"       : {
-      "migrationsDir": "migration"
+      "migrationsDir": "src/migration"
     }
 }
 ```
