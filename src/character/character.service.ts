@@ -14,8 +14,13 @@ import { GetAbilityDto } from './class/ability/dto/get-ability.dto';
 
 import { PostAbilityDto } from './class/ability/dto/post-ability.dto';
 
+import { CharacterDao } from './character.dao';
+
 @Injectable()
 export class CharacterService {
+
+  constructor(private readonly characterDao: CharacterDao) {}
+
   private readonly characterList: GetCharacterDto[] = [
     {
       'id': 1,
@@ -93,7 +98,7 @@ export class CharacterService {
   }
 
   public findAllCharacters(): GetCharacterDto[] {
-    return this.characterList;
+    return this.characterDao.findAllCharacters();
   }
 
   public findOneCharacter(characterID): GetCharacterDto {
@@ -152,4 +157,5 @@ export class CharacterService {
 
     return result;
   }
+
 }
