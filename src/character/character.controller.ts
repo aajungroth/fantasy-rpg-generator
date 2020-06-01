@@ -18,6 +18,7 @@ import { CharacterService } from './character.service';
 
 @Controller('character')
 export class CharacterController {
+
   constructor(private readonly characterService: CharacterService) {}
 
   // Get all characters in the game
