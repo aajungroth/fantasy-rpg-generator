@@ -1,8 +1,7 @@
-import { GetCharacterDto } from './dto/get-character.dto';
+import { Character } from '../model/character.entity';
 export declare class CharacterDao {
-    findAllCharacters(): Promise<GetCharacterDto[]>;
-    private readonly characterList;
-    private readonly ancestryList;
-    private readonly backgroundList;
-    private readonly classList;
+    findAllCharacters(): Promise<Character[]>;
+    findCharacter(id: any): Promise<Character>;
+    insertAllCharacters(characterInfo: any): Promise<any>;
+    insertCharacter(characterList: any): Promise<any>;
 }

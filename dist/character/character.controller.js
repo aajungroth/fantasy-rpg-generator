@@ -14,12 +14,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CharacterController = void 0;
 const common_1 = require("@nestjs/common");
-const get_character_dto_1 = require("./dto/get-character.dto");
-const get_ancestry_dto_1 = require("./ancestry/dto/get-ancestry.dto");
-const get_background_dto_1 = require("./background/dto/get-background.dto");
-const get_class_dto_1 = require("./class/dto/get-class.dto");
-const get_ability_dto_1 = require("./class/ability/dto/get-ability.dto");
-const post_ability_dto_1 = require("./class/ability/dto/post-ability.dto");
 const character_service_1 = require("./character.service");
 let CharacterController = (() => {
     let CharacterController = class CharacterController {
@@ -59,83 +53,100 @@ let CharacterController = (() => {
         requestAction(params) {
             return this.characterService.requestAction(params.characterID, params.classID, params.abilityID, params.targetID);
         }
+        insertCharacter(params) {
+            let character = {
+                'name': 'Tester 3',
+                'description': 'A tester',
+                'createdBy': 'Post Route',
+                'lastChangedBy': 'Post Route',
+                'internalComment': 'A tester who tests'
+            };
+            return this.characterService.insertCharacter(character);
+        }
     };
     __decorate([
         common_1.Get(),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", []),
-        __metadata("design:returntype", Array)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findAllCharacters", null);
     __decorate([
         common_1.Get(':characterID'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", get_character_dto_1.GetCharacterDto)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findOneCharacter", null);
     __decorate([
         common_1.Get(':characterID/ancestry'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", Array)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findAllAncestries", null);
     __decorate([
         common_1.Get(':characterID/ancestry/:ancestryID'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", get_ancestry_dto_1.GetAncestryDto)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findOneAncestry", null);
     __decorate([
         common_1.Get(':characterID/background'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", Array)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findAllBackgounds", null);
     __decorate([
         common_1.Get(':characterID/background/:background'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", get_background_dto_1.GetBackgroundDto)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findOneBackound", null);
     __decorate([
         common_1.Get(':characterID/class'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", Array)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findAllClasses", null);
     __decorate([
         common_1.Get(':characterID/class/:classID'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", get_class_dto_1.GetClassDto)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findOneClass", null);
     __decorate([
         common_1.Get(':characterID/class/:classID/ability'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", Array)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findAllAbilities", null);
     __decorate([
         common_1.Get(':characterID/class/:classID/ability/:abilityID'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", get_ability_dto_1.GetAbilityDto)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "findOneAbility", null);
     __decorate([
         common_1.Post(':characterID/class/:classID/ability/:abilityID/target/:targetID'),
         __param(0, common_1.Param()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
-        __metadata("design:returntype", post_ability_dto_1.PostAbilityDto)
+        __metadata("design:returntype", void 0)
     ], CharacterController.prototype, "requestAction", null);
+    __decorate([
+        common_1.Post(),
+        __param(0, common_1.Param()),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], CharacterController.prototype, "insertCharacter", null);
     CharacterController = __decorate([
         common_1.Controller('character'),
         __metadata("design:paramtypes", [character_service_1.CharacterService])

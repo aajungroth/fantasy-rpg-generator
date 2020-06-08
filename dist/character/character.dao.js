@@ -12,118 +12,36 @@ const typeorm_1 = require("typeorm");
 const character_entity_1 = require("../model/character.entity");
 let CharacterDao = (() => {
     let CharacterDao = class CharacterDao {
-        constructor() {
-            this.characterList = [
-                {
-                    'id': 1,
-                    'name': 'Sir Tester'
-                },
-                {
-                    'id': 2,
-                    'name': 'Super Guy'
-                },
-                {
-                    'id': 3,
-                    'name': 'Macy'
-                },
-                {
-                    'id': 4,
-                    'name': 'Wonder Gal'
-                }
-            ];
-            this.ancestryList = [
-                {
-                    'id': 1,
-                    'name': 'Dwarf'
-                },
-                {
-                    'id': 2,
-                    'name': 'Elemental Humanoid'
-                },
-                {
-                    'id': 3,
-                    'name': 'Elf'
-                },
-                {
-                    'id': 4,
-                    'name': 'Human'
-                }
-            ];
-            this.backgroundList = [
-                {
-                    'id': 1,
-                    'name': 'Farmer'
-                },
-                {
-                    'id': 2,
-                    'name': 'Inn Keeper'
-                },
-                {
-                    'id': 3,
-                    'name': 'Miner'
-                },
-                {
-                    'id': 4,
-                    'name': 'Wanderer'
-                }
-            ];
-            this.classList = [
-                {
-                    'id': 1,
-                    'name': 'Archer'
-                },
-                {
-                    'id': 2,
-                    'name': 'Bard'
-                },
-                {
-                    'id': 3,
-                    'name': 'Beserker'
-                },
-                {
-                    'id': 4,
-                    'name': 'Cleric'
-                },
-                {
-                    'id': 5,
-                    'name': 'Druid'
-                },
-                {
-                    'id': 6,
-                    'name': 'Elementalist'
-                },
-                {
-                    'id': 7,
-                    'name': 'Fighter'
-                },
-                {
-                    'id': 8,
-                    'name': 'Healer'
-                },
-                {
-                    'id': 9,
-                    'name': 'Illusionist'
-                },
-                {
-                    'id': 10,
-                    'name': 'Lancer'
-                },
-                {
-                    'id': 11,
-                    'name': 'Monk'
-                },
-                {
-                    'id': 12,
-                    'name': 'Rogue'
-                }
-            ];
-        }
         async findAllCharacters() {
             return await typeorm_1.getConnection()
                 .createQueryBuilder()
                 .select('character')
-                .from(character_entity_1.Character, 'charcter')
+                .from(character_entity_1.Character, 'character')
                 .getMany();
+        }
+        async findCharacter(id) {
+            return await typeorm_1.getConnection()
+                .createQueryBuilder()
+                .select('character')
+                .from(character_entity_1.Character, 'character')
+                .where('character.id = :id', { id: 1 })
+                .getOne();
+        }
+        async insertAllCharacters(characterInfo) {
+            return await typeorm_1.getConnection()
+                .createQueryBuilder()
+                .insert()
+                .into(character_entity_1.Character)
+                .values([characterInfo])
+                .execute();
+        }
+        async insertCharacter(characterList) {
+            return await typeorm_1.getConnection()
+                .createQueryBuilder()
+                .insert()
+                .into(character_entity_1.Character)
+                .values(characterList)
+                .execute();
         }
     };
     CharacterDao = __decorate([

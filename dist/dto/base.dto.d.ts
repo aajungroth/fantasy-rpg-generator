@@ -1,4 +1,4 @@
-export declare class GetAbilityDto {
+export declare class BaseDto {
     readonly id: number;
     readonly name: string;
 }

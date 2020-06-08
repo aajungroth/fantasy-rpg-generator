@@ -4,4 +4,4 @@ exports.PostAbilityDto = void 0;
 class PostAbilityDto {
 }
 exports.PostAbilityDto = PostAbilityDto;
-//# sourceMappingURL=post-ability.dto.js.map
+//# sourceMappingURL=postAbility.dto.js.map

@@ -122,6 +122,12 @@ let CharacterService = (() => {
             };
             return result;
         }
+        insertAllCharacters(characterList) {
+            return this.characterDao.insertAllCharacters(characterList);
+        }
+        insertCharacter(characterInfo) {
+            return this.characterDao.insertCharacter(characterInfo);
+        }
     };
     CharacterService = __decorate([
         common_1.Injectable(),
