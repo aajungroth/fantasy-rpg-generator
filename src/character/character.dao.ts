@@ -6,134 +6,58 @@ import { getConnection } from 'typeorm';
 
 import { Character } from '../model/character.entity';
 
-import { GetCharacterDto } from './dto/get-character.dto';
+// import { GetCharacterDto } from './dto/get-character.dto';
 
-import { GetAncestryDto } from './ancestry/dto/get-ancestry.dto';
+// import { GetAncestryDto } from './ancestry/dto/get-ancestry.dto';
 
-import { GetBackgroundDto } from './background/dto/get-background.dto';
+// import { GetBackgroundDto } from './background/dto/get-background.dto';
 
-import { GetClassDto } from './class/dto/get-class.dto';
+// import { GetClassDto } from './class/dto/get-class.dto';
 
-import { GetAbilityDto } from './class/ability/dto/get-ability.dto';
+// import { GetAbilityDto } from './class/ability/dto/get-ability.dto';
 
-import { PostAbilityDto } from './class/ability/dto/post-ability.dto';
+// import { PostAbilityDto } from './class/ability/dto/post-ability.dto';
+
+import { BaseDto } from '../dto/Base.dto';
+
+import { BasePostDto } from '../dto/BasePost.dto';
 
 @Injectable()
 export class CharacterDao {
 
-  public async findAllCharacters(): Promise<GetCharacterDto[]> {
+  public async findAllCharacters(): Promise<Character[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('character')
-      .from(Character, 'charcter')
+      .from(Character, 'character')
       .getMany();
   }
 
-  private readonly characterList: GetCharacterDto[] = [
-    {
-      'id': 1,
-      'name': 'Sir Tester'
-    },
-    {
-      'id': 2,
-      'name': 'Super Guy'
-    },
-    {
-      'id': 3,
-      'name': 'Macy'
-    },
-    {
-      'id': 4,
-      'name': 'Wonder Gal'
-    }
-  ];
+  public async findCharacter(id): Promise<Character> {
+    return await getConnection()
+      .createQueryBuilder()
+      .select('character')
+      .from(Character, 'character')
+      .where('character.id = :id', { id: 1 })
+      .getOne();
+  }
 
-  private readonly ancestryList: GetAncestryDto[] = [
-    {
-      'id': 1,
-      'name': 'Dwarf'
-    },
-    {
-      'id': 2,
-      'name': 'Elemental Humanoid'
-    },
-    {
-      'id': 3,
-      'name': 'Elf'
-    },
-    {
-      'id': 4,
-      'name': 'Human'
-    }
-  ];
+  public async insertAllCharacters(characterInfo): Promise<any> {
+    return await getConnection()
+      .createQueryBuilder()
+      .insert()
+      .into(Character)
+      .values([characterInfo])
+      .execute();
+  }
 
-  private readonly backgroundList: GetBackgroundDto[] = [
-    {
-      'id': 1,
-      'name': 'Farmer'
-    },
-    {
-      'id': 2,
-      'name': 'Inn Keeper'
-    },
-    {
-      'id': 3,
-      'name': 'Miner'
-    },
-    {
-      'id': 4,
-      'name': 'Wanderer'
-    }
-  ];
+  public async insertCharacter(characterList): Promise<any> {
+    return await getConnection()
+      .createQueryBuilder()
+      .insert()
+      .into(Character)
+      .values(characterList)
+      .execute();
+  }
 
-  private readonly classList: GetClassDto[] = [
-    {
-      'id': 1,
-      'name': 'Archer'
-    },
-    {
-      'id': 2,
-      'name': 'Bard'
-    },
-    {
-      'id': 3,
-      'name': 'Beserker'
-    },
-    {
-      'id': 4,
-      'name': 'Cleric'
-    },
-    {
-      'id': 5,
-      'name': 'Druid'
-    },
-    {
-      'id': 6,
-      'name': 'Elementalist'
-    },
-    {
-      'id': 7,
-      'name': 'Fighter'
-    },
-    {
-      'id': 8,
-      'name': 'Healer'
-    },
-    {
-      'id': 9,
-      'name': 'Illusionist'
-    },
-    {
-      'id': 10,
-      'name': 'Lancer'
-    },
-    {
-      'id': 11,
-      'name': 'Monk'
-    },
-    {
-      'id': 12,
-      'name': 'Rogue'
-    }
-  ];
 }
