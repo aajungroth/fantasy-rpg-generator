@@ -105,7 +105,7 @@ export class CharacterController {
       'description': 'A tester',
       'createdBy': 'Post Route',
       'lastChangedBy': 'Post Route',
-      'internalComment': 'A tester who tests'
+      //'internalComment': 'A tester who tests'
     };
 
     return this.characterService.insertCharacter(character);
