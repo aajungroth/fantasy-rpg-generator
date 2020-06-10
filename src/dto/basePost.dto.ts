@@ -3,5 +3,5 @@ export class BasePostDto {
   readonly description: string;
   readonly createdBy: string;
   readonly lastChangedBy: string;
-  readonly internalComment: string;
+  readonly internalComment?: string | null;
 }
