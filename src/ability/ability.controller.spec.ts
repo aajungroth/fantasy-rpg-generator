@@ -1,22 +1,25 @@
 'use strict';
 
 import { Test, TestingModule } from '@nestjs/testing';
+
 import { AbilityController } from './ability.controller';
+
+import { AbilityDao } from './ability.dao';
+
 import { AbilityService } from './ability.service';
+
+import { BaseDto } from '../dto/base.dto';
 
 describe('Ability Controller', () => {
 
   let abilityController: AbilityController;
+  let abilityDao: AbilityDao;
   let abilityService: AbilityService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [AbilityController],
-      providers: [AbilityService],
-    }).compile();
-
-    abilityService = module.get<AbilityService>(AbilityService);
-    abilityController = module.get<AbilityController>(AbilityController);
+    abilityDao        = new AbilityDao();
+    abilityService    = new AbilityService(abilityDao);
+    abilityController = new AbilityController(abilityService);
   });
 
   it('should be defined', () => {
@@ -25,27 +28,35 @@ describe('Ability Controller', () => {
 
   describe('findAllAbilities', () => {
     it('should return an array of abilities', async () => {
-      const result = [{
+      const result: BaseDto[] = [{
         'id'  : '1',
         'name': 'findAllAbilities',
+        'description': 'A test',
+        'createdBy': 'spec',
+        'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(abilityService, 'findAllAbilities').mockImplementation(() => result);
+      jest.spyOn(abilityService, 'findAllAbilities').mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.findAllAbilities()).toBe(result);
+      expect(await abilityController.findAllAbilities()).toBe(result);
     });
   });
 
-  describe('findOneAbility', () => {
+  describe('findAbility', () => {
     it('should return a single ability by id', async () => {
-      const result = {
+      const result: BaseDto = {
         'id'  : '2',
-        'name': 'findOneAbility'
+        'name': 'findAbility',
+        'description': 'A test',
+        'createdBy': 'spec',
+        'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(abilityService, 'findOneAbility').mockImplementation(() => result);
+      const id: string = '2'
 
-      expect(await abilityService.findOneAbility()).toBe(result);
+      jest.spyOn(abilityService, 'findAbility').mockImplementation(() => Promise.resolve(result));
+
+      expect(await abilityController.findAbility(id)).toBe(result);
     });
   });
 
