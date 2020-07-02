@@ -33,30 +33,30 @@ export class CharacterDao {
       .getMany();
   }
 
-  public async findCharacter(id): Promise<Character> {
+  public async findCharacter(id: string): Promise<Character> {
     return await getConnection()
       .createQueryBuilder()
       .select('character')
       .from(Character, 'character')
-      .where('character.id = :id', { id: 1 })
+      .where('character.id = :id', { id: id })
       .getOne();
   }
 
-  public async insertAllCharacters(characterInfo): Promise<any> {
-    return await getConnection()
-      .createQueryBuilder()
-      .insert()
-      .into(Character)
-      .values([characterInfo])
-      .execute();
-  }
-
-  public async insertCharacter(characterList): Promise<any> {
+  public async insertAllCharacters(characterList: BasePostDto[]): Promise<any> {
     return await getConnection()
       .createQueryBuilder()
       .insert()
       .into(Character)
       .values(characterList)
+      .execute();
+  }
+
+  public async insertCharacter(characterInfo: BasePostDto): Promise<any> {
+    return await getConnection()
+      .createQueryBuilder()
+      .insert()
+      .into(Character)
+      .values([characterInfo])
       .execute();
   }
 
