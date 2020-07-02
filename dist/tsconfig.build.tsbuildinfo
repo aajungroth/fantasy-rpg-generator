@@ -2492,12 +2492,12 @@
         "affectsGlobalScope": false
       },
       "../src/dto/base.dto.ts": {
-        "version": "affa92627a35775b5e9fbf709e7ba6b62994694d594b94fc65b95ff66e601191",
-        "signature": "e3374412c5abcd6a6d1f5d05f8d0679dc172cc301d4ab1d277f3bf9e5d0299ab",
+        "version": "d986af866651f10ea207f6ef3bb84bf0f40e616d3abba57b6a66afcf7959cfea",
+        "signature": "6e7f77ab81e94149f0eac70b21399ef22b629dc80516eaf9cf295e8123df183c",
         "affectsGlobalScope": false
       },
       "../src/dto/basepost.dto.ts": {
-        "version": "7d9fcce83092ccaa2529aeb9f74ee139119db8cd2bec2730104210497a9d6f8a",
+        "version": "ccea9a4a9f2c235d7dcf7092fac678100f8e113ac8ad6604439e4d71896f167d",
         "signature": "3644551de80e8958e033e9fb988f8062ce06386d1c904a5acfe3586edbe9396e",
         "affectsGlobalScope": false
       },
@@ -2542,18 +2542,33 @@
         "affectsGlobalScope": false
       },
       "../src/character/character.dao.ts": {
-        "version": "928930ba8e54b1f18f0c13f2201f613e3d523ce2372013e3d42c022e26dd4f1f",
-        "signature": "c1d8ce411359e355033b95d180ab0ac080c33ab4110bac8f48380b5777d45e67",
+        "version": "d23bea54e4701ff86ddb5cf08c3ba4ac3f9738e2d157f3200e3c307c92c036c3",
+        "signature": "71c5ba25cffbfb035f96dcdc0577300d6d0c2e7c6f3ce12ccce0d0c7811988a9",
         "affectsGlobalScope": false
       },
       "../src/character/character.service.ts": {
-        "version": "3f264ef297d09b296a9ea9ee06c8f1349f3c53c63dec662d7f35bd1888eff4a0",
-        "signature": "fc8d0b3b13c98131d17dc02baabd6e39a51e77788061bc092c65a228ae573b05",
+        "version": "c8e6748b3bb9525f517db4be601c5b8ee95b0968d74f6a907cc58c6c9daa50dd",
+        "signature": "8cf854cd0623721eb4157bcbd206c6168d940f366c5c7f86afa135f3531a6d47",
         "affectsGlobalScope": false
       },
       "../src/character/character.controller.ts": {
-        "version": "60ba14c773cac973c05b256421d40220482f0bf294ef911f74cd1c8e475777bf",
-        "signature": "7598e3791c85c6384d7ef0591367e8531800e5733aabd842a7a13d6e4db07553",
+        "version": "a08d9ca84552cf2935899c441e905032af139b4028bceda8b2da042c50a9a65d",
+        "signature": "cd9999688176a8b50239c8811764518cca881e46539c61a9f5a3e91f66af369a",
+        "affectsGlobalScope": false
+      },
+      "../src/ability/ability.dao.ts": {
+        "version": "882fa73f1e0fa9fc14a89fd7f192d1d0b0050c3487ebbfb32bcbf05cb289de8d",
+        "signature": "a63ff99bb4cde8c708d9dbcd560cdd00dda56774f168c395801c580be12c8b3f",
+        "affectsGlobalScope": false
+      },
+      "../src/ability/ability.service.ts": {
+        "version": "2280d57ddc49bbaf7831a562a9165248af92b912bde0507ef5460c5a86316762",
+        "signature": "e1032d256d802d6abececc20c337d40f263f8ee8c16cbf2eab60a4ca1fbfdcff",
+        "affectsGlobalScope": false
+      },
+      "../src/ability/ability.controller.ts": {
+        "version": "03eae71dd384c0038e2fa786318fa7586b872b63419d928f850e4eed7aca7390",
+        "signature": "67763202403bff0543a5f37ff303d2fa827601281374d6544bbd47726e7a484d",
         "affectsGlobalScope": false
       },
       "../src/config/configuration.ts": {
@@ -2562,7 +2577,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "0615e774904b07ec1fdbcec7787d92b4e5f389ffa315af04c3ad2557069467a6",
+        "version": "67604e5095e472c6528a9ad8d153409a29eb08da94bf2eecbd23bf1cc45b3eb8",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -2749,11 +2764,6 @@
       "../src/main.ts": {
         "version": "e25d9bd8f80b6ffbcc8826ed1b407e747e4fbe346c5bab62cbe5837da4eeb189",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
-        "affectsGlobalScope": false
-      },
-      "../src/dto/baseput.dto.ts": {
-        "version": "ba859a7162928fcb8254bfdbc46bbc6485c75bdcb437c1c329991888834e3eac",
-        "signature": "e260e0ec37894a3d04f3d00fac0a30c8fbec032328ea26e76368b9af6d748a82",
         "affectsGlobalScope": false
       },
       "../src/migration/1590963627089-initialize_database.ts": {
@@ -9048,6 +9058,39 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../src/ability/ability.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/ability/ability.service.ts",
+        "../src/dto/base.dto.ts"
+      ],
+      "../src/ability/ability.dao.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/dto/base.dto.ts",
+        "../src/model/ability.entity.ts"
+      ],
+      "../src/ability/ability.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/ability/ability.dao.ts",
+        "../src/dto/base.dto.ts",
+        "../src/dto/basepost.dto.ts",
+        "../src/model/ability.entity.ts"
+      ],
       "../src/app.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -9066,6 +9109,9 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../src/ability/ability.controller.ts",
+        "../src/ability/ability.dao.ts",
+        "../src/ability/ability.service.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
         "../src/character/character.controller.ts",
@@ -9140,13 +9186,6 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../src/dto/basepost.dto.ts": [
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../src/dto/baseput.dto.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -15081,20 +15120,34 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../src/ability/ability.controller.ts": [
+        "../src/ability/ability.service.ts",
+        "../src/dto/base.dto.ts"
+      ],
+      "../src/ability/ability.dao.ts": [
+        "../src/dto/base.dto.ts"
+      ],
+      "../src/ability/ability.service.ts": [
+        "../src/ability/ability.dao.ts",
+        "../src/dto/base.dto.ts",
+        "../src/dto/basepost.dto.ts"
+      ],
       "../src/app.controller.ts": [
         "../src/app.service.ts"
       ],
       "../src/character/character.controller.ts": [
         "../src/character/character.service.ts",
-        "../src/dto/base.dto.ts",
+        "../src/character/dto/postability.dto.ts",
         "../src/model/character.entity.ts"
       ],
       "../src/character/character.dao.ts": [
+        "../src/dto/basepost.dto.ts",
         "../src/model/character.entity.ts"
       ],
       "../src/character/character.service.ts": [
         "../src/character/character.dao.ts",
-        "../src/dto/base.dto.ts",
+        "../src/character/dto/postability.dto.ts",
+        "../src/dto/basepost.dto.ts",
         "../src/model/character.entity.ts"
       ],
       "../src/migration/1590963627089-initialize_database.ts": [

@@ -24,23 +24,23 @@ let CharacterDao = (() => {
                 .createQueryBuilder()
                 .select('character')
                 .from(character_entity_1.Character, 'character')
-                .where('character.id = :id', { id: 1 })
+                .where('character.id = :id', { id: id })
                 .getOne();
         }
-        async insertAllCharacters(characterInfo) {
-            return await typeorm_1.getConnection()
-                .createQueryBuilder()
-                .insert()
-                .into(character_entity_1.Character)
-                .values([characterInfo])
-                .execute();
-        }
-        async insertCharacter(characterList) {
+        async insertAllCharacters(characterList) {
             return await typeorm_1.getConnection()
                 .createQueryBuilder()
                 .insert()
                 .into(character_entity_1.Character)
                 .values(characterList)
+                .execute();
+        }
+        async insertCharacter(characterInfo) {
+            return await typeorm_1.getConnection()
+                .createQueryBuilder()
+                .insert()
+                .into(character_entity_1.Character)
+                .values([characterInfo])
                 .execute();
         }
     };

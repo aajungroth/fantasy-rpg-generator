@@ -15,6 +15,9 @@ const app_service_1 = require("./app.service");
 const character_controller_1 = require("./character/character.controller");
 const character_service_1 = require("./character/character.service");
 const character_dao_1 = require("./character/character.dao");
+const ability_controller_1 = require("./ability/ability.controller");
+const ability_service_1 = require("./ability/ability.service");
+const ability_dao_1 = require("./ability/ability.dao");
 const configuration_1 = require("./config/configuration");
 let AppModule = (() => {
     let AppModule = class AppModule {
@@ -44,8 +47,8 @@ let AppModule = (() => {
                     },
                 }),
             ],
-            controllers: [app_controller_1.AppController, character_controller_1.CharacterController],
-            providers: [app_service_1.AppService, character_service_1.CharacterService, character_dao_1.CharacterDao],
+            controllers: [app_controller_1.AppController, character_controller_1.CharacterController, ability_controller_1.AbilityController],
+            providers: [app_service_1.AppService, character_service_1.CharacterService, character_dao_1.CharacterDao, ability_service_1.AbilityService, ability_dao_1.AbilityDao],
         })
     ], AppModule);
     return AppModule;
