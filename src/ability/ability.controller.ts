@@ -4,8 +4,6 @@ import { Controller, Get, Param } from '@nestjs/common';
 
 import { BaseDto } from '../dto/base.dto';
 
-import { BasePostDto } from '../dto/basePost.dto';
-
 import { AbilityService } from './ability.service';
 
 @Controller('ability')
@@ -15,14 +13,14 @@ export class AbilityController {
 
   // Get all abilities in the game
   @Get()
-  public findAllAbilities() {
+  public findAllAbilities(): Promise<BaseDto[]> {
     return this.abilityService.findAllAbilities();
   }
 
-  // Get the requested character if it exists
+  // Get one ability by ID
   @Get(':abilityID')
-  public findOneAbility(@Param() params) {
-    return this.abilityService.findOneCharacter(params.abilityID);
+  public findAbility(@Param() params): Promise<BaseDto> {
+    return this.abilityService.findAbility(params.abilityID);
   }
 
 }
