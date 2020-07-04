@@ -10,6 +10,7 @@ import { AbilityController } from './ability/ability.controller';
 import { AbilityService } from './ability/ability.service';
 import { AbilityDao } from './ability/ability.dao';
 import { PassiveController } from './passive/passive.controller';
+import { PassiveService } from './passive/passive.service';
 import configuration from './config/configuration';
 
 @Module({
@@ -37,6 +38,6 @@ import configuration from './config/configuration';
     }),
   ],
   controllers: [AppController, CharacterController, AbilityController, PassiveController],
-  providers: [AppService, CharacterService, CharacterDao, AbilityService, AbilityDao],
+  providers: [AppService, CharacterService, CharacterDao, AbilityService, AbilityDao, PassiveService],
 })
 export class AppModule {}
