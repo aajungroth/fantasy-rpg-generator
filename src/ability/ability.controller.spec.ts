@@ -29,10 +29,10 @@ describe('Ability Controller', () => {
   describe('findAllAbilities', () => {
     it('should return an array of abilities', async () => {
       const result: BaseDto[] = [{
-        'id'  : '1',
-        'name': 'findAllAbilities',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '1',
+        'name'         : 'findAllAbilities',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       }];
 
@@ -45,14 +45,14 @@ describe('Ability Controller', () => {
   describe('findAbility', () => {
     it('should return a single ability by id', async () => {
       const result: BaseDto = {
-        'id'  : '2',
-        'name': 'findAbility',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '2',
+        'name'         : 'findAbility',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const id: string = '2'
+      const id: string = '2';
 
       jest.spyOn(abilityService, 'findAbility').mockImplementation(() => Promise.resolve(result));
 
