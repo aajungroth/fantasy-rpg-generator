@@ -27,10 +27,10 @@ describe('AbilityService', () => {
   describe('findAllAbilities', () => {
     it('should return an array of abilities', async () => {
       const result: BaseDto[] = [{
-        'id': '3',
-        'name': 'findAllAbilities',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '3',
+        'name'         : 'findAllAbilities',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       }];
 
@@ -43,10 +43,10 @@ describe('AbilityService', () => {
   describe('findAbility', () => {
     it('should return a single ability by id', async () => {
       const result: BaseDto = {
-        'id': '4',
-        'name': 'findAbility',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '4',
+        'name'         : 'findAbility',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
@@ -61,14 +61,14 @@ describe('AbilityService', () => {
   describe('insertMultipleAbilities', () => {
     it('should insert an array of abilities', async () => {
       const result: any[] = [{
-        'id': '5',
+        'id'  : '5',
         'name': 'insertMultipleAbilities'
       }];
 
       const input: BasePostDto[] = [{
-        'name': 'insertMultipleAbilities',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'name'         : 'insertMultipleAbilities',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       }];
 
@@ -81,14 +81,14 @@ describe('AbilityService', () => {
   describe('insertAbility', () => {
     it('should insert a single ability', async () => {
       const result: any = {
-        'id': '6',
+        'id'  : '6',
         'name': 'insertAbility'
       };
 
       const input: BasePostDto = {
-        'name': 'insertAbility',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'name'         : 'insertAbility',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
@@ -101,15 +101,15 @@ describe('AbilityService', () => {
   describe('updateMulitpleAbilities', () => {
     it('should update an array of abilities', async () => {
       const result: any[] = [{
-        'id': '7',
+        'id'  : '7',
         'name': 'updateMulitpleAbilities'
       }];
 
       const input: BaseDto[] = [{
-        'id': '7',
-        'name': 'updateMulitpleAbilities',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '7',
+        'name'         : 'updateMulitpleAbilities',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       }];
 
@@ -122,15 +122,15 @@ describe('AbilityService', () => {
   describe('updateAbility', () => {
     it('should update a single ability by ID', async () => {
       const result: any = {
-        'id': '8',
+        'id'  : '8',
         'name': 'updateAbility'
       };
 
       const input: BaseDto = {
-        'id': '8',
-        'name': 'updateAbility',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '8',
+        'name'         : 'updateAbility',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
@@ -143,15 +143,15 @@ describe('AbilityService', () => {
   describe('deleteMultipleAbilities', () => {
     it('should delete an array of abilites by ID', async () => {
       const result: any[] = [{
-        'id': '9',
+        'id'  : '9',
         'name': 'deleteMultipleAbilities'
       }];
 
       const input: BaseDto[] = [{
-        'id': '9',
-        'name': 'deleteMultipleAbilities',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '9',
+        'name'         : 'deleteMultipleAbilities',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       }];
 
@@ -164,15 +164,15 @@ describe('AbilityService', () => {
   describe('deleteAbility', () => {
     it('should delet a single ability by ID', async () => {
       const result: any = [{
-        'id': '10',
+        'id'  : '10',
         'name': 'deleteAbility'
       }];
 
       const input: BaseDto = {
-        'id': '10',
-        'name': 'deleteAbility',
-        'description': 'A test',
-        'createdBy': 'spec',
+        'id'           : '10',
+        'name'         : 'deleteAbility',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
