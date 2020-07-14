@@ -96,22 +96,67 @@ describe('PassiveService', () => {
     });
   });
 
-  describe('', () => {
-    it('', async () => {
+  describe('updateMultiplePassives', () => {
+    it('should update an array of passives', async () => {
+      const result: any = {
+        'id'  : '17',
+        'name': 'updateMultiplePassives'
+      };
 
+      const input: BaseDto[] = [{
+        'id'           : '17',
+        'name'         : 'updateMultiplePassives',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      jest.spyOn(passiveDao, 'updateMultiplePassive').mockImplementation(() => Promise.resolve(result));
+
+      expect(await passiveService.updateMultiplePassives(input)).toBe(result);
     });
   });
 
 
-  describe('', () => {
-    it('', async () => {
+  describe('updatePassive', () => {
+    it('should update a single passive by ID', async () => {
+      const result: any = {
+        'id'  : '18',
+        'name': 'updatePassive'
+      };
 
+      const input: BaseDto[] = [{
+        'id'           : '18',
+        'name'         : 'updatePassive',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      jest.spyOn(passiveDao, 'updatePassive').mockImplementation(() => Promise.resolve(result));
+
+      expect(await passiveService.updatePassive(input)).toBe(result);
     });
   });
 
-  describe('', () => {
-    it('', async () => {
+  describe('deleteMultiplePassives', () => {
+    it('should delete an array of passive by ID', async () => {
+      const result: any[] = [{
+        'id'  : '19',
+        'name': 'deleteMultiplePassives'
+      }];
 
+      const input: BaseDto[] = [{
+        'id'           : '19',
+        'name'         : 'deleteMultiplePassives',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      jest.spyOn(await passiveDao, 'deletePassive').mockImplementation(() => Promise.resolve(result));
+
+      expect(await passiveServcie.deleteMultiplePassives(input)).toBe(result);
     });
   });
 
