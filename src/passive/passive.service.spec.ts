@@ -161,9 +161,24 @@ describe('PassiveService', () => {
   });
 
 
-  describe('', () => {
-    it('', async () => {
+  describe('deletePassive', () => {
+    it('should delete a single passive by ID', async () => {
+      const result: any = [{
+        'id'  : '20',
+        'name': 'deletePassive'
+      }];
 
+      const input: BaseDto = {
+        'id'           : '20',
+        'name'         : 'deletePassive',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      };
+
+      jest.spyOn(await passiveDao, 'deletePassive').mockImplementation(() => Promise.resolve(result));
+
+      expect(await passiveService.deletePassive(input)).toBe(result);
     });
   });
 
