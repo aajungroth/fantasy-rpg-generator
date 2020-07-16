@@ -162,7 +162,7 @@ describe('AbilityService', () => {
   });
 
   describe('deleteAbility', () => {
-    it('should delet a single ability by ID', async () => {
+    it('should delete a single ability by ID', async () => {
       const result: any = [{
         'id'  : '10',
         'name': 'deleteAbility'
