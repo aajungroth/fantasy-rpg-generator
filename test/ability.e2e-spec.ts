@@ -55,4 +55,4 @@ describe('Ability', () => {
     await app.close();
   });
 
-})
+});
