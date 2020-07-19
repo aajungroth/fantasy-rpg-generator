@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/ability/ability.controller.ts</title>
+    <title>Code coverage report for src/passive/passive.controller.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/ability</a> ability.controller.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/passive</a> passive.controller.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -115,23 +115,23 @@ import { Controller, Get, Param } from '@nestjs/common';
 &nbsp;
 import { BaseDto } from '../dto/base.dto';
 &nbsp;
-import { AbilityService } from './ability.service';
+import { PassiveService } from './passive.service';
 &nbsp;
-@Controller('ability')
-export class AbilityController {
+@Controller('passive')
+export class PassiveController {
 &nbsp;
-  constructor(private readonly abilityService: AbilityService) {}
+  constructor(private readonly passiveService: PassiveService) {}
 &nbsp;
-  // Get all abilities in the game
+  // Get all passives in the game
   @Get()
-  public findAllAbilities(): Promise&lt;BaseDto[]&gt; {
-    return this.abilityService.findAllAbilities();
+  public findAllPassives(): Promise&lt;BaseDto[]&gt; {
+    return this.passiveService.findAllPassives();
   }
 &nbsp;
-  // Get one ability by ID
-  @Get(':abilityID')
-  public findAbility(@Param() params): Promise&lt;BaseDto&gt; {
-    return this.abilityService.findAbility(params.abilityID);
+  // Get on passive by ID
+  @Get(':passiveID')
+  public findPassive(@Param() params): Promise&lt;BaseDto&gt; {
+    return this.passiveService.findPassive(params.passiveID);
   }
 &nbsp;
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/ability/ability.service.ts</title>
+    <title>Code coverage report for src/passive/passive.service.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/ability</a> ability.service.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/passive</a> passive.service.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -205,65 +205,65 @@ import { BaseDto } from '../dto/base.dto';
 &nbsp;
 import { BasePostDto } from '../dto/basePost.dto';
 &nbsp;
-import { AbilityDao } from './ability.dao';
+import { PassiveDao } from './passive.dao';
 &nbsp;
-import { Ability } from '../model/ability.entity';
+import { Passive } from '../model/passive.entity';
 &nbsp;
 @Injectable()
-export class AbilityService {
+export class PassiveService {
 &nbsp;
-  constructor(private readonly abilityDao: AbilityDao) {}
+  constructor(private readonly passiveDao: PassiveDao) {}
 &nbsp;
-  // Get all abilities in the game
-  public findAllAbilities(): Promise&lt;BaseDto[]&gt; {
-    return this.abilityDao.findAllAbilities();
+  // Get all passives in the game
+  public findAllPassives(): Promise&lt;BaseDto[]&gt; {
+    return this.passiveDao.findAllPassives();
   }
 &nbsp;
-  // Get one ability by ID
-  public findAbility(abilityID: string): Promise&lt;BaseDto&gt; {
-    return this.abilityDao.findAbility(abilityID);
+  // Get one passive by ID
+  public findPassive(passiveID: string): Promise&lt;BaseDto&gt; {
+    return this.passiveDao.findPassive(passiveID);
   }
 &nbsp;
-  // Insert multiple abilities at once
-  public insertMultipleAbilities(abilityList: BasePostDto[]): Promise&lt;any&gt; {
-    return this.abilityDao.insertMultipleAbilities(abilityList);
+  // Insert multiple passives at once
+  public insertMultiplePassives(passiveList: BasePostDto[]): Promise&lt;any&gt; {
+    return this.passiveDao.insertMultiplePassives(passiveList);
   }
 &nbsp;
-  // Insert a single ability
-  public insertAbility(abilityInfo: BasePostDto): Promise&lt;any&gt; {
-    return this.abilityDao.insertAbility(abilityInfo);
+  // Insert a single passive
+  public insertPassive(passiveInfo: BasePostDto): Promise&lt;any&gt; {
+    return this.passiveDao.insertPassive(passiveInfo);
   }
 &nbsp;
-  // Update multiple abilitis at once
-  public updateMultipleAbilities(abilityList: BaseDto[]): Promise&lt;any[]&gt; {
+  // Update multiple passives at once
+  public updateMultiplePassives(passiveList: BaseDto[]): Promise&lt;any&gt; {
     let result;
 &nbsp;
-    abilityList.forEach((abilityInfo: BaseDto) =&gt; {
-      result = this.abilityDao.updateAbility(abilityInfo);
+    passiveList.forEach((passiveInfo: BaseDto) =&gt; {
+      result = this.passiveDao.updatePassive(passiveInfo);
     });
 &nbsp;
     return result;
   }
 &nbsp;
-  // Update a single ability
-  public updateAbility(abilityInfo: BaseDto): Promise&lt;any&gt; {
-    return this.abilityDao.updateAbility(abilityInfo);
+  // Update a single passive
+  public updatePassive(passiveInfo: BaseDto): Promise&lt;any&gt; {
+    return this.passiveDao.updatePassive(passiveInfo);
   }
 &nbsp;
-  // Delete multiple abilities
-  public deleteMultipleAbilities(abilityList: BaseDto[]): Promise&lt;any[]&gt; {
+  // Delete multiple passives
+  public deleteMultiplePassives(passiveList: BaseDto[]): Promise&lt;any&gt; {
     let result;
 &nbsp;
-    abilityList.forEach((abilityInfo: BaseDto) =&gt; {
-      result = this.abilityDao.deleteAbility(abilityInfo);
+    passiveList.forEach((passiveInfo: BaseDto) =&gt; {
+      result = this.passiveDao.deletePassive(passiveInfo);
     });
 &nbsp;
     return result;
   }
 &nbsp;
-  // Delete a single ability
-  public deleteAbility(abilityInfo: BaseDto): Promise&lt;any&gt; {
-    return this.abilityDao.deleteAbility(abilityInfo);
+  // Delete a single passive
+  public deletePassive(passiveInfo: BaseDto): Promise&lt;any&gt; {
+    return this.passiveDao.deletePassive(passiveInfo);
   }
 &nbsp;
 }
