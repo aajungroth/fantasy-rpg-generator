@@ -16,8 +16,8 @@ describe('Passive', ()  => {
   const findPassiveResult     = {'id': 2, 'name': 'findPassive'};
 
   let app: INestApplication;
-  let abilityService = {
-    findAllPassive: () => findPassiveResult,
+  let passiveService = {
+    findAllPassives: () => findAllPassivesResult,
     findPassive: () => findPassiveResult,
   };
 
@@ -25,8 +25,8 @@ describe('Passive', ()  => {
     const module = await Test.createTestingModule({
       imports: [AppModule],
     })
-      .overrideProvider(PassiveResult)
-      .userValue(passiveResult)
+      .overrideProvider(PassiveService)
+      .useValue(passiveService)
       .compile();
 
     app = module.createNestApplication();
@@ -34,20 +34,22 @@ describe('Passive', ()  => {
   });
 
   describe('/GET passive', () => {
-    it('should get all passives', () => {
+    it('should get all passives', (done) => {
       return request(app.getHttpServer())
         .get('/passive')
         .expect(200)
-        .expect(passiveService.findAllPasives());
+        .expect(passiveService.findAllPassives())
+        .end(done);
     });
   });
 
   describe('/Get passive/:passiveID', () => {
-    it('should get one passive by ID', () => {
+    it('should get one passive by ID', (done) => {
       return request(app.getHttpServer())
         .get('/passive/1')
         .expect(200)
         .expect(passiveService.findPassive())
+        .end(done)
     });
   });
 
