@@ -52,12 +52,14 @@ export class PassiveService {
   }
 
   // Delete multiple passives
-  public deleteMultiplePassives(passiveInfo: BaseDto[]): Promise<any> {
+  public deleteMultiplePassives(passiveList: BaseDto[]): Promise<any> {
     let result;
 
     passiveList.forEach((passiveInfo: BaseDto) => {
       result = this.passiveDao.deletePassive(passiveInfo);
     });
+
+    return result;
   }
 
   // Delete a single passive
