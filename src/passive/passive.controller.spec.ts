@@ -27,7 +27,7 @@ describe('Passive Controller', () => {
   });
 
   describe('findAllPassives', () => {
-    it('should return an array of abilities', async () => {
+    it('should return an array of passives', async () => {
       const result: BaseDto[] = [{
         'id'           : '11',
         'name'         : 'findAllPassives',
