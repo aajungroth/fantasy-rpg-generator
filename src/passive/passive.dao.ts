@@ -6,7 +6,9 @@ import { getConnection } from 'typeorm';
 
 import { Passive } from '../model/passive.entity';
 
-@Injectble()
+import { BaseDto } from '../dto/Base.dto';
+
+@Injectable()
 export class PassiveDao {
 
   // Retrieves all of the passives in the game
@@ -29,7 +31,7 @@ export class PassiveDao {
   }
 
   // Insert multiple passives at once
-  public async insertMulitplePassives(passiveList): Promise<any> {
+  public async insertMultiplePassives(passiveList): Promise<any> {
     return await getConnection()
       .createQueryBuilder()
       .insert()
@@ -44,7 +46,7 @@ export class PassiveDao {
       .createQueryBuilder()
       .insert()
       .into(Passive)
-      .values([PassiveInfo])
+      .values([passiveInfo])
       .execute();
   }
 
