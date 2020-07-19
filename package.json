@@ -1,13 +1,70 @@
-{
+ {
   "name": "fantasy-rpg-generator",
-  "version": "1.0.0",
-  "description": "The actual generator for the fantasy rpg that builds the world and executes all actions in the game.",
-  "main": "server.js",
-  "repository": "https://github.com/aajungroth/fantasy-rpg-generator.git",
-  "author": "aajungroth <aajungroth@ucdavis.edu>",
-  "license": "GNU Affero General Public License v3.0",
-  "private": false,
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json --runInBand --detectOpenHandles",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
+    "typeorm:migration:run": "npm run typeorm -- migration:run",
+    "typeorm:migration:revert": "npm run typeorm -- migration:revert"
+  },
   "dependencies": {
-    "express": "^4.16.4"
+    "@nestjs/common": "7.x.x",
+    "@nestjs/config": "0.x.x",
+    "@nestjs/core": "7.x.x",
+    "@nestjs/platform-express": "7.x.x",
+    "@nestjs/typeorm": "7.x.x",
+    "@types/express-serve-static-core": "4.x.x",
+    "pg": "8.x.x",
+    "reflect-metadata": "0.x.x",
+    "rimraf": "3.x.x",
+    "rxjs": "6.x.x",
+    "typeorm": "0.x.x"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "7.x.x",
+    "@nestjs/schematics": "7.x.x",
+    "@nestjs/testing": "7.x.x",
+    "@types/jest": "25.x.x",
+    "@types/node": "14.x.x",
+    "@types/supertest": "2.x.x",
+    "eslint": "7.x.x",
+    "jest": "26.x.x",
+    "prettier": "2.x.x",
+    "supertest": "4.x.x",
+    "ts-jest": "26.x.x",
+    "ts-loader": "7.x.x",
+    "ts-node": "8.x.x",
+    "tsconfig-paths": "3.x.x",
+    "typescript": "3.x.x"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
   }
 }
