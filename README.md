@@ -12,7 +12,7 @@
   \/_____/\/_____/\/_/ \/_/\/_____/\/_/ /_/\/_/\/_/  \/_/ \/_____/\/_/ /_/
 
 ```
-version 0.0.1
+version 0.1.0
 <p>
 (Sub-Zero font from http://patorjk.com/software/taag/)
 </p>
@@ -20,8 +20,8 @@ version 0.0.1
 ## Description
 <p>
 The generator that acts as the server for games.
-It starts the game, takes input from players, passes that input to the game,
-and then sends the game's responses to the player.
+It starts the game, takes input from players, checks the database for matching input,
+passes the database entry to the game, and then sends the game's responses to the player.
 
 It also maintains public information that players can read to learn more about the game.
 The database is not for storing save files or player accounts.
