@@ -18,8 +18,8 @@ describe('Passive Controller', () => {
 
   beforeEach(async () => {
     passiveDao        = new PassiveDao();
-    passiveService    = new PassiveService();
-    passiveController = new PassiveController();
+    passiveService    = new PassiveService(passiveDao);
+    passiveController = new PassiveController(passiveService);
   });
 
   it('should be defined', () => {
@@ -38,7 +38,7 @@ describe('Passive Controller', () => {
 
       jest.spyOn(passiveService, 'findAllPassives').mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveController.findAllPassives).toBe(result);
+      expect(await passiveController.findAllPassives()).toBe(result);
     });
   });
 
@@ -54,7 +54,7 @@ describe('Passive Controller', () => {
 
       const id: string = '12';
 
-      jest.spyOn(passiveService, 'findPassive').mockImplementation(() => Promsie.resolve(result));
+      jest.spyOn(passiveService, 'findPassive').mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveController.findPassive(id)).toBe(result);
     });
