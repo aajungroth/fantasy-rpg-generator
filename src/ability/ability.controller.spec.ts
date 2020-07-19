@@ -36,7 +36,9 @@ describe('Ability Controller', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(abilityService, 'findAllAbilities').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityService, 'findAllAbilities')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityController.findAllAbilities()).toBe(result);
     });
@@ -54,7 +56,9 @@ describe('Ability Controller', () => {
 
       const id: string = '2';
 
-      jest.spyOn(abilityService, 'findAbility').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityService, 'findAbility')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityController.findAbility(id)).toBe(result);
     });
