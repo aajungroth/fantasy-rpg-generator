@@ -111,7 +111,7 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveDao, 'updateMultiplePassive').mockImplementation(() => Promise.resolve(result));
+      jest.spyOn(passiveDao, 'updatePassive').mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.updateMultiplePassives(input)).toBe(result);
     });
@@ -125,13 +125,13 @@ describe('PassiveService', () => {
         'name': 'updatePassive'
       };
 
-      const input: BaseDto[] = [{
+      const input: BaseDto = {
         'id'           : '18',
         'name'         : 'updatePassive',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
-      }];
+      };
 
       jest.spyOn(passiveDao, 'updatePassive').mockImplementation(() => Promise.resolve(result));
 
@@ -156,7 +156,7 @@ describe('PassiveService', () => {
 
       jest.spyOn(await passiveDao, 'deletePassive').mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveServcie.deleteMultiplePassives(input)).toBe(result);
+      expect(await passiveService.deleteMultiplePassives(input)).toBe(result);
     });
   });
 
