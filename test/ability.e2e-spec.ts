@@ -34,20 +34,22 @@ describe('Ability', () => {
   });
 
   describe('/GET ability', () => {
-    it('should get all abilities', () => {
+    it('should get all abilities', (done) => {
       return request(app.getHttpServer())
         .get('/ability')
         .expect(200)
-        .expect(abilityService.findAllAbilities());
+        .expect(abilityService.findAllAbilities())
+        .end(done);
     });
   });
 
   describe('/GET ability/:abilityID', () => {
-    it('should get one ability by ID', () => {
+    it('should get one ability by ID', (done) => {
       return request(app.getHttpServer())
         .get('/ability/1')
         .expect(200)
         .expect(abilityService.findAbility())
+        .end(done);
     });
   });
 
