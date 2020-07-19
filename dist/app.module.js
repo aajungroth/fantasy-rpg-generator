@@ -18,6 +18,9 @@ const character_dao_1 = require("./character/character.dao");
 const ability_controller_1 = require("./ability/ability.controller");
 const ability_service_1 = require("./ability/ability.service");
 const ability_dao_1 = require("./ability/ability.dao");
+const passive_controller_1 = require("./passive/passive.controller");
+const passive_service_1 = require("./passive/passive.service");
+const passive_dao_1 = require("./passive/passive.dao");
 const configuration_1 = require("./config/configuration");
 let AppModule = (() => {
     let AppModule = class AppModule {
@@ -47,8 +50,8 @@ let AppModule = (() => {
                     },
                 }),
             ],
-            controllers: [app_controller_1.AppController, character_controller_1.CharacterController, ability_controller_1.AbilityController],
-            providers: [app_service_1.AppService, character_service_1.CharacterService, character_dao_1.CharacterDao, ability_service_1.AbilityService, ability_dao_1.AbilityDao],
+            controllers: [app_controller_1.AppController, character_controller_1.CharacterController, ability_controller_1.AbilityController, passive_controller_1.PassiveController],
+            providers: [app_service_1.AppService, character_service_1.CharacterService, character_dao_1.CharacterDao, ability_service_1.AbilityService, ability_dao_1.AbilityDao, passive_service_1.PassiveService, passive_dao_1.PassiveDao],
         })
     ], AppModule);
     return AppModule;

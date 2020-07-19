@@ -2557,7 +2557,7 @@
         "affectsGlobalScope": false
       },
       "../src/ability/ability.dao.ts": {
-        "version": "882fa73f1e0fa9fc14a89fd7f192d1d0b0050c3487ebbfb32bcbf05cb289de8d",
+        "version": "f20b5ac0c1f632b510254d1a3be99401e2285277ba9dfa2cb68d46162bf0db52",
         "signature": "a63ff99bb4cde8c708d9dbcd560cdd00dda56774f168c395801c580be12c8b3f",
         "affectsGlobalScope": false
       },
@@ -2571,13 +2571,28 @@
         "signature": "67763202403bff0543a5f37ff303d2fa827601281374d6544bbd47726e7a484d",
         "affectsGlobalScope": false
       },
+      "../src/passive/passive.dao.ts": {
+        "version": "4319db78cb70c9d541f745b7150c2096e7486851b19c4e92c5804921e7359aa8",
+        "signature": "040c9f3985464c87be8c094a1e931cad32c195b6cf1635f28f75a077c9c9ef95",
+        "affectsGlobalScope": false
+      },
+      "../src/passive/passive.service.ts": {
+        "version": "83027d2da1bd5c546dfebe52928b9df714d4f5fdb671acc4ff7e87da9685a023",
+        "signature": "26f74af4aaec8eab428e6d373623012507372b236dde89abf737bdaeed31dc26",
+        "affectsGlobalScope": false
+      },
+      "../src/passive/passive.controller.ts": {
+        "version": "0dd4af026fc501510b339fed3113bc154ee9acb8c32ee1751f16e92669029cc9",
+        "signature": "b0e8fa208d4a3eabd46ef3b4bb1c04f19a51ee16d26d9cb8d70c34926a262367",
+        "affectsGlobalScope": false
+      },
       "../src/config/configuration.ts": {
         "version": "0166fc9f762d80faa6b9dadbbe84acdca6314623d93826c35d436a12fc6a6b2a",
         "signature": "b256da300160c165e13882da63ab1b99369a59665e4160d2a9ae8be58d51652f",
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "67604e5095e472c6528a9ad8d153409a29eb08da94bf2eecbd23bf1cc45b3eb8",
+        "version": "e9fc97d14f8ce2c34fb41b18fc0f4a98d67f0f0944b6bce5ccc03fa366ceb7d0",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -9117,7 +9132,10 @@
         "../src/character/character.controller.ts",
         "../src/character/character.dao.ts",
         "../src/character/character.service.ts",
-        "../src/config/configuration.ts"
+        "../src/config/configuration.ts",
+        "../src/passive/passive.controller.ts",
+        "../src/passive/passive.dao.ts",
+        "../src/passive/passive.service.ts"
       ],
       "../src/app.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -9315,6 +9333,39 @@
         "../src/model/background.entity.ts",
         "../src/model/base.entity.ts",
         "../src/model/class.entity.ts"
+      ],
+      "../src/passive/passive.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/dto/base.dto.ts",
+        "../src/passive/passive.service.ts"
+      ],
+      "../src/passive/passive.dao.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/dto/base.dto.ts",
+        "../src/model/passive.entity.ts"
+      ],
+      "../src/passive/passive.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/dto/base.dto.ts",
+        "../src/dto/basepost.dto.ts",
+        "../src/model/passive.entity.ts",
+        "../src/passive/passive.dao.ts"
       ]
     },
     "exportedModulesMap": {
@@ -15197,6 +15248,18 @@
         "../src/model/background.entity.ts",
         "../src/model/base.entity.ts",
         "../src/model/class.entity.ts"
+      ],
+      "../src/passive/passive.controller.ts": [
+        "../src/dto/base.dto.ts",
+        "../src/passive/passive.service.ts"
+      ],
+      "../src/passive/passive.dao.ts": [
+        "../src/dto/base.dto.ts"
+      ],
+      "../src/passive/passive.service.ts": [
+        "../src/dto/base.dto.ts",
+        "../src/dto/basepost.dto.ts",
+        "../src/passive/passive.dao.ts"
       ]
     },
     "semanticDiagnosticsPerFile": []
