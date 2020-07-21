@@ -32,8 +32,9 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveDao, 'findAllPassives')
-          .mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'findAllPassives')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.findAllPassives()).toBe(result);
     });
@@ -51,8 +52,9 @@ describe('PassiveService', () => {
 
       const id: string = '14';
 
-      jest.spyOn(passiveDao, 'findPassive')
-          .mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'findPassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.findPassive(id)).toBe(result);
     });
@@ -72,8 +74,9 @@ describe('PassiveService', () => {
        'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveDao, 'insertMultiplePassives')
-          .mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'insertMultiplePassives')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.insertMultiplePassives(input)).toBe(result);
     });
@@ -93,8 +96,9 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(passiveDao, 'insertPassive')
-          .mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'insertPassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.insertPassive(input)).toBe(result);
     });
@@ -115,8 +119,9 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveDao, 'updatePassive')
-          .mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'updatePassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.updateMultiplePassives(input)).toBe(result);
     });
