@@ -104,4 +104,50 @@ describe('ModifierService', () => {
     });
   });
 
+  describe('updateMultipleModifiers', () => {
+    it('should update an array of modifiers', async() => {
+      const result: any = {
+        'id'  : '27',
+        'name': 'updateMultipleModifiers'
+      };
+
+      const input: BaseDto[] = [{
+        'id'           : '27',
+        'name'         : 'updateMultipleModifiers',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      jest
+        .spyOn(modifierDao, 'updateModifier')
+        .mockImplementation(() => Promise.resolve(result));
+
+      expect(await modifierService.updateMultipleModifiers(input)).toBe(result);
+    });
+  });
+
+  describe('updateModifier', () => {
+    it('should update a single modifier by ID', async () => {
+      const result: any = {
+        'id'  : '28',
+        'name': 'updateModifier'
+      };
+
+      const input: BaseDto = {
+        'id'           : '28',
+        'name'         : 'updateModifier',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      };
+
+      jest
+        .spyOn(modifierDao, 'updateModifier')
+        .mockImplementation(() => Promise.resolve(result));
+
+      expect(await modifierService.updateModifier(input)).toBe(result);
+    });
+  });
+
 });
