@@ -150,4 +150,50 @@ describe('ModifierService', () => {
     });
   });
 
+  describe('deleteMultipleModifiers', () => {
+    it('should delete an array of multiples by ID', async () => {
+      const result: any[] = [{
+        'id'  : '29',
+        'name': 'deleteMultipleModifiers'
+      }];
+
+      const input: BaseDto[] = [{
+        'id'           : '29',
+        'name'         : 'deleteMultipleModifiers',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      jest
+        .spyOn(await modifierDao, 'deleteModifier')
+        .mockImplementation(() => Promise.resolve(result));
+
+      expect(await modifierService.deleteMultipleModifiers(input)).toBe(result);
+    });
+  });
+
+  describe('deleteModifier', () => {
+    it('should delete a single modifier by ID', async() => {
+      const result: any = [{
+        'id'  : '30',
+        'name': 'deleteModifier'
+      }];
+
+      const input: BaseDto = {
+        'id'           : '20',
+        'name'         : 'deleteModifier',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      };
+
+      jest
+        .spyOn(await modifierDao, 'deleteModifier')
+        .mockImplementation(() => Promise.resolve(result));
+
+      expect(await modifierService.deleteModifier(input)).toBe(result);
+    });
+  });
+
 });
