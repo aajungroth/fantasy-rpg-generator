@@ -51,7 +51,7 @@ export class ModifierDao {
   }
 
   // Update a single modifier
-  public async updatePassive(modifierInfo): Promise<any> {
+  public async updateModifier(modifierInfo): Promise<any> {
     return await getConnection()
       .createQueryBuilder()
       .update(Modifier)
