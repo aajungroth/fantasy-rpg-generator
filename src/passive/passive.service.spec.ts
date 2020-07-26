@@ -123,7 +123,7 @@ describe('PassiveService', () => {
         .spyOn(passiveDao, 'updatePassive')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.updateMultiplePassives(input)).toBe(result);
+      expect(await passiveService.updateMultiplePassives(input)).toBe([result]);
     });
   });
 
@@ -153,10 +153,10 @@ describe('PassiveService', () => {
 
   describe('deleteMultiplePassives', () => {
     it('should delete an array of passive by ID', async () => {
-      const result: any[] = [{
+      const result: any = {
         'id'  : '19',
         'name': 'deleteMultiplePassives'
-      }];
+      };
 
       const input: BaseDto[] = [{
         'id'           : '19',
@@ -170,7 +170,7 @@ describe('PassiveService', () => {
         .spyOn(await passiveDao, 'deletePassive')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.deleteMultiplePassives(input)).toBe(result);
+      expect(await passiveService.deleteMultiplePassives(input)).toBe([result]);
     });
   });
 
