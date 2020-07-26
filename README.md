@@ -12,7 +12,7 @@
   \/_____/\/_____/\/_/ \/_/\/_____/\/_/ /_/\/_/\/_/  \/_/ \/_____/\/_/ /_/
 
 ```
-version 0.1.0
+version 0.2.0
 <p>
 (Sub-Zero font from http://patorjk.com/software/taag/)
 </p>
