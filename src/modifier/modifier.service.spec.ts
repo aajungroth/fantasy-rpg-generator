@@ -123,7 +123,7 @@ describe('ModifierService', () => {
         .spyOn(modifierDao, 'updateModifier')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.updateMultipleModifiers(input)).toBe(result);
+      expect(await modifierService.updateMultipleModifiers(input)).toBe([result]);
     });
   });
 
@@ -152,10 +152,10 @@ describe('ModifierService', () => {
 
   describe('deleteMultipleModifiers', () => {
     it('should delete an array of multiples by ID', async () => {
-      const result: any[] = [{
+      const result: any = {
         'id'  : '29',
         'name': 'deleteMultipleModifiers'
-      }];
+      };
 
       const input: BaseDto[] = [{
         'id'           : '29',
@@ -169,7 +169,7 @@ describe('ModifierService', () => {
         .spyOn(await modifierDao, 'deleteModifier')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.deleteMultipleModifiers(input)).toBe(result);
+      expect(await modifierService.deleteMultipleModifiers(input)).toBe([result]);
     });
   });
 
