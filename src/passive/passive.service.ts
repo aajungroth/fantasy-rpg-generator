@@ -36,11 +36,11 @@ export class PassiveService {
   }
 
   // Update multiple passives at once
-  public updateMultiplePassives(passiveList: BaseDto[]): Promise<any> {
-    let result;
+  public updateMultiplePassives(passiveList: BaseDto[]): Promise<any>[] {
+    let result = [];
 
     passiveList.forEach((passiveInfo: BaseDto) => {
-      result = this.passiveDao.updatePassive(passiveInfo);
+      result.push(this.passiveDao.updatePassive(passiveInfo));
     });
 
     return result;
@@ -52,11 +52,11 @@ export class PassiveService {
   }
 
   // Delete multiple passives
-  public deleteMultiplePassives(passiveList: BaseDto[]): Promise<any> {
-    let result;
+  public deleteMultiplePassives(passiveList: BaseDto[]): Promise<any>[] {
+    let result = [];
 
     passiveList.forEach((passiveInfo: BaseDto) => {
-      result = this.passiveDao.deletePassive(passiveInfo);
+      result.push(this.passiveDao.deletePassive(passiveInfo));
     });
 
     return result;
