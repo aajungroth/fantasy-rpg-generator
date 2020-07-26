@@ -34,11 +34,11 @@ export class ModifierService {
   }
 
   // Update multiple modifiers at once
-  public updateMultipleModifiers(modifierList: BaseDto[]): Promise<any> {
-    let result;
+  public updateMultipleModifiers(modifierList: BaseDto[]): Promise<any>[] {
+    let result = [];
 
     modifierList.forEach((modifierInfo: BaseDto) => {
-      result = this.modifierDao.updateModifier(modifierInfo);
+      result.push(this.modifierDao.updateModifier(modifierInfo));
     });
 
     return result;
@@ -50,11 +50,11 @@ export class ModifierService {
   }
 
   // Delete mulitple modifiers
-  public deleteMultipleModifiers(modifierList: BaseDto[]): Promise<any> {
-    let result;
+  public deleteMultipleModifiers(modifierList: BaseDto[]): Promise<any>[] {
+    let result = [];
 
     modifierList.forEach((modifierInfo: BaseDto) => {
-      result = this.modifierDao.deleteModifier(modifierInfo);
+      result.push(this.modifierDao.deleteModifier(modifierInfo));
     });
 
     return result;
