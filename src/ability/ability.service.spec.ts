@@ -108,10 +108,10 @@ describe('AbilityService', () => {
 
   describe('updateMulitpleAbilities', () => {
     it('should update an array of abilities', async () => {
-      const result: any[] = [{
+      const result: any = {
         'id'  : '7',
         'name': 'updateMulitpleAbilities'
-      }];
+      };
 
       const input: BaseDto[] = [{
         'id'           : '7',
@@ -125,7 +125,7 @@ describe('AbilityService', () => {
         .spyOn(abilityDao, 'updateAbility')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.updateMultipleAbilities(input)).toBe(result);
+      expect(await abilityService.updateMultipleAbilities(input)).toBe([result]);
     });
   });
 
@@ -154,10 +154,10 @@ describe('AbilityService', () => {
 
   describe('deleteMultipleAbilities', () => {
     it('should delete an array of abilites by ID', async () => {
-      const result: any[] = [{
+      const result: any = {
         'id'  : '9',
         'name': 'deleteMultipleAbilities'
-      }];
+      };
 
       const input: BaseDto[] = [{
         'id'           : '9',
@@ -171,7 +171,7 @@ describe('AbilityService', () => {
         .spyOn(await abilityDao, 'deleteAbility')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.deleteMultipleAbilities(input)).toBe(result);
+      expect(await abilityService.deleteMultipleAbilities(input)).toBe([result]);
     });
   });
 
