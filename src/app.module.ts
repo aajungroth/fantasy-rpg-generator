@@ -12,6 +12,9 @@ import { AbilityDao } from './ability/ability.dao';
 import { PassiveController } from './passive/passive.controller';
 import { PassiveService } from './passive/passive.service';
 import { PassiveDao } from './passive/passive.dao';
+import { ModifierController } from './modifier/modifier.controller';
+import { ModifierService } from './modifier/modifier.service';
+import { ModifierDao } from './modifier/modifier.dao';
 import configuration from './config/configuration';
 
 @Module({
@@ -38,7 +41,9 @@ import configuration from './config/configuration';
       },
     }),
   ],
-  controllers: [AppController, CharacterController, AbilityController, PassiveController],
-  providers: [AppService, CharacterService, CharacterDao, AbilityService, AbilityDao, PassiveService, PassiveDao],
+  controllers: [AppController, CharacterController, AbilityController,
+    PassiveController, ModifierController],
+  providers: [AppService, CharacterService, CharacterDao, AbilityService,
+    AbilityDao, PassiveService, PassiveDao, ModifierService, ModifierDao],
 })
 export class AppModule {}

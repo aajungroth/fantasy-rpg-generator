@@ -34,7 +34,9 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(abilityDao, 'findAllAbilities').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityDao, 'findAllAbilities')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityService.findAllAbilities()).toBe(result);
     });
@@ -52,7 +54,9 @@ describe('AbilityService', () => {
 
       const id: string = '4';
 
-      jest.spyOn(abilityDao, 'findAbility').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityDao, 'findAbility')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityService.findAbility(id)).toBe(result);
     });
@@ -72,7 +76,9 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(abilityDao, 'insertMultipleAbilities').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityDao, 'insertMultipleAbilities')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityService.insertMultipleAbilities(input)).toBe(result);
     });
@@ -92,7 +98,9 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(abilityDao, 'insertAbility').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityDao, 'insertAbility')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityService.insertAbility(input)).toBe(result);
     });
@@ -100,10 +108,10 @@ describe('AbilityService', () => {
 
   describe('updateMulitpleAbilities', () => {
     it('should update an array of abilities', async () => {
-      const result: any[] = [{
+      const result: Promise<any> = Promise.resolve({
         'id'  : '7',
         'name': 'updateMulitpleAbilities'
-      }];
+      });
 
       const input: BaseDto[] = [{
         'id'           : '7',
@@ -113,9 +121,11 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(abilityDao, 'updateAbility').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityDao, 'updateAbility')
+        .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.updateMultipleAbilities(input)).toBe(result);
+      expect(await abilityService.updateMultipleAbilities(input)).toStrictEqual([result]);
     });
   });
 
@@ -134,7 +144,9 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(abilityDao, 'updateAbility').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(abilityDao, 'updateAbility')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityService.updateAbility(input)).toBe(result);
     });
@@ -142,10 +154,10 @@ describe('AbilityService', () => {
 
   describe('deleteMultipleAbilities', () => {
     it('should delete an array of abilites by ID', async () => {
-      const result: any[] = [{
+      const result: Promise<any> = Promise.resolve({
         'id'  : '9',
         'name': 'deleteMultipleAbilities'
-      }];
+      });
 
       const input: BaseDto[] = [{
         'id'           : '9',
@@ -155,9 +167,11 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(await abilityDao, 'deleteAbility').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(await abilityDao, 'deleteAbility')
+        .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.deleteMultipleAbilities(input)).toBe(result);
+      expect(await abilityService.deleteMultipleAbilities(input)).toStrictEqual([result]);
     });
   });
 
@@ -176,7 +190,9 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(await abilityDao, 'deleteAbility').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(await abilityDao, 'deleteAbility')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await abilityService.deleteAbility(input)).toBe(result);
     });

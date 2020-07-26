@@ -36,11 +36,11 @@ export class AbilityService {
   }
 
   // Update multiple abilitis at once
-  public updateMultipleAbilities(abilityList: BaseDto[]): Promise<any[]> {
-    let result;
+  public updateMultipleAbilities(abilityList: BaseDto[]): Promise<any>[] {
+    let result = [];
 
     abilityList.forEach((abilityInfo: BaseDto) => {
-      result = this.abilityDao.updateAbility(abilityInfo);
+      result.push(this.abilityDao.updateAbility(abilityInfo));
     });
 
     return result;
@@ -52,11 +52,11 @@ export class AbilityService {
   }
 
   // Delete multiple abilities
-  public deleteMultipleAbilities(abilityList: BaseDto[]): Promise<any[]> {
-    let result;
+  public deleteMultipleAbilities(abilityList: BaseDto[]): Promise<any>[] {
+    let result = [];
 
     abilityList.forEach((abilityInfo: BaseDto) => {
-      result = this.abilityDao.deleteAbility(abilityInfo);
+      result.push(this.abilityDao.deleteAbility(abilityInfo));
     });
 
     return result;

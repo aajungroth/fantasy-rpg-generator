@@ -13,7 +13,7 @@ import { INestApplication } from '@nestjs/common';
 describe('Passive', ()  => {
 
   const findAllPassivesResult = [{'id': '1', 'name': 'findPassives'}];
-  const findPassiveResult     = {'id': 2, 'name': 'findPassive'};
+  const findPassiveResult     = {'id': '2', 'name': 'findPassive'};
 
   let app: INestApplication;
   let passiveService = {
@@ -43,7 +43,7 @@ describe('Passive', ()  => {
     });
   });
 
-  describe('/Get passive/:passiveID', () => {
+  describe('/GET passive/:passiveID', () => {
     it('should get one passive by ID', (done) => {
       return request(app.getHttpServer())
         .get('/passive/1')

@@ -6,3 +6,9 @@
 
 # typeORM configuration
 ormconfig.json
+
+# build files
+/dist
+
+# test coverage files
+/src/coverage

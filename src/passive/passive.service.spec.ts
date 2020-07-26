@@ -32,7 +32,9 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveDao, 'findAllPassives').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'findAllPassives')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.findAllPassives()).toBe(result);
     });
@@ -50,7 +52,9 @@ describe('PassiveService', () => {
 
       const id: string = '14';
 
-      jest.spyOn(passiveDao, 'findPassive').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'findPassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.findPassive(id)).toBe(result);
     });
@@ -70,7 +74,9 @@ describe('PassiveService', () => {
        'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveDao, 'insertMultiplePassives').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'insertMultiplePassives')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.insertMultiplePassives(input)).toBe(result);
     });
@@ -90,7 +96,9 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(passiveDao, 'insertPassive').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'insertPassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.insertPassive(input)).toBe(result);
     });
@@ -98,10 +106,10 @@ describe('PassiveService', () => {
 
   describe('updateMultiplePassives', () => {
     it('should update an array of passives', async () => {
-      const result: any = {
+      const result: Promise<any> = Promise.resolve({
         'id'  : '17',
         'name': 'updateMultiplePassives'
-      };
+      });
 
       const input: BaseDto[] = [{
         'id'           : '17',
@@ -111,9 +119,11 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveDao, 'updatePassive').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'updatePassive')
+        .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.updateMultiplePassives(input)).toBe(result);
+      expect(await passiveService.updateMultiplePassives(input)).toStrictEqual([result]);
     });
   });
 
@@ -133,7 +143,9 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(passiveDao, 'updatePassive').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveDao, 'updatePassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.updatePassive(input)).toBe(result);
     });
@@ -141,10 +153,10 @@ describe('PassiveService', () => {
 
   describe('deleteMultiplePassives', () => {
     it('should delete an array of passive by ID', async () => {
-      const result: any[] = [{
+      const result: Promise<any> = Promise.resolve({
         'id'  : '19',
         'name': 'deleteMultiplePassives'
-      }];
+      });
 
       const input: BaseDto[] = [{
         'id'           : '19',
@@ -154,9 +166,11 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(await passiveDao, 'deletePassive').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(await passiveDao, 'deletePassive')
+        .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.deleteMultiplePassives(input)).toBe(result);
+      expect(await passiveService.deleteMultiplePassives(input)).toStrictEqual([result]);
     });
   });
 
@@ -176,7 +190,9 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       };
 
-      jest.spyOn(await passiveDao, 'deletePassive').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(await passiveDao, 'deletePassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveService.deletePassive(input)).toBe(result);
     });

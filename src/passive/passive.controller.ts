@@ -17,7 +17,7 @@ export class PassiveController {
     return this.passiveService.findAllPassives();
   }
 
-  // Get on passive by ID
+  // Get one passive by ID
   @Get(':passiveID')
   public findPassive(@Param() params): Promise<BaseDto> {
     return this.passiveService.findPassive(params.passiveID);

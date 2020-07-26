@@ -36,7 +36,9 @@ describe('Passive Controller', () => {
         'lastChangedBy': 'spec'
       }];
 
-      jest.spyOn(passiveService, 'findAllPassives').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveService, 'findAllPassives')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveController.findAllPassives()).toBe(result);
     });
@@ -54,7 +56,9 @@ describe('Passive Controller', () => {
 
       const id: string = '12';
 
-      jest.spyOn(passiveService, 'findPassive').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(passiveService, 'findPassive')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await passiveController.findPassive(id)).toBe(result);
     });
