@@ -88,6 +88,9 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 
+# clean and rebuild dist
+$ npm run build
+
 # Generates a new migration script
 $ npm run typeorm:migration:generate -- add_informative_migration_name
 
@@ -95,13 +98,16 @@ $ npm run typeorm:migration:generate -- add_informative_migration_name
 $ npm run typeorm:migration:run
 
 # Reverts the most recent migration
-$ npm run typeorm:migration:revert"
+$ npm run typeorm:migration:revert
+
+# Lists the migrations
+$ npm run typeorm:migration:show
 ```
 
 ## Starting the postgres docker image with the bash script
 ./script/start-db.sh \<redacted\>
 
-
+st
 ## Starting the postgres docker image with the docker command
 docker run --name local-postgres -p 5432:5432 -e POSTGRES_PASSWORD=<redacted> -d postgres -rm
 
