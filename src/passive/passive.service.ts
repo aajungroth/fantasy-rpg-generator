@@ -8,8 +8,6 @@ import { BasePostDto } from '../dto/basePost.dto';
 
 import { PassiveDao } from './passive.dao';
 
-import { Passive } from '../model/passive.entity';
-
 @Injectable()
 export class PassiveService {
 
