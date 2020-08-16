@@ -1,3 +1,5 @@
+'use strict';
+
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { ModifierDao } from './modifier.dao';
