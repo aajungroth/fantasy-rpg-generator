@@ -22,9 +22,10 @@ describe('Ability', () => {
   };
 
   beforeAll(async () => {
-    const module = await Test.createTestingModule({
-      imports: [AppModule],
-    })
+    const module = await Test
+      .createTestingModule({
+        imports: [AppModule],
+      })
       .overrideProvider(AbilityService)
       .useValue(abilityService)
       .compile();
