@@ -1,3 +1,5 @@
+'use strict';
+
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
@@ -15,6 +17,9 @@ import { PassiveDao } from './passive/passive.dao';
 import { ModifierController } from './modifier/modifier.controller';
 import { ModifierService } from './modifier/modifier.service';
 import { ModifierDao } from './modifier/modifier.dao';
+import { GameController } from './game/game.controller';
+import { GameService } from './game/game.service';
+import { GameDao } from './game/game.dao';
 import configuration from './config/configuration';
 
 @Module({
@@ -42,8 +47,9 @@ import configuration from './config/configuration';
     }),
   ],
   controllers: [AppController, CharacterController, AbilityController,
-    PassiveController, ModifierController],
+    PassiveController, ModifierController, GameController],
   providers: [AppService, CharacterService, CharacterDao, AbilityService,
-    AbilityDao, PassiveService, PassiveDao, ModifierService, ModifierDao],
+    AbilityDao, PassiveService, PassiveDao, ModifierService, ModifierDao,
+    GameService, GameDao],
 })
 export class AppModule {}
