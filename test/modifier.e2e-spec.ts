@@ -13,7 +13,7 @@ import { INestApplication } from '@nestjs/common';
 describe('Modifier', () => {
 
   const findAllModifiersResult = [{'id': '1', 'name': 'findModifiers'}];
-  const findModifierResult    = {'id': '2', 'name': 'findModifier'};
+  const findModifierResult     = {'id': '2', 'name': 'findModifier'};
 
   let app: INestApplication;
   let modifierService = {
@@ -22,9 +22,10 @@ describe('Modifier', () => {
   };
 
   beforeAll(async () => {
-    const module = await Test.createTestingModule({
-      imports: [AppModule],
-    })
+    const module = await Test
+      .createTestingModule({
+        imports: [AppModule],
+      })
       .overrideProvider(ModifierService)
       .useValue(modifierService)
       .compile();
