@@ -22,9 +22,10 @@ describe('Passive', ()  => {
   };
 
   beforeAll(async () => {
-    const module = await Test.createTestingModule({
-      imports: [AppModule],
-    })
+    const module = await Test
+      .createTestingModule({
+        imports: [AppModule],
+      })
       .overrideProvider(PassiveService)
       .useValue(passiveService)
       .compile();
