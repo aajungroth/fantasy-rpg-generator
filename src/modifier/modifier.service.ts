@@ -1,3 +1,5 @@
+'use strict';
+
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 import { BaseDto } from '../dto/base.dto';
