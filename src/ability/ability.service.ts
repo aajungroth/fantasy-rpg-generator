@@ -8,8 +8,6 @@ import { BasePostDto } from '../dto/basePost.dto';
 
 import { AbilityDao } from './ability.dao';
 
-import { Ability } from '../model/ability.entity';
-
 @Injectable()
 export class AbilityService {
 
