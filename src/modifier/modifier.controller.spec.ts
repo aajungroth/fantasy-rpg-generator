@@ -36,7 +36,9 @@ describe('Modifier Controller', () => {
         'lastChangedBy': 'spec',
       }];
 
-      jest.spyOn(modifierService, 'findAllModifiers').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(modifierService, 'findAllModifiers')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await modifierController.findAllModifiers()).toBe(result);
     });
@@ -54,7 +56,9 @@ describe('Modifier Controller', () => {
 
       const id: string = '22';
 
-      jest.spyOn(modifierService, 'findModifier').mockImplementation(() => Promise.resolve(result));
+      jest
+        .spyOn(modifierService, 'findModifier')
+        .mockImplementation(() => Promise.resolve(result));
 
       expect(await modifierController.findModifier(id)).toBe(result);
     });
