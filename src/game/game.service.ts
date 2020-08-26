@@ -23,9 +23,9 @@ export class GameService {
     return this.gameDao.findGameByID(gameID);
   }
 
-  // Get one game by name
-  public findGameByName(gameName: string): Promise<BaseDto> {
-    return this.gameDao.findGameByName(gameName);
+  // Get a list of games by name
+  public findGameListByName(gameName: string): Promise<BaseDto> {
+    return this.gameDao.findGameListByName(gameName);
   }
 
 }
