@@ -62,23 +62,23 @@ describe('GameService', () => {
     });
   });
 
-  describe('findGameByName', () => {
-    it('should return a game by name', async() => {
+  describe('findGameListByName', () => {
+    it('should return a list of games by name', async() => {
       const result: BaseDto = {
         'id'           : '36',
-        'name'         : 'findGameByName',
+        'name'         : 'findGameListByName',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const name: string = 'findGameByName';
+      const name: string = 'findGameListByName';
 
       jest
-        .spyOn(gameDao, 'findGameByName')
+        .spyOn(gameDao, 'findGameListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await gameService.findGameByName(name)).toBe(result);
+      expect(await gameService.findGameListByName(name)).toBe(result);
     });
   });
 
