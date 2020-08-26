@@ -64,23 +64,23 @@ describe('Game Controller', () => {
     });
   });
 
-  describe('findGameByName', () => {
+  describe('findGameListByName', () => {
     it('should return a single modifier by game', async() => {
       const result: BaseDto = {
         'id'           : '33',
-        'name'         : 'findGameByName',
+        'name'         : 'findGameListByName',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const name: string = 'findGameByNameß';
+      const name: string = 'findGameListByName';
 
       jest
-        .spyOn(gameService, 'findGameByName')
+        .spyOn(gameService, 'findGameListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await gameController.findGameByName(name)).toBe(result);
+      expect(await gameController.findGameListByName(name)).toBe(result);
     });
   });
 
