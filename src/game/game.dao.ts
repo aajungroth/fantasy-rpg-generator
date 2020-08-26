@@ -30,8 +30,8 @@ export class GameDao {
       .getOne();
   }
 
-  // Retrieves a single game by name
-  public async  findGameByName(gameName): Promise<BaseDto> {
+  // Retrieves a list of games by name
+  public async  findGameListByName(gameName): Promise<BaseDto> {
     return await getConnection()
       .createQueryBuilder()
       .select('game')
