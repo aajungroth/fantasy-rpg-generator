@@ -12,15 +12,15 @@ import { INestApplication } from '@nestjs/common';
 
 describe('Game', () => {
 
-  const findAllGamesResult   = [{'id': '1', 'name': 'findGameResult'}];
-  const findGameByIDResult   = {'id': '2', 'name': 'findGameByIDResult'};
-  const findGameByNameResult = {'id': '3', 'name': 'findGameByNameResult'};
+  const findAllGamesResult       = [{'id': '1', 'name': 'findGameResult'}];
+  const findGameByIDResult       = {'id': '2', 'name': 'findGameByIDResult'};
+  const findGameListByNameResult = {'id': '3', 'name': 'findGameListByNameResult'};
 
   let app: INestApplication;
   let gameService = {
     findAllGames: () => findAllGamesResult,
     findGameByID: () => findGameByIDResult,
-    findGameByName: () => findGameByNameResult,
+    findGameListByName: () => findGameListByNameResult,
   };
 
   beforeAll(async () => {
@@ -59,9 +59,9 @@ describe('Game', () => {
   describe('/Get game/name/:gameName', () => {
     it('should get one game by Name', (done) => {
       return request(app.getHttpServer())
-        .get('/game/name/findGameByName')
+        .get('/game/name/findGameListByName')
         .expect(200)
-        .expect(gameService.findGameByName())
+        .expect(gameService.findGameListByName())
         .end(done);
     });
   });
