@@ -42,11 +42,11 @@ describe('ModifierService', () => {
     });
   });
 
-  describe('findModifier', () => {
+  describe('findModifierByID', () => {
     it('should return a single modifier by id', async () => {
       const result: BaseDto = {
         'id'           : '24',
-        'name'         : 'findModifier',
+        'name'         : 'findModifierByID',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
@@ -55,10 +55,30 @@ describe('ModifierService', () => {
       const id: string = '24';
 
       jest
-        .spyOn(modifierDao, 'findModifier')
+        .spyOn(modifierDao, 'findModifierByID')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.findModifier(id)).toBe(result);
+      expect(await modifierService.findModifierByID(id)).toBe(result);
+    });
+  });
+
+  describe('findModifierByGame', () => {
+    it('should return a list of modifiers by name', async () => {
+      const result: BaseDto[] = [{
+        'id'           : '24a',
+        'name'         : 'findModifierListByName',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      const name: string = 'findModifierListByName';
+
+      jest
+        .spyOn(modifierDao, 'findModifierListByName')
+        .mockImplementation(() => Promise.resolve(result));
+
+      expect(await modifierService.findModifierListByName(name)).toBe(result);
     });
   });
 
