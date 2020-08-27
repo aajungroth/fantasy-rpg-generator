@@ -12,13 +12,15 @@ import { INestApplication } from '@nestjs/common';
 
 describe('Modifier', () => {
 
-  const findAllModifiersResult = [{'id': '1', 'name': 'findModifiers'}];
-  const findModifierResult     = {'id': '2', 'name': 'findModifier'};
+  const findAllModifiersResult       = [{'id': '1', 'name': 'findModifiers'}];
+  const findModifierByIDResult       = {'id': '2', 'name': 'findModifierByID'};
+  const findModifierListByNameResult = [{'id': '3', 'name': 'findModifierListByName'}];
 
   let app: INestApplication;
   let modifierService = {
-    findAllModifiers: () => findAllModifiersResult,
-    findModifier: () => findModifierResult,
+    findAllModifiers      : () => findAllModifiersResult,
+    findModifierByID      : () => findModifierByIDResult,
+    findModifierListByName: () => findModifierListByNameResult,
   };
 
   beforeAll(async () => {
@@ -44,13 +46,23 @@ describe('Modifier', () => {
     });
   });
 
-  describe('/GET modifier/:modifierID', () => {
+  describe('/GET modifier/id/:modifierID', () => {
     it('should get one modifier by ID', (done) => {
       return request(app.getHttpServer())
         .get('/modifier/1')
         .expect(200)
-        .expect(modifierService.findModifier())
-        .end(done)
+        .expect(modifierService.findModifierByID())
+        .end(done);
+    });
+  });
+
+  describe('/Get modifier/name:modifierName', () => {
+    it('should get a list of modifiers by name', (done) => {
+      return request(app.getHttpServer())
+        .get('/modifier/name/findModifierListByName')
+        .expect(200)
+        .expect(modifierService.findModifierListByName())
+        .end(done);
     });
   });
 
