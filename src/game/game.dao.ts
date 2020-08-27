@@ -31,13 +31,13 @@ export class GameDao {
   }
 
   // Retrieves a list of games by name
-  public async  findGameListByName(gameName): Promise<BaseDto> {
+  public async  findGameListByName(gameName): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('game')
       .from(Game, 'game')
-      .where('game.name = :game', { name: gameName })
-      .getOne();
+      .where('game.name = :name', { name: gameName })
+      .getMany();
   }
 
 }
