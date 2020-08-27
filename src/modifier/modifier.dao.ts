@@ -21,13 +21,23 @@ export class ModifierDao {
   }
 
   // Retrieves a single modifier by ID
-  public async findModifier(modifierID): Promise<BaseDto> {
+  public async findModifierByID(modifierID): Promise<BaseDto> {
     return await getConnection()
       .createQueryBuilder()
       .select('modifier')
       .from(Modifier, 'modifier')
       .where('modifier.id = :id', { id: modifierID })
       .getOne();
+  }
+
+  // Retrieves a list of modifiers by name
+  public async findModifierListByName(modifierName): Promise<BaseDto[]> {
+    return await getConnection()
+      .createQueryBuilder()
+      .select('modifier')
+      .from(Modifier, 'modifier')
+      .where('modifier.name = :name', { name: modifierName })
+      .getMany();
   }
 
   // Insert multiple modifiers at once
