@@ -45,7 +45,7 @@ describe('Game Controller', () => {
   });
 
   describe('findGameByID', () => {
-    it('should return a single modifier by id', async() => {
+    it('should return a single game by id', async() => {
       const result: BaseDto = {
         'id'           : '32',
         'name'         : 'findGameByID',
@@ -65,14 +65,14 @@ describe('Game Controller', () => {
   });
 
   describe('findGameListByName', () => {
-    it('should return a single modifier by game', async() => {
-      const result: BaseDto = {
+    it('should return a list of games by name', async() => {
+      const result: BaseDto[] = [{
         'id'           : '33',
         'name'         : 'findGameListByName',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
-      };
+      }];
 
       const name: string = 'findGameListByName';
 
