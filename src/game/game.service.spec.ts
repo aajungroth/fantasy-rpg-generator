@@ -64,13 +64,13 @@ describe('GameService', () => {
 
   describe('findGameListByName', () => {
     it('should return a list of games by name', async() => {
-      const result: BaseDto = {
+      const result: BaseDto[] = [{
         'id'           : '36',
         'name'         : 'findGameListByName',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
-      };
+      }];
 
       const name: string = 'findGameListByName';
 
