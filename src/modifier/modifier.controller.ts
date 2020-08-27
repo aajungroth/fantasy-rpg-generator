@@ -18,9 +18,15 @@ export class ModifierController {
   }
 
   // Get one modifier by ID
-  @Get(':modifierID')
-  public findModifier(@Param() params): Promise<BaseDto> {
-    return this.modifierService.findModifier(params.modifierID);
+  @Get('id/:modifierID')
+  public findModifierByID(@Param() params): Promise<BaseDto> {
+    return this.modifierService.findModifierByID(params.modifierID);
+  }
+
+  // Get a list of modifiers by name
+  @Get('name/:modifierName')
+  public findModifierListByName(@Param() params): Promise<BaseDto[]> {
+    return this.modifierService.findModifierListByName(params.modifierName);
   }
 
 }
