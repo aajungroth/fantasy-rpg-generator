@@ -21,8 +21,13 @@ export class ModifierService {
   }
 
   // Get one modifier by ID
-  public findModifier(modifierID: string): Promise<BaseDto> {
-    return this.modifierDao.findModifier(modifierID);
+  public findModifierByID(modifierID: string): Promise<BaseDto> {
+    return this.modifierDao.findModifierByID(modifierID);
+  }
+
+  // Get a list of modifiers by name
+  public findModifierListByName(modifierName: string): Promise<BaseDto[]> {
+    return this.modifierDao.findModifierListByName(modifierName);
   }
 
   // Insert mulitple modifiers at once
