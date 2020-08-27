@@ -14,12 +14,12 @@ describe('Game', () => {
 
   const findAllGamesResult       = [{'id': '1', 'name': 'findGameResult'}];
   const findGameByIDResult       = {'id': '2', 'name': 'findGameByIDResult'};
-  const findGameListByNameResult = {'id': '3', 'name': 'findGameListByNameResult'};
+  const findGameListByNameResult = [{'id': '3', 'name': 'findGameListByNameResult'}];
 
   let app: INestApplication;
   let gameService = {
-    findAllGames: () => findAllGamesResult,
-    findGameByID: () => findGameByIDResult,
+    findAllGames      : () => findAllGamesResult,
+    findGameByID      : () => findGameByIDResult,
     findGameListByName: () => findGameListByNameResult,
   };
 
