@@ -23,9 +23,9 @@ export class GameController {
     return this.gameService.findGameByID(params.gameID);
   }
 
-  // Get one game by name
+  // Get a list of games by name
   @Get('name/:gameName')
-  public findGameListByName(@Param() params): Promise<BaseDto> {
+  public findGameListByName(@Param() params): Promise<BaseDto[]> {
     return this.gameService.findGameListByName(params.gameName);
   }
 
