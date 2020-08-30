@@ -12,9 +12,9 @@ import { INestApplication } from '@nestjs/common';
 
 describe('Game', () => {
 
-  const findAllGamesResult       = [{'id': '1', 'name': 'findGameResult'}];
-  const findGameByIDResult       = {'id': '2', 'name': 'findGameByIDResult'};
-  const findGameListByNameResult = [{'id': '3', 'name': 'findGameListByNameResult'}];
+  const findAllGamesResult       = [{'id': '1', 'name': 'findAllGames'}];
+  const findGameByIDResult       = {'id': '2', 'name': 'findGameByID'};
+  const findGameListByNameResult = [{'id': '3', 'name': 'findGameListByName'}];
 
   let app: INestApplication;
   let gameService = {
