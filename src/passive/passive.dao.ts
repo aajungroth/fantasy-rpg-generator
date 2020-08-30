@@ -21,13 +21,23 @@ export class PassiveDao {
   }
 
   // Retrieves a single passive by ID
-  public async findPassive(passiveID): Promise<BaseDto> {
+  public async findPassiveByID(passiveID): Promise<BaseDto> {
     return await getConnection()
       .createQueryBuilder()
       .select('passive')
       .from(Passive, 'passive')
       .where('passive.id = :id', { id: passiveID })
       .getOne();
+  }
+
+  // Retrieves a list of passives by name
+  public async findPassiveListByName(passiveName): Promise<BaseDto[]> {
+    return await getConnection()
+      .createQueryBuilder()
+      .select('passive')
+      .from(Passive, 'passive')
+      .where('passive.name = :name', { name: passiveName })
+      .getMany();
   }
 
   // Insert multiple passives at once
