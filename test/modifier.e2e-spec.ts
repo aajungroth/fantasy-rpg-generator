@@ -12,7 +12,7 @@ import { INestApplication } from '@nestjs/common';
 
 describe('Modifier', () => {
 
-  const findAllModifiersResult       = [{'id': '1', 'name': 'findModifiers'}];
+  const findAllModifiersResult       = [{'id': '1', 'name': 'findAllModifiers'}];
   const findModifierByIDResult       = {'id': '2', 'name': 'findModifierByID'};
   const findModifierListByNameResult = [{'id': '3', 'name': 'findModifierListByName'}];
 
