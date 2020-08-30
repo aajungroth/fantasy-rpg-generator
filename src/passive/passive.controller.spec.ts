@@ -44,11 +44,11 @@ describe('Passive Controller', () => {
     });
   });
 
-  describe('findPassive', () => {
+  describe('findPassiveByID', () => {
     it('should return a single passive by id', async () => {
       const result: BaseDto = {
         'id'           : '12',
-        'name'         : 'findPassive',
+        'name'         : 'findPassiveByID',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
@@ -57,10 +57,30 @@ describe('Passive Controller', () => {
       const id: string = '12';
 
       jest
-        .spyOn(passiveService, 'findPassive')
+        .spyOn(passiveService, 'findPassiveByID')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveController.findPassive(id)).toBe(result);
+      expect(await passiveController.findPassiveByID(id)).toBe(result);
+    });
+  });
+
+  describe('findPassiveListByName', () => {
+    it('should return a list of passives by name', async() => {
+      const result: BaseDto[] = [{
+        'id'           : '12a',
+        'name'         : 'findPassiveListByName',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      const name: string = 'findPassiveListByName';
+
+      jest
+        .spyOn(passiveService, 'findPassiveListByName')
+        .mockImplementation(() => Promise.resolve(result));
+
+      expect(await passiveController.findPassiveListByName(name)).toBe(result);
     });
   });
 
