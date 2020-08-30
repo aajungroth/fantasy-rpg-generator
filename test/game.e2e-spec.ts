@@ -57,7 +57,7 @@ describe('Game', () => {
   });
 
   describe('/Get game/name/:gameName', () => {
-    it('should get one game by Name', (done) => {
+    it('should get one game by name', (done) => {
       return request(app.getHttpServer())
         .get('/game/name/findGameListByName')
         .expect(200)
