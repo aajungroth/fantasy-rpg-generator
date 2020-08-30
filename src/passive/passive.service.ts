@@ -19,8 +19,13 @@ export class PassiveService {
   }
 
   // Get one passive by ID
-  public findPassive(passiveID: string): Promise<BaseDto> {
-    return this.passiveDao.findPassive(passiveID);
+  public findPassiveByID(passiveID: string): Promise<BaseDto> {
+    return this.passiveDao.findPassiveByID(passiveID);
+  }
+
+  // Get a list of passives by name
+  public findPassiveListByName(passiveName: string): Promise<BaseDto[]> {
+    return this.passiveDao.findPassiveListByName(passiveName);
   }
 
   // Insert multiple passives at once
