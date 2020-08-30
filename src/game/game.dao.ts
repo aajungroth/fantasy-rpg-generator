@@ -31,7 +31,7 @@ export class GameDao {
   }
 
   // Retrieves a list of games by name
-  public async  findGameListByName(gameName): Promise<BaseDto[]> {
+  public async findGameListByName(gameName): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('game')
