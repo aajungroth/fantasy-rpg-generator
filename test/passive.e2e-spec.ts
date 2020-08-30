@@ -12,13 +12,15 @@ import { INestApplication } from '@nestjs/common';
 
 describe('Passive', ()  => {
 
-  const findAllPassivesResult = [{'id': '1', 'name': 'findPassives'}];
-  const findPassiveResult     = {'id': '2', 'name': 'findPassive'};
+  const findAllPassivesResult       = [{'id': '1', 'name': 'findAllPassives'}];
+  const findPassiveByIDResult       = {'id': '2', 'name': 'findPassiveByID'};
+  const findPassiveListByNameResult = [{'id': '3', 'name': 'findPassiveListByName'}];
 
   let app: INestApplication;
   let passiveService = {
-    findAllPassives: () => findAllPassivesResult,
-    findPassive: () => findPassiveResult,
+    findAllPassives      : () => findAllPassivesResult,
+    findPassiveByID      : () => findPassiveByIDResult,
+    findPassiveListByName: () => findPassiveListByNameResult,
   };
 
   beforeAll(async () => {
@@ -44,13 +46,23 @@ describe('Passive', ()  => {
     });
   });
 
-  describe('/GET passive/:passiveID', () => {
+  describe('/GET passive/id/:passiveID', () => {
     it('should get one passive by ID', (done) => {
       return request(app.getHttpServer())
-        .get('/passive/1')
+        .get('/passive/id/1')
         .expect(200)
-        .expect(passiveService.findPassive())
-        .end(done)
+        .expect(passiveService.findPassiveByID())
+        .end(done);
+    });
+  });
+
+  describe('/GET passive/name/:passiveName', () => {
+    it('should get one passive by name', (done) => {
+      return request(app.getHttpServer())
+        .get('/passive/name/findPassiveListByName')
+        .expect(200)
+        .expect(passiveService.findPassiveListByName())
+        .end(done);
     });
   });
 
