@@ -46,7 +46,7 @@ describe('Game', () => {
     });
   });
 
-  describe('/Get game/id/:gameID', () => {
+  describe('/GET game/id/:gameID', () => {
     it('should get one game by ID', (done) => {
       return request(app.getHttpServer())
         .get('/game/id/1')
@@ -56,8 +56,8 @@ describe('Game', () => {
     });
   });
 
-  describe('/Get game/name/:gameName', () => {
-    it('should get one game by name', (done) => {
+  describe('/GET game/name/:gameName', () => {
+    it('should get a list of games by name', (done) => {
       return request(app.getHttpServer())
         .get('/game/name/findGameListByName')
         .expect(200)
