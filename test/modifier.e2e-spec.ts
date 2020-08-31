@@ -56,7 +56,7 @@ describe('Modifier', () => {
     });
   });
 
-  describe('/Get modifier/name:modifierName', () => {
+  describe('/GET modifier/name:modifierName', () => {
     it('should get a list of modifiers by name', (done) => {
       return request(app.getHttpServer())
         .get('/modifier/name/findModifierListByName')
