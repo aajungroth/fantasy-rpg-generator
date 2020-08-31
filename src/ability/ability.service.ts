@@ -19,8 +19,13 @@ export class AbilityService {
   }
 
   // Get one ability by ID
-  public findAbility(abilityID: string): Promise<BaseDto> {
-    return this.abilityDao.findAbility(abilityID);
+  public findAbilityByID(abilityID: string): Promise<BaseDto> {
+    return this.abilityDao.findAbilityByID(abilityID);
+  }
+
+  // Get a list of abilities by name
+  public findAbilityListByName(abilityName: string): Promise<BaseDto[]> {
+    return this.abilityDao.findAbilityListByName(abilityName);
   }
 
   // Insert multiple abilities at once
