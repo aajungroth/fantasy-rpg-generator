@@ -18,9 +18,15 @@ export class AbilityController {
   }
 
   // Get one ability by ID
-  @Get(':abilityID')
-  public findAbility(@Param() params): Promise<BaseDto> {
-    return this.abilityService.findAbility(params.abilityID);
+  @Get('id/:abilityID')
+  public findAbilityByID(@Param() params): Promise<BaseDto> {
+    return this.abilityService.findAbilityByID(params.abilityID);
+  }
+
+  // Get a list of abilities by name
+  @Get('name/:abilityName')
+  public findAbilityListByName(@Param() params): Promise<BaseDto[]> {
+    return this.abilityService.findAbilityListByName(params.abilityName);
   }
 
 }
