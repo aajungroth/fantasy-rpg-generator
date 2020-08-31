@@ -44,11 +44,11 @@ describe('Ability Controller', () => {
     });
   });
 
-  describe('findAbility', () => {
+  describe('findAbilityByID', () => {
     it('should return a single ability by id', async () => {
       const result: BaseDto = {
         'id'           : '2',
-        'name'         : 'findAbility',
+        'name'         : 'findAbilityByID',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
@@ -57,10 +57,30 @@ describe('Ability Controller', () => {
       const id: string = '2';
 
       jest
-        .spyOn(abilityService, 'findAbility')
+        .spyOn(abilityService, 'findAbilityByID')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityController.findAbility(id)).toBe(result);
+      expect(await abilityController.findAbilityByID(id)).toBe(result);
+    });
+  });
+
+  describe('findAbilityListByName', () => {
+    it('should return a list of abilities by name', async() => {
+      const result: BaseDto[] = [{
+        'id'           : '2a',
+        'name'         : 'findAbilityListByName',
+        'description'  : 'A test',
+        'createdBy'    : 'spec',
+        'lastChangedBy': 'spec'
+      }];
+
+      const name: string = 'findAbilityListByName';
+
+      jest
+        .spyOn(abilityService, 'findAbilityListByName')
+        .mockImplementation(() => Promise.resolve(result));
+
+      expect(await abilityController.findAbilityListByName(name)).toBe(result);
     });
   });
 
