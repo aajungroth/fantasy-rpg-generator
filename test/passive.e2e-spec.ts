@@ -57,7 +57,7 @@ describe('Passive', ()  => {
   });
 
   describe('/GET passive/name/:passiveName', () => {
-    it('should get one passive by name', (done) => {
+    it('should get a list of passives by name', (done) => {
       return request(app.getHttpServer())
         .get('/passive/name/findPassiveListByName')
         .expect(200)
