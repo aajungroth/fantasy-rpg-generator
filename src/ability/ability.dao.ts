@@ -21,13 +21,24 @@ export class AbilityDao {
   }
 
   // Retrieves a single ability by ID
-  public async findAbility(abilityID): Promise<BaseDto> {
+  public async findAbilityByID(abilityID): Promise<BaseDto> {
     return await getConnection()
       .createQueryBuilder()
       .select('ability')
       .from(Ability, 'ability')
       .where('ability.id = :id', { id: abilityID })
       .getOne();
+  }
+
+
+  // Retrieves a list of abilities by name
+  public async findAbilityListByName(abilityName): Promise<BaseDto[]> {
+    return await getConnection()
+      .createQueryBuilder()
+      .select('ability')
+      .from(Ability, 'ability')
+      .where('ability.name = :name', { name: abilityName})
+      .getMany();
   }
 
   // Insert mulitple abilities at once
