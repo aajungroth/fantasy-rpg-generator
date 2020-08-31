@@ -12,13 +12,15 @@ import { INestApplication } from '@nestjs/common';
 
 describe('Ability', () => {
 
-  const findAllAbilitiesResult = [{'id': '1', 'name': 'findAbilities'}];
-  const findAbilityResult      = {'id': '2', 'name': 'findAbility'};
+  const findAllAbilitiesResult      = [{'id': '1', 'name': 'findAllAbilities'}];
+  const findAbilityResult           = {'id': '2', 'name': 'findAbilityByID'};
+  const findAbilityListByNameResult = [{'id': '3', 'name': 'findAbilityListByNameResult'}];
 
   let app: INestApplication;
   let abilityService = {
-    findAllAbilities: () => findAllAbilitiesResult,
-    findAbility: () => findAbilityResult,
+    findAllAbilities     : () => findAllAbilitiesResult,
+    findAbilityByID      : () => findAbilityResult,
+    findAbilityListByName: () => findAbilityListByNameResult,
   };
 
   beforeAll(async () => {
@@ -44,12 +46,22 @@ describe('Ability', () => {
     });
   });
 
-  describe('/GET ability/:abilityID', () => {
+  describe('/GET ability/id/:abilityID', () => {
     it('should get one ability by ID', (done) => {
       return request(app.getHttpServer())
-        .get('/ability/1')
+        .get('/ability/id/1')
         .expect(200)
-        .expect(abilityService.findAbility())
+        .expect(abilityService.findAbilityByID())
+        .end(done);
+    });
+  });
+
+  describe('/GET ability/name/:abilityName', () => {
+    it('should get a list of abilities by name', (done) => {
+      return request(app.getHttpServer())
+        .get('/ability/name/findAbilityListByName')
+        .expect(200)
+        .expect(abilityService.findAbilityListByName())
         .end(done);
     });
   });
