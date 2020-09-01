@@ -1,4 +1,5 @@
 export class BasePostDto {
+  readonly gameId          : string;
   readonly name            : string;
   readonly description     : string;
   readonly createdBy       : string;
