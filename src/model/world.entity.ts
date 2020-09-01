@@ -20,6 +20,6 @@ export class World extends BaseEntity {
   classes: Class[];
 
   @ManyToOne(type => Game, (game) => game.id, {nullable: false})
-  public game!: Game;
+  public gameId!: Game['id'];
 
 }
