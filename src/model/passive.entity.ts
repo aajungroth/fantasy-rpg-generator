@@ -6,6 +6,6 @@ import { Game } from './game.entity';
 export class Passive extends BaseEntity {
 
   @ManyToOne(type => Game, (game) => game.id, {nullable: false})
-  public game!: Game;
+  public gameId!: Game['id'];
 
 }
