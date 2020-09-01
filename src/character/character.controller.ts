@@ -32,69 +32,69 @@ export class CharacterController {
   }
 
   // Get the requested character if it exists
-  @Get(':characterID')
+  @Get(':characterId')
   public findCharacter(@Param() params) {
-    return this.characterService.findCharacter(params.characterID);
+    return this.characterService.findCharacter(params.characterId);
   }
 
   // // Get all of the character's ancestries
-  // @Get(':characterID/ancestry')
+  // @Get(':characterId/ancestry')
   // public findAllAncestries(@Param() params) {
-  //   return this.characterService.findAllAncestries(params.characterID);
+  //   return this.characterService.findAllAncestries(params.characterId);
   // }
 
   // // Get the requested ancestry if the character has that ancestry
-  // @Get(':characterID/ancestry/:ancestryID')
+  // @Get(':characterId/ancestry/:ancestryId')
   // public findOneAncestry(@Param() params) {
-  //   return this.characterService.findOneAncestry(params.characterID,
-  //     params.ancestryID);
+  //   return this.characterService.findOneAncestry(params.characterId,
+  //     params.ancestryId);
   // }
 
   // // Get all of the character's backgounds
-  // @Get(':characterID/background')
+  // @Get(':characterId/background')
   // public findAllBackgounds(@Param() params) {
-  //   return this.characterService.findAllBackgounds(params.characterID);
+  //   return this.characterService.findAllBackgounds(params.characterId);
   // }
 
   // // Get the requested background if the character has that background
-  // @Get(':characterID/background/:background')
+  // @Get(':characterId/background/:background')
   // public findOneBackound(@Param() params) {
-  //   return this.characterService.findOneBackground(params.characterID,
-  //     params.backgroundID);
+  //   return this.characterService.findOneBackground(params.characterId,
+  //     params.backgroundId);
   // }
 
   // // Get all of the character's classes
-  // @Get(':characterID/class')
+  // @Get(':characterId/class')
   // public findAllClasses(@Param() params) {
-  //   return this.characterService.findAllClasses(params.characterID);
+  //   return this.characterService.findAllClasses(params.characterId);
   // }
 
   // // Get the requested class if the character has that class
-  // @Get(':characterID/class/:classID')
+  // @Get(':characterId/class/:classId')
   // public findOneClass(@Param() params) {
-  //   return this.characterService.findOneClass(params.characterID,
-  //     params.classID);
+  //   return this.characterService.findOneClass(params.characterId,
+  //     params.classId);
   // }
 
   // // Get all abilities for the requested character's class
-  // @Get(':characterID/class/:classID/ability')
+  // @Get(':characterId/class/:classId/ability')
   // public findAllAbilities(@Param() params) {
-  //   return this.characterService.findAllAbilities(params.characterID,
-  //     params.classID);
+  //   return this.characterService.findAllAbilities(params.characterId,
+  //     params.classId);
   // }
 
   // // Get the requested ability if the character's class has that ability
-  // @Get(':characterID/class/:classID/ability/:abilityID')
+  // @Get(':characterId/class/:classId/ability/:abilityId')
   // public findOneAbility(@Param() params) {
-  //   return this.characterService.findOneAbility(params.characterID,
-  //     params.classID, params.abilityID);
+  //   return this.characterService.findOneAbility(params.characterId,
+  //     params.classId, params.abilityId);
   // }
 
   // Post a character's action with a target
-  @Post(':characterID/class/:classID/ability/:abilityID/target/:targetID')
+  @Post(':characterId/class/:classId/ability/:abilityId/target/:targetId')
   public requestAction(@Param() params) {
-    return this.characterService.requestAction(params.characterID,
-      params.classID, params.abilityID, params.targetID);
+    return this.characterService.requestAction(params.characterId,
+      params.classId, params.abilityId, params.targetId);
   }
 
   // Post a character
