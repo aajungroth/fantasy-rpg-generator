@@ -24,6 +24,10 @@ describe('PassiveService', () => {
 
   describe('findAllPassives', () => {
     it('should return an array of passives', async () => {
+      const params: Object = {
+        'gameId': '1'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '13',
         'name'         : 'findAllPassives',
@@ -36,32 +40,40 @@ describe('PassiveService', () => {
         .spyOn(passiveDao, 'findAllPassives')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.findAllPassives()).toBe(result);
+      expect(await passiveService.findAllPassives(params)).toBe(result);
     });
   });
 
-  describe('findPassiveByID', () => {
+  describe('findPassiveById', () => {
     it('should return a single passive by id', async () => {
+      const params: Object = {
+        'gameId': '1',
+        'id'    : '14'
+      };
+
       const result: BaseDto = {
         'id'           : '14',
-        'name'         : 'findPassiveByID',
+        'name'         : 'findPassiveById',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const id: string = '14';
-
       jest
-        .spyOn(passiveDao, 'findPassiveByID')
+        .spyOn(passiveDao, 'findPassiveById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.findPassiveByID(id)).toBe(result);
+      expect(await passiveService.findPassiveById(params)).toBe(result);
     });
   });
 
   describe('findPassiveListByName', () => {
     it('should return a list of passives by name', async () => {
+      const params: Object = {
+        'gameId': '1',
+        'name'  : 'findPassiveListByName'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '14a',
         'name'         : 'findPassiveListByName',
@@ -70,68 +82,64 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      const name: string = 'findPassiveListByName';
-
       jest
         .spyOn(passiveDao, 'findPassiveListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.findPassiveListByName(name)).toBe(result);
+      expect(await passiveService.findPassiveListByName(params)).toBe(result);
     });
   });
 
   describe('insertMultiplePassives', () => {
     it('should insert an array of passives', async () => {
-      const result: any[] = [{
-        'id'  : '15',
-        'name': 'insertMultiplePassives'
-      }];
-
-      const input: BasePostDto[] = [{
+      const params: BasePostDto[] = [{
+       'gameId'       : '1',
        'name'         : 'insertMultiplePassives',
        'description'  : 'A test',
        'createdBy'    : 'spec',
        'lastChangedBy': 'spec'
       }];
 
+      const result: any[] = [{
+        'id'  : '15',
+        'name': 'insertMultiplePassives'
+      }];
+
       jest
         .spyOn(passiveDao, 'insertMultiplePassives')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.insertMultiplePassives(input)).toBe(result);
+      expect(await passiveService.insertMultiplePassives(params)).toBe(result);
     });
   });
 
   describe('insertPassive', () => {
     it('should insert a single passive', async () => {
-      const result: any = {
-        'id'  : '16',
-        'name': 'insertPassive'
-      };
-
-      const input: BasePostDto = {
+      const params: BasePostDto = {
+        'gameId'       : '1',
         'name'         : 'insertPassive',
         'description'  :'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
+      const result: any = {
+        'id'  : '16',
+        'name': 'insertPassive'
+      };
+
       jest
         .spyOn(passiveDao, 'insertPassive')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.insertPassive(input)).toBe(result);
+      expect(await passiveService.insertPassive(params)).toBe(result);
     });
   });
 
   describe('updateMultiplePassives', () => {
     it('should update an array of passives', async () => {
-      const result: Promise<any> = Promise.resolve({
-        'id'  : '17',
-        'name': 'updateMultiplePassives'
-      });
-
-      const input: BaseDto[] = [{
+      const params: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '17',
         'name'         : 'updateMultiplePassives',
         'description'  : 'A test',
@@ -139,23 +147,24 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
+      const result: Promise<any> = Promise.resolve({
+        'id'  : '17',
+        'name': 'updateMultiplePassives'
+      });
+
       jest
         .spyOn(passiveDao, 'updatePassive')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.updateMultiplePassives(input)).toStrictEqual([result]);
+      expect(await passiveService.updateMultiplePassives(params)).toStrictEqual([result]);
     });
   });
 
 
   describe('updatePassive', () => {
-    it('should update a single passive by ID', async () => {
-      const result: any = {
-        'id'  : '18',
-        'name': 'updatePassive'
-      };
-
-      const input: BaseDto = {
+    it('should update a single passive by Id', async () => {
+      const params: BaseDto = {
+        'gameId'       : '1',
         'id'           : '18',
         'name'         : 'updatePassive',
         'description'  : 'A test',
@@ -163,22 +172,23 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       };
 
+      const result: any = {
+        'id'  : '18',
+        'name': 'updatePassive'
+      };
+
       jest
         .spyOn(passiveDao, 'updatePassive')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.updatePassive(input)).toBe(result);
+      expect(await passiveService.updatePassive(params)).toBe(result);
     });
   });
 
   describe('deleteMultiplePassives', () => {
-    it('should delete an array of passive by ID', async () => {
-      const result: Promise<any> = Promise.resolve({
-        'id'  : '19',
-        'name': 'deleteMultiplePassives'
-      });
-
-      const input: BaseDto[] = [{
+    it('should delete an array of passive by Id', async () => {
+      const params: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '19',
         'name'         : 'deleteMultiplePassives',
         'description'  : 'A test',
@@ -186,23 +196,24 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       }];
 
+      const result: Promise<any> = Promise.resolve({
+        'id'  : '19',
+        'name': 'deleteMultiplePassives'
+      });
+
       jest
         .spyOn(await passiveDao, 'deletePassive')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.deleteMultiplePassives(input)).toStrictEqual([result]);
+      expect(await passiveService.deleteMultiplePassives(params)).toStrictEqual([result]);
     });
   });
 
 
   describe('deletePassive', () => {
-    it('should delete a single passive by ID', async () => {
-      const result: any = [{
-        'id'  : '20',
-        'name': 'deletePassive'
-      }];
-
-      const input: BaseDto = {
+    it('should delete a single passive by Id', async () => {
+      const params: BaseDto = {
+        'gameId'       : '1',
         'id'           : '20',
         'name'         : 'deletePassive',
         'description'  : 'A test',
@@ -210,11 +221,16 @@ describe('PassiveService', () => {
         'lastChangedBy': 'spec'
       };
 
+      const result: any = [{
+        'id'  : '20',
+        'name': 'deletePassive'
+      }];
+
       jest
         .spyOn(await passiveDao, 'deletePassive')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.deletePassive(input)).toBe(result);
+      expect(await passiveService.deletePassive(params)).toBe(result);
     });
   });
 
