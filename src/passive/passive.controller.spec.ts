@@ -28,11 +28,10 @@ describe('Passive Controller', () => {
 
   describe('findAllPassives', () => {
     it('should return an array of passives', async () => {
-      const params: Object = {
-        'gameId': '1'
-      };
+      const gameId: string = '1';
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '11',
         'name'         : 'findAllPassives',
         'description'  : 'A test',
@@ -44,7 +43,7 @@ describe('Passive Controller', () => {
         .spyOn(passiveService, 'findAllPassives')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveController.findAllPassives(params)).toBe(result);
+      expect(await passiveController.findAllPassives(gameId)).toBe(result);
     });
   });
 
@@ -56,6 +55,7 @@ describe('Passive Controller', () => {
       };
 
       const result: BaseDto = {
+        'gameId'       : '1',
         'id'           : '12',
         'name'         : 'findPassiveById',
         'description'  : 'A test',
@@ -79,6 +79,7 @@ describe('Passive Controller', () => {
       };
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '12a',
         'name'         : 'findPassiveListByName',
         'description'  : 'A test',
