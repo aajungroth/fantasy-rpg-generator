@@ -28,6 +28,10 @@ describe('Modifier Controller', () => {
 
   describe('findAllModifiers', () => {
     it('should return an array of modifiers', async () => {
+      const params: Object = {
+        'gameId': '1'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '21',
         'name'         : 'findAllModifiers',
@@ -40,32 +44,40 @@ describe('Modifier Controller', () => {
         .spyOn(modifierService, 'findAllModifiers')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierController.findAllModifiers()).toBe(result);
+      expect(await modifierController.findAllModifiers(params)).toBe(result);
     });
   });
 
-  describe('findModifierByID', () => {
+  describe('findModifierById', () => {
     it('should return a single modifier by id', async() => {
+      const params: Object = {
+        'gameId': '1',
+        'id'    : '22'
+      };
+
       const result: BaseDto = {
         'id'           : '22',
-        'name'         : 'findModifierByID',
+        'name'         : 'findModifierById',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const id: string = '22';
-
       jest
-        .spyOn(modifierService, 'findModifierByID')
+        .spyOn(modifierService, 'findModifierById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierController.findModifierByID(id)).toBe(result);
+      expect(await modifierController.findModifierById(params)).toBe(result);
     });
   });
 
   describe('findModifierListByName', () => {
     it('should return a list of modifiers by name', async() => {
+      const params: Object = {
+        'gameId': '1',
+        'name'  : 'findModifierListByName'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '22a',
         'name'         : 'findModifierListByName',
@@ -74,13 +86,12 @@ describe('Modifier Controller', () => {
         'lastChangedBy': 'spec'
       }];
 
-      const name: string = 'findModifierListByName';
-
       jest
         .spyOn(modifierService, 'findModifierListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierController.findModifierListByName(name)).toBe(result);
+      expect(await modifierController.findModifierListByName(params)).toBe(result);
     });
   });
+
 });
