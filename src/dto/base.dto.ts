@@ -1,4 +1,5 @@
 export class BaseDto {
+  readonly gameId          : string;
   readonly id              : string;
   readonly name            : string;
   readonly description     : string;
