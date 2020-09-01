@@ -12,31 +12,32 @@ import { BaseDto } from '../dto/Base.dto';
 export class ModifierDao {
 
   // Retrieves all of the modifiers in the game
-  public async findAllModifiers(): Promise<BaseDto[]> {
+  public async findAllModifiers(gameId): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('modifier')
       .from(Modifier, 'modifier')
+      .where('modifier.gameId = :gameId', { gameId: gameId })
       .getMany();
   }
 
-  // Retrieves a single modifier by ID
-  public async findModifierByID(modifierID): Promise<BaseDto> {
+  // Retrieves a single modifier by Id
+  public async findModifierById(gameId, modifierId): Promise<BaseDto> {
     return await getConnection()
       .createQueryBuilder()
       .select('modifier')
       .from(Modifier, 'modifier')
-      .where('modifier.id = :id', { id: modifierID })
+      .where('modifier.gameId = :gameId AND modifier.id = :id', { gameId: gameId, id: modifierId })
       .getOne();
   }
 
   // Retrieves a list of modifiers by name
-  public async findModifierListByName(modifierName): Promise<BaseDto[]> {
+  public async findModifierListByName(gameId, modifierName): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('modifier')
       .from(Modifier, 'modifier')
-      .where('modifier.name = :name', { name: modifierName })
+      .where('modifier.gameId = :gameId AND modifier.name = :name', { gameId: gameId, name: modifierName })
       .getMany();
   }
 
@@ -66,17 +67,17 @@ export class ModifierDao {
       .createQueryBuilder()
       .update(Modifier)
       .set(modifierInfo)
-      .where("id = :id", { id: modifierInfo.id })
+      .where("gameId = :gameId AND id = :id", { gameId: modifierInfo.gameId, id: modifierInfo.id })
       .execute();
   }
 
   // Delete a single modifier
-  public async deleteModifier(modifierID): Promise<any> {
+  public async deleteModifier(modifierInfo): Promise<any> {
     return await getConnection()
       .createQueryBuilder()
       .delete()
       .from(Modifier)
-      .where("id = :id", { id: modifierID })
+      .where("gameId = :gameId AND id = :id", { gameId: modifierInfo.gameId, id: modifierInfo.id })
       .execute();
   }
 
