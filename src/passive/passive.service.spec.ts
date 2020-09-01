@@ -24,11 +24,10 @@ describe('PassiveService', () => {
 
   describe('findAllPassives', () => {
     it('should return an array of passives', async () => {
-      const params: Object = {
-        'gameId': '1'
-      };
+      const gameId: string = '1';
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '13',
         'name'         : 'findAllPassives',
         'description'  : 'A test',
@@ -40,18 +39,17 @@ describe('PassiveService', () => {
         .spyOn(passiveDao, 'findAllPassives')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.findAllPassives(params)).toBe(result);
+      expect(await passiveService.findAllPassives(gameId)).toBe(result);
     });
   });
 
   describe('findPassiveById', () => {
     it('should return a single passive by id', async () => {
-      const params: Object = {
-        'gameId': '1',
-        'id'    : '14'
-      };
+      const gameId: string = '1';
+      const id: string     = '14';
 
       const result: BaseDto = {
+        'gameId'       : '1',
         'id'           : '14',
         'name'         : 'findPassiveById',
         'description'  : 'A test',
@@ -63,18 +61,17 @@ describe('PassiveService', () => {
         .spyOn(passiveDao, 'findPassiveById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.findPassiveById(params)).toBe(result);
+      expect(await passiveService.findPassiveById(gameId, id)).toBe(result);
     });
   });
 
   describe('findPassiveListByName', () => {
     it('should return a list of passives by name', async () => {
-      const params: Object = {
-        'gameId': '1',
-        'name'  : 'findPassiveListByName'
-      };
+      const gameId: string = '1';
+      const name: string   = 'findPassiveListByName';
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '14a',
         'name'         : 'findPassiveListByName',
         'description'  : 'A test',
@@ -86,7 +83,7 @@ describe('PassiveService', () => {
         .spyOn(passiveDao, 'findPassiveListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await passiveService.findPassiveListByName(params)).toBe(result);
+      expect(await passiveService.findPassiveListByName(gameId, name)).toBe(result);
     });
   });
 
@@ -101,8 +98,9 @@ describe('PassiveService', () => {
       }];
 
       const result: any[] = [{
-        'id'  : '15',
-        'name': 'insertMultiplePassives'
+        'gameId': '1',
+        'id'    : '15',
+        'name'  : 'insertMultiplePassives'
       }];
 
       jest
@@ -124,8 +122,9 @@ describe('PassiveService', () => {
       };
 
       const result: any = {
-        'id'  : '16',
-        'name': 'insertPassive'
+        'gameId': '1',
+        'id'    : '16',
+        'name'  : 'insertPassive'
       };
 
       jest
@@ -148,8 +147,9 @@ describe('PassiveService', () => {
       }];
 
       const result: Promise<any> = Promise.resolve({
-        'id'  : '17',
-        'name': 'updateMultiplePassives'
+        'gameId': '1',
+        'id'    : '17',
+        'name'  : 'updateMultiplePassives'
       });
 
       jest
@@ -173,8 +173,9 @@ describe('PassiveService', () => {
       };
 
       const result: any = {
-        'id'  : '18',
-        'name': 'updatePassive'
+        'gameId': '1',
+        'id'    : '18',
+        'name'  : 'updatePassive'
       };
 
       jest
@@ -197,8 +198,9 @@ describe('PassiveService', () => {
       }];
 
       const result: Promise<any> = Promise.resolve({
-        'id'  : '19',
-        'name': 'deleteMultiplePassives'
+        'gameId': '1',
+        'id'    : '19',
+        'name'  : 'deleteMultiplePassives'
       });
 
       jest
@@ -222,8 +224,9 @@ describe('PassiveService', () => {
       };
 
       const result: any = [{
-        'id'  : '20',
-        'name': 'deletePassive'
+        'gameId': '1',
+        'id'    : '20',
+        'name'  : 'deletePassive'
       }];
 
       jest
