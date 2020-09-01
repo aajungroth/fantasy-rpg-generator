@@ -13,13 +13,13 @@ import { INestApplication } from '@nestjs/common';
 describe('Passive', ()  => {
 
   const findAllPassivesResult       = [{'id': '1', 'name': 'findAllPassives'}];
-  const findPassiveByIDResult       = {'id': '2', 'name': 'findPassiveByID'};
+  const findPassiveByIdResult       = {'id': '2', 'name': 'findPassiveById'};
   const findPassiveListByNameResult = [{'id': '3', 'name': 'findPassiveListByName'}];
 
   let app: INestApplication;
   let passiveService = {
     findAllPassives      : () => findAllPassivesResult,
-    findPassiveByID      : () => findPassiveByIDResult,
+    findPassiveById      : () => findPassiveByIdResult,
     findPassiveListByName: () => findPassiveListByNameResult,
   };
 
@@ -36,30 +36,30 @@ describe('Passive', ()  => {
     await app.init();
   });
 
-  describe('/GET passive', () => {
+  describe('/GET passive/gameId/:gameId', () => {
     it('should get all passives', (done) => {
       return request(app.getHttpServer())
-        .get('/passive')
+        .get('/passive/gameId/1')
         .expect(200)
         .expect(passiveService.findAllPassives())
         .end(done);
     });
   });
 
-  describe('/GET passive/id/:passiveID', () => {
-    it('should get one passive by ID', (done) => {
+  describe('/GET passive/gameId/:gameId/id/:passiveId', () => {
+    it('should get one passive by Id', (done) => {
       return request(app.getHttpServer())
-        .get('/passive/id/1')
+        .get('/passive/gameId/1/id/1')
         .expect(200)
-        .expect(passiveService.findPassiveByID())
+        .expect(passiveService.findPassiveById())
         .end(done);
     });
   });
 
-  describe('/GET passive/name/:passiveName', () => {
+  describe('/GET passive/gameId/:gameId/name/:passiveName', () => {
     it('should get a list of passives by name', (done) => {
       return request(app.getHttpServer())
-        .get('/passive/name/findPassiveListByName')
+        .get('/passive/gameId/1/name/findPassiveListByName')
         .expect(200)
         .expect(passiveService.findPassiveListByName())
         .end(done);
