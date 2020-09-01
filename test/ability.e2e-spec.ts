@@ -19,7 +19,7 @@ describe('Ability', () => {
   let app: INestApplication;
   let abilityService = {
     findAllAbilities     : () => findAllAbilitiesResult,
-    findAbilityByID      : () => findAbilityResult,
+    findAbilityById      : () => findAbilityResult,
     findAbilityListByName: () => findAbilityListByNameResult,
   };
 
@@ -36,30 +36,30 @@ describe('Ability', () => {
     await app.init();
   });
 
-  describe('/GET ability', () => {
+  describe('/GET ability/gameId/:gameId', () => {
     it('should get all abilities', (done) => {
       return request(app.getHttpServer())
-        .get('/ability')
+        .get('/ability/gameId/1')
         .expect(200)
         .expect(abilityService.findAllAbilities())
         .end(done);
     });
   });
 
-  describe('/GET ability/id/:abilityID', () => {
-    it('should get one ability by ID', (done) => {
+  describe('/GET ability/gameId/:gameId/id/:abilityId', () => {
+    it('should get one ability by Id', (done) => {
       return request(app.getHttpServer())
-        .get('/ability/id/1')
+        .get('/ability/gameId/1/id/1')
         .expect(200)
-        .expect(abilityService.findAbilityByID())
+        .expect(abilityService.findAbilityById())
         .end(done);
     });
   });
 
-  describe('/GET ability/name/:abilityName', () => {
+  describe('/GET ability/gameId/:gameId/name/:abilityName', () => {
     it('should get a list of abilities by name', (done) => {
       return request(app.getHttpServer())
-        .get('/ability/name/findAbilityListByName')
+        .get('/ability/gameId/1/name/findAbilityListByName')
         .expect(200)
         .expect(abilityService.findAbilityListByName())
         .end(done);
