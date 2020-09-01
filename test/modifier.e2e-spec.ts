@@ -13,13 +13,13 @@ import { INestApplication } from '@nestjs/common';
 describe('Modifier', () => {
 
   const findAllModifiersResult       = [{'id': '1', 'name': 'findAllModifiers'}];
-  const findModifierByIDResult       = {'id': '2', 'name': 'findModifierByID'};
+  const findModifierByIdResult       = {'id': '2', 'name': 'findModifierById'};
   const findModifierListByNameResult = [{'id': '3', 'name': 'findModifierListByName'}];
 
   let app: INestApplication;
   let modifierService = {
     findAllModifiers      : () => findAllModifiersResult,
-    findModifierByID      : () => findModifierByIDResult,
+    findModifierById      : () => findModifierByIdResult,
     findModifierListByName: () => findModifierListByNameResult,
   };
 
@@ -36,30 +36,30 @@ describe('Modifier', () => {
     await app.init();
   });
 
-  describe('/GET modifier', () => {
+  describe('/GET modifier/gameId/:gameId', () => {
     it('should get all modifiers', (done) => {
       return request(app.getHttpServer())
-        .get('/modifier')
+        .get('/modifier/gameId/1')
         .expect(200)
         .expect(modifierService.findAllModifiers())
         .end(done);
     });
   });
 
-  describe('/GET modifier/id/:modifierID', () => {
-    it('should get one modifier by ID', (done) => {
+  describe('/GET modifier/gameId/:gameId/id/:modifierId', () => {
+    it('should get one modifier by Id', (done) => {
       return request(app.getHttpServer())
-        .get('/modifier/1')
+        .get('/modifier/gameId/1/id/1')
         .expect(200)
-        .expect(modifierService.findModifierByID())
+        .expect(modifierService.findModifierById())
         .end(done);
     });
   });
 
-  describe('/GET modifier/name:modifierName', () => {
+  describe('/GET modifier/gameId/:gameId/name/:modifierName', () => {
     it('should get a list of modifiers by name', (done) => {
       return request(app.getHttpServer())
-        .get('/modifier/name/findModifierListByName')
+        .get('/modifier/gameId/1/name/findModifierListByName')
         .expect(200)
         .expect(modifierService.findModifierListByName())
         .end(done);
