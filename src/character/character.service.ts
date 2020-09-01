@@ -90,58 +90,58 @@ export class CharacterService {
     return this.characterDao.findAllCharacters();
   }
 
-  public findCharacter(characterID: string): Promise<Character> {
-    return this.characterDao.findCharacter(characterID);
+  public findCharacter(characterId: string): Promise<Character> {
+    return this.characterDao.findCharacter(characterId);
   }
 
   // // Get all of the character's ancestries
-  // public findAllAncestries(characterID): BaseDto[] {
+  // public findAllAncestries(characterId): BaseDto[] {
   //   return this.characterAncestryList;
   // }
 
   // // Get the requested ancestry if the character has that ancestry
-  // public findOneAncestry(characterID, ancestryID): BaseDto {
-  //   return this.findOne(ancestryID, this.characterAncestryList);
+  // public findOneAncestry(characterId, ancestryId): BaseDto {
+  //   return this.findOne(ancestryId, this.characterAncestryList);
   // }
 
   // // Get all of the character's backgounds
-  // public findAllBackgounds(characterID): BaseDto[] {
+  // public findAllBackgounds(characterId): BaseDto[] {
   //   return this.characterBackgroundList;
   // }
 
   // // Get the requested background if the character has that background
-  // public findOneBackground(characterID, backgroundID): BaseDto {
-  //   return this.findOne(backgroundID, this.characterBackgroundList);
+  // public findOneBackground(characterId, backgroundId): BaseDto {
+  //   return this.findOne(backgroundId, this.characterBackgroundList);
   // }
 
   // // Get all of the character's classes
-  // public findAllClasses(characterID): BaseDto[] {
+  // public findAllClasses(characterId): BaseDto[] {
   //   return this.characterClassList;
   // }
 
   // // Get the requested class if the character has that class
-  // public findOneClass(characterID, classID): BaseDto {
-  //   return this.findOne(classID, this.characterClassList);
+  // public findOneClass(characterId, classId): BaseDto {
+  //   return this.findOne(classId, this.characterClassList);
   // }
 
   // // Get all abilities for the requested character's class
-  // public findAllAbilities(characterID, classID): BaseDto[] {
+  // public findAllAbilities(characterId, classId): BaseDto[] {
   //   return this.characterClassAbilityList;
   // }
 
   // // Get the requested ability if the character's class has that ability
-  // public findOneAbility(characterID, classID, abilityID): BaseDto {
-  //   return this.findOne(abilityID, this.characterClassAbilityList);
+  // public findOneAbility(characterId, classId, abilityId): BaseDto {
+  //   return this.findOne(abilityId, this.characterClassAbilityList);
   // }
 
   // Post an ability id to request an action
-  public requestAction(characterID, classID, abilityID, targetID): PostAbilityDto {
+  public requestAction(characterId, classId, abilityId, targetId): PostAbilityDto {
     const result : PostAbilityDto = {
-      'id': abilityID,
+      'id': abilityId,
       'name': 'test',
-      'characterID': characterID,
-      'classID': classID,
-      'targetID': targetID
+      'characterId': characterId,
+      'classId': classId,
+      'targetId': targetId
     };
 
     return result;
