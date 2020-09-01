@@ -14,18 +14,18 @@ export class PassiveService {
   constructor(private readonly passiveDao: PassiveDao) {}
 
   // Get all passives in the game
-  public findAllPassives(): Promise<BaseDto[]> {
-    return this.passiveDao.findAllPassives();
+  public findAllPassives(gameId: string): Promise<BaseDto[]> {
+    return this.passiveDao.findAllPassives(gameId);
   }
 
-  // Get one passive by ID
-  public findPassiveByID(passiveID: string): Promise<BaseDto> {
-    return this.passiveDao.findPassiveByID(passiveID);
+  // Get one passive by Id
+  public findPassiveById(gameId: string, passiveId: string): Promise<BaseDto> {
+    return this.passiveDao.findPassiveById(gameId, passiveId);
   }
 
   // Get a list of passives by name
-  public findPassiveListByName(passiveName: string): Promise<BaseDto[]> {
-    return this.passiveDao.findPassiveListByName(passiveName);
+  public findPassiveListByName(gameId: string, passiveName: string): Promise<BaseDto[]> {
+    return this.passiveDao.findPassiveListByName(gameId, passiveName);
   }
 
   // Insert multiple passives at once
