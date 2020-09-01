@@ -16,18 +16,18 @@ export class ModifierService {
   constructor(private readonly modifierDao: ModifierDao) {}
 
   // Get all modifiers in the game
-  public findAllModifiers(): Promise<BaseDto[]> {
-    return this.modifierDao.findAllModifiers();
+  public findAllModifiers(gameId: string): Promise<BaseDto[]> {
+    return this.modifierDao.findAllModifiers(gameId);
   }
 
-  // Get one modifier by ID
-  public findModifierByID(modifierID: string): Promise<BaseDto> {
-    return this.modifierDao.findModifierByID(modifierID);
+  // Get one modifier by Id
+  public findModifierById(gameId: string, modifierId: string): Promise<BaseDto> {
+    return this.modifierDao.findModifierById(gameId, modifierId);
   }
 
   // Get a list of modifiers by name
-  public findModifierListByName(modifierName: string): Promise<BaseDto[]> {
-    return this.modifierDao.findModifierListByName(modifierName);
+  public findModifierListByName(gameId: string, modifierName: string): Promise<BaseDto[]> {
+    return this.modifierDao.findModifierListByName(gameId, modifierName);
   }
 
   // Insert mulitple modifiers at once
