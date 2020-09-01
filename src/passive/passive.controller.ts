@@ -12,21 +12,21 @@ export class PassiveController {
   constructor(private readonly passiveService: PassiveService) {}
 
   // Get all passives in the game
-  @Get()
-  public findAllPassives(): Promise<BaseDto[]> {
-    return this.passiveService.findAllPassives();
+  @Get('gameId/:gameId')
+  public findAllPassives(@Param() params): Promise<BaseDto[]> {
+    return this.passiveService.findAllPassives(params.gameId);
   }
 
-  // Get one passive by ID
-  @Get('id/:passiveID')
-  public findPassiveByID(@Param() params): Promise<BaseDto> {
-    return this.passiveService.findPassiveByID(params.passiveID);
+  // Get one passive by Id
+  @Get('gameId/:gameId/id/:passiveId')
+  public findPassiveById(@Param() params): Promise<BaseDto> {
+    return this.passiveService.findPassiveById(params.gameId, params.passiveId);
   }
 
   // Get a list of passives by name
-  @Get('name/:passiveName')
+  @Get('gameId/:gameId/name/:passiveName')
   public findPassiveListByName(@Param() params): Promise<BaseDto[]> {
-    return this.passiveService.findPassiveListByName(params.passiveName);
+    return this.passiveService.findPassiveListByName(params.gameId, params.passiveName);
   }
 
 }
