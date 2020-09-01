@@ -21,6 +21,6 @@ export class Ancestry extends BaseEntity {
   modifiers: Modifier[];
 
   @ManyToOne(type => Game, (game) => game.id, {nullable: false})
-  public game!: Game;
+  public gameId!: Game['id'];
 
 }
