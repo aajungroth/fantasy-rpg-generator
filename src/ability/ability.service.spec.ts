@@ -26,11 +26,10 @@ describe('AbilityService', () => {
 
   describe('findAllAbilities', () => {
     it('should return an array of abilities', async () => {
-      const params: Object = {
-        'gameId': '1'
-      };
+      const gameId: string = '1';
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '3',
         'name'         : 'findAllAbilities',
         'description'  : 'A test',
@@ -42,18 +41,18 @@ describe('AbilityService', () => {
         .spyOn(abilityDao, 'findAllAbilities')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.findAllAbilities(params)).toBe(result);
+      expect(await abilityService.findAllAbilities(gameId)).toBe(result);
     });
   });
 
   describe('findAbilityById', () => {
     it('should return a single ability by id', async () => {
-      const params: Object = {
-        'gameId': '1',
-        'id'    : '4'
-      };
+
+      const gameId: string = '1';
+      const id: string     = '4';
 
       const result: BaseDto = {
+        'gameId'       : '1',
         'id'           : '4',
         'name'         : 'findAbilityById',
         'description'  : 'A test',
@@ -65,18 +64,17 @@ describe('AbilityService', () => {
         .spyOn(abilityDao, 'findAbilityById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.findAbilityById(params)).toBe(result);
+      expect(await abilityService.findAbilityById(gameId, id)).toBe(result);
     });
   });
 
   describe('findAbilityListByName', () => {
     it('should return a list of abilities by name', async() => {
-      const params: Object = {
-        'gameId': '1',
-        'name'  : 'findAbilityListByName'
-      };
+      const gameId: string = '1';
+      const name: string   = 'findAbilityListByName'
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '4a',
         'name'         : 'findAbilityListByName',
         'description'  : 'A test',
@@ -88,7 +86,7 @@ describe('AbilityService', () => {
         .spyOn(abilityDao, 'findAbilityListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.findAbilityListByName(params)).toBe(result);
+      expect(await abilityService.findAbilityListByName(gameId, name)).toBe(result);
     });
   });
 
@@ -103,8 +101,9 @@ describe('AbilityService', () => {
       }];
 
       const result: any[] = [{
-        'id'  : '5',
-        'name': 'insertMultipleAbilities'
+        'gameId': '1',
+        'id'    : '5',
+        'name'  : 'insertMultipleAbilities'
       }];
 
       jest
@@ -126,8 +125,9 @@ describe('AbilityService', () => {
       };
 
       const result: any = {
-        'id'  : '6',
-        'name': 'insertAbility'
+        'gameId': '1',
+        'id'    : '6',
+        'name'  : 'insertAbility'
       };
 
       jest
@@ -150,8 +150,9 @@ describe('AbilityService', () => {
       }];
 
       const result: Promise<any> = Promise.resolve({
-        'id'  : '7',
-        'name': 'updateMulitpleAbilities'
+        'gameId': '1',
+        'id'    : '7',
+        'name'  : 'updateMulitpleAbilities'
       });
 
       jest
@@ -174,8 +175,9 @@ describe('AbilityService', () => {
       };
 
       const result: any = {
-        'id'  : '8',
-        'name': 'updateAbility'
+        'gameId': '1',
+        'id'    : '8',
+        'name'  : 'updateAbility'
       };
 
       jest
@@ -198,8 +200,9 @@ describe('AbilityService', () => {
       }];
 
       const result: Promise<any> = Promise.resolve({
-        'id'  : '9',
-        'name': 'deleteMultipleAbilities'
+        'gameId': '1',
+        'id'    : '9',
+        'name'  : 'deleteMultipleAbilities'
       });
 
       jest
@@ -222,8 +225,9 @@ describe('AbilityService', () => {
       };
 
       const result: any = [{
-        'id'  : '10',
-        'name': 'deleteAbility'
+        'gameId': '1',
+        'id'    : '10',
+        'name'  : 'deleteAbility'
       }];
 
       jest
