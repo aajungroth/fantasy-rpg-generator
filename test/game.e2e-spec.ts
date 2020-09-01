@@ -13,13 +13,13 @@ import { INestApplication } from '@nestjs/common';
 describe('Game', () => {
 
   const findAllGamesResult       = [{'id': '1', 'name': 'findAllGames'}];
-  const findGameByIDResult       = {'id': '2', 'name': 'findGameByID'};
+  const findGameByIdResult       = {'id': '2', 'name': 'findGameById'};
   const findGameListByNameResult = [{'id': '3', 'name': 'findGameListByName'}];
 
   let app: INestApplication;
   let gameService = {
     findAllGames      : () => findAllGamesResult,
-    findGameByID      : () => findGameByIDResult,
+    findGameById      : () => findGameByIdResult,
     findGameListByName: () => findGameListByNameResult,
   };
 
@@ -46,12 +46,12 @@ describe('Game', () => {
     });
   });
 
-  describe('/GET game/id/:gameID', () => {
-    it('should get one game by ID', (done) => {
+  describe('/GET game/id/:gameId', () => {
+    it('should get one game by Id', (done) => {
       return request(app.getHttpServer())
         .get('/game/id/1')
         .expect(200)
-        .expect(gameService.findGameByID())
+        .expect(gameService.findGameById())
         .end(done);
     });
   });
