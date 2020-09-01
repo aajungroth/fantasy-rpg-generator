@@ -33,6 +33,7 @@ describe('Ability Controller', () => {
       };
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '1',
         'name'         : 'findAllAbilities',
         'description'  : 'A test',
@@ -56,6 +57,7 @@ describe('Ability Controller', () => {
       };
 
       const result: BaseDto = {
+        'gameId'       : '1',
         'id'           : '2',
         'name'         : 'findAbilityById',
         'description'  : 'A test',
@@ -79,6 +81,7 @@ describe('Ability Controller', () => {
       };
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '2a',
         'name'         : 'findAbilityListByName',
         'description'  : 'A test',
