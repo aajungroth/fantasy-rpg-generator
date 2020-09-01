@@ -6,9 +6,9 @@ import { GameDao } from  './game.dao';
 
 import { GameService } from './game.service';
 
-import { BaseDto } from '../dto/base.dto';
+import { GameDto } from './dto/game.dto';
 
-import { BasePostDto } from '../dto/basePost.dto';
+import { GamePostDto } from './dto/gamePost.dto';
 
 describe('GameService', () => {
 
@@ -26,7 +26,7 @@ describe('GameService', () => {
 
   describe('findAllGames', () => {
     it('should return an array of games', async() => {
-      const result: BaseDto[] = [{
+      const result: GameDto[] = [{
         'id'           : '34',
         'name'         : 'findAllGames',
         'description'  : 'A test',
@@ -42,11 +42,11 @@ describe('GameService', () => {
    });
   });
 
-  describe('findGameByID', () => {
+  describe('findGameById', () => {
     it('should return a game by id', async() => {
-      const result: BaseDto = {
+      const result: GameDto = {
         'id'           : '35',
-        'name'         : 'findGameByID',
+        'name'         : 'findGameById',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
@@ -55,16 +55,16 @@ describe('GameService', () => {
       const id: string = '35';
 
       jest
-        .spyOn(gameDao, 'findGameByID')
+        .spyOn(gameDao, 'findGameById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await gameService.findGameByID(id)).toBe(result);
+      expect(await gameService.findGameById(id)).toBe(result);
     });
   });
 
   describe('findGameListByName', () => {
     it('should return a list of games by name', async() => {
-      const result: BaseDto[] = [{
+      const result: GameDto[] = [{
         'id'           : '36',
         'name'         : 'findGameListByName',
         'description'  : 'A test',
