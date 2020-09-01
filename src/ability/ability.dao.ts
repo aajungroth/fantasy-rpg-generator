@@ -12,32 +12,32 @@ import { BaseDto } from '../dto/Base.dto';
 export class AbilityDao {
 
   // Retrieves all of the abilities in the game
-  public async findAllAbilities(): Promise<BaseDto[]> {
+  public async findAllAbilities(gameId: string): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('ability')
       .from(Ability, 'ability')
+      .where('ability.gameId = :gameId', { gameId: gameId })
       .getMany();
   }
 
-  // Retrieves a single ability by ID
-  public async findAbilityByID(abilityID): Promise<BaseDto> {
+  // Retrieves a single ability by Id
+  public async findAbilityById(gameId: string, abilityId: string): Promise<BaseDto> {
     return await getConnection()
       .createQueryBuilder()
       .select('ability')
       .from(Ability, 'ability')
-      .where('ability.id = :id', { id: abilityID })
+      .where('ability.gameId = :gameId AND ability.id = :id', { gameId: gameId, id: abilityId })
       .getOne();
   }
 
-
   // Retrieves a list of abilities by name
-  public async findAbilityListByName(abilityName): Promise<BaseDto[]> {
+  public async findAbilityListByName(gameId: string, abilityName: string): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('ability')
       .from(Ability, 'ability')
-      .where('ability.name = :name', { name: abilityName})
+      .where('ability.gameId = :gameId AND ability.name = :name', { gameId: gameId, name: abilityName})
       .getMany();
   }
 
@@ -61,25 +61,23 @@ export class AbilityDao {
       .execute();
   }
 
-
   // Update a single ability
   public async updateAbility(abilityInfo): Promise<any> {
     return await getConnection()
       .createQueryBuilder()
       .update(Ability)
       .set(abilityInfo)
-      .where("id = :id", { id: abilityInfo.id })
+      .where("gameId = :gameId AND id = :id", { gameId: abilityInfo.gameId, id: abilityInfo.id })
       .execute();
   }
 
-
   // Delete a single ability
-  public async deleteAbility(abilityID): Promise<any> {
+  public async deleteAbility(abilityInfo): Promise<any> {
     return await getConnection()
       .createQueryBuilder()
       .delete()
       .from(Ability)
-      .where("id = :id", { id: abilityID })
+      .where("gameId = :gameId AND id = :id", { gameId: abilityInfo.gameId, id: abilityInfo.id })
       .execute();
   }
 
