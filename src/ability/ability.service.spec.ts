@@ -26,6 +26,10 @@ describe('AbilityService', () => {
 
   describe('findAllAbilities', () => {
     it('should return an array of abilities', async () => {
+      const params: Object = {
+        'gameId': '1'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '3',
         'name'         : 'findAllAbilities',
@@ -38,32 +42,40 @@ describe('AbilityService', () => {
         .spyOn(abilityDao, 'findAllAbilities')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.findAllAbilities()).toBe(result);
+      expect(await abilityService.findAllAbilities(params)).toBe(result);
     });
   });
 
-  describe('findAbilityByID', () => {
+  describe('findAbilityById', () => {
     it('should return a single ability by id', async () => {
+      const params: Object = {
+        'gameId': '1',
+        'id'    : '4'
+      };
+
       const result: BaseDto = {
         'id'           : '4',
-        'name'         : 'findAbilityByID',
+        'name'         : 'findAbilityById',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const id: string = '4';
-
       jest
-        .spyOn(abilityDao, 'findAbilityByID')
+        .spyOn(abilityDao, 'findAbilityById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.findAbilityByID(id)).toBe(result);
+      expect(await abilityService.findAbilityById(params)).toBe(result);
     });
   });
 
   describe('findAbilityListByName', () => {
     it('should return a list of abilities by name', async() => {
+      const params: Object = {
+        'gameId': '1',
+        'name'  : 'findAbilityListByName'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '4a',
         'name'         : 'findAbilityListByName',
@@ -72,68 +84,64 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec',
       }];
 
-      const name: string = 'findAbilityListByName';
-
       jest
         .spyOn(abilityDao, 'findAbilityListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.findAbilityListByName(name)).toBe(result);
+      expect(await abilityService.findAbilityListByName(params)).toBe(result);
     });
   });
 
   describe('insertMultipleAbilities', () => {
     it('should insert an array of abilities', async () => {
-      const result: any[] = [{
-        'id'  : '5',
-        'name': 'insertMultipleAbilities'
-      }];
-
-      const input: BasePostDto[] = [{
+      const params: BasePostDto[] = [{
+        'gameId'       : '1',
         'name'         : 'insertMultipleAbilities',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       }];
 
+      const result: any[] = [{
+        'id'  : '5',
+        'name': 'insertMultipleAbilities'
+      }];
+
       jest
         .spyOn(abilityDao, 'insertMultipleAbilities')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.insertMultipleAbilities(input)).toBe(result);
+      expect(await abilityService.insertMultipleAbilities(params)).toBe(result);
     });
   });
 
   describe('insertAbility', () => {
     it('should insert a single ability', async () => {
-      const result: any = {
-        'id'  : '6',
-        'name': 'insertAbility'
-      };
-
-      const input: BasePostDto = {
+      const params: BasePostDto = {
+        'gameId'       : '1',
         'name'         : 'insertAbility',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
+      const result: any = {
+        'id'  : '6',
+        'name': 'insertAbility'
+      };
+
       jest
         .spyOn(abilityDao, 'insertAbility')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.insertAbility(input)).toBe(result);
+      expect(await abilityService.insertAbility(params)).toBe(result);
     });
   });
 
   describe('updateMulitpleAbilities', () => {
     it('should update an array of abilities', async () => {
-      const result: Promise<any> = Promise.resolve({
-        'id'  : '7',
-        'name': 'updateMulitpleAbilities'
-      });
-
-      const input: BaseDto[] = [{
+      const params: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '7',
         'name'         : 'updateMulitpleAbilities',
         'description'  : 'A test',
@@ -141,22 +149,23 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       }];
 
+      const result: Promise<any> = Promise.resolve({
+        'id'  : '7',
+        'name': 'updateMulitpleAbilities'
+      });
+
       jest
         .spyOn(abilityDao, 'updateAbility')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.updateMultipleAbilities(input)).toStrictEqual([result]);
+      expect(await abilityService.updateMultipleAbilities(params)).toStrictEqual([result]);
     });
   });
 
   describe('updateAbility', () => {
-    it('should update a single ability by ID', async () => {
-      const result: any = {
-        'id'  : '8',
-        'name': 'updateAbility'
-      };
-
-      const input: BaseDto = {
+    it('should update a single ability by Id', async () => {
+      const params: BaseDto = {
+        'gameId'       : '1',
         'id'           : '8',
         'name'         : 'updateAbility',
         'description'  : 'A test',
@@ -164,22 +173,23 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       };
 
+      const result: any = {
+        'id'  : '8',
+        'name': 'updateAbility'
+      };
+
       jest
         .spyOn(abilityDao, 'updateAbility')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.updateAbility(input)).toBe(result);
+      expect(await abilityService.updateAbility(params)).toBe(result);
     });
   });
 
   describe('deleteMultipleAbilities', () => {
-    it('should delete an array of abilites by ID', async () => {
-      const result: Promise<any> = Promise.resolve({
-        'id'  : '9',
-        'name': 'deleteMultipleAbilities'
-      });
-
-      const input: BaseDto[] = [{
+    it('should delete an array of abilites by Id', async () => {
+      const params: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '9',
         'name'         : 'deleteMultipleAbilities',
         'description'  : 'A test',
@@ -187,22 +197,23 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       }];
 
+      const result: Promise<any> = Promise.resolve({
+        'id'  : '9',
+        'name': 'deleteMultipleAbilities'
+      });
+
       jest
         .spyOn(await abilityDao, 'deleteAbility')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.deleteMultipleAbilities(input)).toStrictEqual([result]);
+      expect(await abilityService.deleteMultipleAbilities(params)).toStrictEqual([result]);
     });
   });
 
   describe('deleteAbility', () => {
-    it('should delete a single ability by ID', async () => {
-      const result: any = [{
-        'id'  : '10',
-        'name': 'deleteAbility'
-      }];
-
-      const input: BaseDto = {
+    it('should delete a single ability by Id', async () => {
+      const params: BaseDto = {
+        'gameId'       : '1',
         'id'           : '10',
         'name'         : 'deleteAbility',
         'description'  : 'A test',
@@ -210,11 +221,16 @@ describe('AbilityService', () => {
         'lastChangedBy': 'spec'
       };
 
+      const result: any = [{
+        'id'  : '10',
+        'name': 'deleteAbility'
+      }];
+
       jest
         .spyOn(await abilityDao, 'deleteAbility')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityService.deleteAbility(input)).toBe(result);
+      expect(await abilityService.deleteAbility(params)).toBe(result);
     });
   });
 
