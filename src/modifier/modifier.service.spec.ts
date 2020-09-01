@@ -26,11 +26,10 @@ describe('ModifierService', () => {
 
   describe('findAllModifiers', () => {
     it('should return an array of modifiers', async() => {
-      const params: Object = {
-        'gameId' : '1'
-      };
+      const gameId: string = '1';
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '23',
         'name'         : 'findAllModifiers',
         'description'  : 'A test',
@@ -42,18 +41,17 @@ describe('ModifierService', () => {
         .spyOn(modifierDao, 'findAllModifiers')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.findAllModifiers(params)).toBe(result);
+      expect(await modifierService.findAllModifiers(gameId)).toBe(result);
     });
   });
 
   describe('findModifierById', () => {
     it('should return a single modifier by id', async () => {
-      const params: Object = {
-        'gameId': '1',
-        'id'    : '24'
-      };
+      const gameId: string = '1';
+      const id: string     = '24';
 
       const result: BaseDto = {
+        'gameId'       : '1',
         'id'           : '24',
         'name'         : 'findModifierById',
         'description'  : 'A test',
@@ -65,18 +63,17 @@ describe('ModifierService', () => {
         .spyOn(modifierDao, 'findModifierById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.findModifierById(params)).toBe(result);
+      expect(await modifierService.findModifierById(gameId, id)).toBe(result);
     });
   });
 
   describe('findModifierByGame', () => {
     it('should return a list of modifiers by name', async () => {
-      const params: Object = {
-        'gameId': '1',
-        'name'  : 'findModifierListByName'
-      };
+      const gameId: string = '1';
+      const name: string   = 'findModifierListByName';
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '24a',
         'name'         : 'findModifierListByName',
         'description'  : 'A test',
@@ -88,7 +85,7 @@ describe('ModifierService', () => {
         .spyOn(modifierDao, 'findModifierListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.findModifierListByName(params)).toBe(result);
+      expect(await modifierService.findModifierListByName(gameId, name)).toBe(result);
     });
   });
 
@@ -103,8 +100,9 @@ describe('ModifierService', () => {
       }];
 
       const result: any[] = [{
-        'id'  : '25',
-        'name': 'insertMultipleModifiers'
+        'gameId': '1',
+        'id'    : '25',
+        'name'  : 'insertMultipleModifiers'
       }];
 
       jest
@@ -126,8 +124,9 @@ describe('ModifierService', () => {
       };
 
       const result: any = {
-        'id'  : '26',
-        'name': 'insertModifier'
+        'gameId': '1',
+        'id'    : '26',
+        'name'  : 'insertModifier'
       };
 
       jest
@@ -150,8 +149,9 @@ describe('ModifierService', () => {
       }];
 
       const result: Promise<any> = Promise.resolve({
-        'id'  : '27',
-        'name': 'updateMultipleModifiers'
+        'gameId': '1',
+        'id'    : '27',
+        'name'  : 'updateMultipleModifiers'
       });
 
       jest
@@ -174,8 +174,9 @@ describe('ModifierService', () => {
       };
 
       const result: any = {
-        'id'  : '28',
-        'name': 'updateModifier'
+        'gameId': '1',
+        'id'    : '28',
+        'name'  : 'updateModifier'
       };
 
       jest
@@ -198,8 +199,9 @@ describe('ModifierService', () => {
       }];
 
       const result: Promise<any> = Promise.resolve({
-        'id'  : '29',
-        'name': 'deleteMultipleModifiers'
+        'gameId': '1',
+        'id'    : '29',
+        'name'  : 'deleteMultipleModifiers'
       });
 
       jest
@@ -222,8 +224,9 @@ describe('ModifierService', () => {
       };
 
       const result: any = [{
-        'id'  : '30',
-        'name': 'deleteModifier'
+        'gameId': '1',
+        'id'    : '30',
+        'name'  : 'deleteModifier'
       }];
 
       jest
