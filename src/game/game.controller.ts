@@ -2,7 +2,7 @@
 
 import { Controller, Get, Param } from '@nestjs/common';
 
-import { BaseDto } from '../dto/base.dto';
+import { GameDto } from './dto/game.dto';
 
 import { GameService } from './game.service';
 
@@ -13,19 +13,19 @@ export class GameController {
 
   // Get all games
   @Get()
-  public findAllGames(): Promise<BaseDto[]> {
+  public findAllGames(): Promise<GameDto[]> {
     return this.gameService.findAllGames();
   }
 
-  // Get one game by ID
-  @Get('id/:gameID')
-  public findGameByID(@Param() params): Promise<BaseDto> {
-    return this.gameService.findGameByID(params.gameID);
+  // Get one game by Id
+  @Get('id/:gameId')
+  public findGameById(@Param() params): Promise<GameDto> {
+    return this.gameService.findGameById(params.gameId);
   }
 
   // Get a list of games by name
   @Get('name/:gameName')
-  public findGameListByName(@Param() params): Promise<BaseDto[]> {
+  public findGameListByName(@Param() params): Promise<GameDto[]> {
     return this.gameService.findGameListByName(params.gameName);
   }
 
