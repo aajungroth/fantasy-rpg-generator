@@ -12,31 +12,32 @@ import { BaseDto } from '../dto/Base.dto';
 export class PassiveDao {
 
   // Retrieves all of the passives in the game
-  public async findAllPassives(): Promise<BaseDto[]> {
+  public async findAllPassives(gameId: string): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('passive')
       .from(Passive, 'passive')
+      .where('passive.gameId = :gameId', { gameId: gameId })
       .getMany();
   }
 
-  // Retrieves a single passive by ID
-  public async findPassiveByID(passiveID): Promise<BaseDto> {
+  // Retrieves a single passive by Id
+  public async findPassiveById(gameId: string, passiveId: string): Promise<BaseDto> {
     return await getConnection()
       .createQueryBuilder()
       .select('passive')
       .from(Passive, 'passive')
-      .where('passive.id = :id', { id: passiveID })
+      .where('passive.gameId = :gameId AND passive.id = :id', { gameId: gameId,  id: passiveId })
       .getOne();
   }
 
   // Retrieves a list of passives by name
-  public async findPassiveListByName(passiveName): Promise<BaseDto[]> {
+  public async findPassiveListByName(gameId: string, passiveName: string): Promise<BaseDto[]> {
     return await getConnection()
       .createQueryBuilder()
       .select('passive')
       .from(Passive, 'passive')
-      .where('passive.name = :name', { name: passiveName })
+      .where('passive.gameId = :gameId AND passive.name = :name', { gameId: gameId, name: passiveName })
       .getMany();
   }
 
@@ -66,17 +67,17 @@ export class PassiveDao {
       .createQueryBuilder()
       .update(Passive)
       .set(passiveInfo)
-      .where("id = :id", { id: passiveInfo.id })
+      .where("gameId = :gameId AND id = :id", { gameId: passiveInfo.gameId, id: passiveInfo.id })
       .execute();
   }
 
   // Delete a single passive
-  public async deletePassive(passiveID): Promise<any> {
+  public async deletePassive(passiveInfo): Promise<any> {
     return await getConnection()
       .createQueryBuilder()
       .delete()
       .from(Passive)
-      .where("id = :id", { id: passiveID })
+      .where("gameId = :gameId AND id = :id", { gameId: passiveInfo.gameId, id: passiveInfo.id })
       .execute();
   }
 
