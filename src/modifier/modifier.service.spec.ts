@@ -26,6 +26,10 @@ describe('ModifierService', () => {
 
   describe('findAllModifiers', () => {
     it('should return an array of modifiers', async() => {
+      const params: Object = {
+        'gameId' : '1'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '23',
         'name'         : 'findAllModifiers',
@@ -38,32 +42,40 @@ describe('ModifierService', () => {
         .spyOn(modifierDao, 'findAllModifiers')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.findAllModifiers()).toBe(result);
+      expect(await modifierService.findAllModifiers(params)).toBe(result);
     });
   });
 
-  describe('findModifierByID', () => {
+  describe('findModifierById', () => {
     it('should return a single modifier by id', async () => {
+      const params: Object = {
+        'gameId': '1',
+        'id'    : '24'
+      };
+
       const result: BaseDto = {
         'id'           : '24',
-        'name'         : 'findModifierByID',
+        'name'         : 'findModifierById',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const id: string = '24';
-
       jest
-        .spyOn(modifierDao, 'findModifierByID')
+        .spyOn(modifierDao, 'findModifierById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.findModifierByID(id)).toBe(result);
+      expect(await modifierService.findModifierById(params)).toBe(result);
     });
   });
 
   describe('findModifierByGame', () => {
     it('should return a list of modifiers by name', async () => {
+      const params: Object = {
+        'gameId': '1',
+        'name'  : 'findModifierListByName'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '24a',
         'name'         : 'findModifierListByName',
@@ -72,68 +84,64 @@ describe('ModifierService', () => {
         'lastChangedBy': 'spec'
       }];
 
-      const name: string = 'findModifierListByName';
-
       jest
         .spyOn(modifierDao, 'findModifierListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.findModifierListByName(name)).toBe(result);
+      expect(await modifierService.findModifierListByName(params)).toBe(result);
     });
   });
 
   describe('insertMultipleModifiers', () => {
     it('should insert an array of modifiers', async () => {
-      const result: any[] = [{
-        'id'  : '25',
-        'name': 'insertMultipleModifiers'
-      }];
-
-      const input: BasePostDto[] = [{
+      const params: BasePostDto[] = [{
+        'gameId'       : '1',
         'name'         : 'insertMultipleModifiers',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       }];
 
+      const result: any[] = [{
+        'id'  : '25',
+        'name': 'insertMultipleModifiers'
+      }];
+
       jest
         .spyOn(modifierDao, 'insertMultipleModifiers')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.insertMultipleModifiers(input)).toBe(result);
+      expect(await modifierService.insertMultipleModifiers(params)).toBe(result);
     });
   });
 
   describe('insertModifier', () => {
     it('should insert a single modifier', async () => {
-      const result: any = {
-        'id'  : '26',
-        'name': 'insertModifier'
-      };
-
-      const input: BasePostDto = {
+      const params: BasePostDto = {
+        'gameId'       : '1',
         'name'         : 'insertModifier',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec',
       };
 
+      const result: any = {
+        'id'  : '26',
+        'name': 'insertModifier'
+      };
+
       jest
         .spyOn(modifierDao, 'insertModifier')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.insertModifier(input)).toBe(result);
+      expect(await modifierService.insertModifier(params)).toBe(result);
     });
   });
 
   describe('updateMultipleModifiers', () => {
     it('should update an array of modifiers', async() => {
-      const result: Promise<any> = Promise.resolve({
-        'id'  : '27',
-        'name': 'updateMultipleModifiers'
-      });
-
-      const input: BaseDto[] = [{
+      const params: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '27',
         'name'         : 'updateMultipleModifiers',
         'description'  : 'A test',
@@ -141,22 +149,23 @@ describe('ModifierService', () => {
         'lastChangedBy': 'spec'
       }];
 
+      const result: Promise<any> = Promise.resolve({
+        'id'  : '27',
+        'name': 'updateMultipleModifiers'
+      });
+
       jest
         .spyOn(modifierDao, 'updateModifier')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.updateMultipleModifiers(input)).toStrictEqual([result]);
+      expect(await modifierService.updateMultipleModifiers(params)).toStrictEqual([result]);
     });
   });
 
   describe('updateModifier', () => {
-    it('should update a single modifier by ID', async () => {
-      const result: any = {
-        'id'  : '28',
-        'name': 'updateModifier'
-      };
-
-      const input: BaseDto = {
+    it('should update a single modifier by Id', async () => {
+      const params: BaseDto = {
+        'gameId'       : '1',
         'id'           : '28',
         'name'         : 'updateModifier',
         'description'  : 'A test',
@@ -164,22 +173,23 @@ describe('ModifierService', () => {
         'lastChangedBy': 'spec'
       };
 
+      const result: any = {
+        'id'  : '28',
+        'name': 'updateModifier'
+      };
+
       jest
         .spyOn(modifierDao, 'updateModifier')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.updateModifier(input)).toBe(result);
+      expect(await modifierService.updateModifier(params)).toBe(result);
     });
   });
 
   describe('deleteMultipleModifiers', () => {
-    it('should delete an array of multiples by ID', async () => {
-      const result: Promise<any> = Promise.resolve({
-        'id'  : '29',
-        'name': 'deleteMultipleModifiers'
-      });
-
-      const input: BaseDto[] = [{
+    it('should delete an array of multiples by Id', async () => {
+      const params: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '29',
         'name'         : 'deleteMultipleModifiers',
         'description'  : 'A test',
@@ -187,22 +197,23 @@ describe('ModifierService', () => {
         'lastChangedBy': 'spec'
       }];
 
+      const result: Promise<any> = Promise.resolve({
+        'id'  : '29',
+        'name': 'deleteMultipleModifiers'
+      });
+
       jest
         .spyOn(await modifierDao, 'deleteModifier')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.deleteMultipleModifiers(input)).toStrictEqual([result]);
+      expect(await modifierService.deleteMultipleModifiers(params)).toStrictEqual([result]);
     });
   });
 
   describe('deleteModifier', () => {
-    it('should delete a single modifier by ID', async() => {
-      const result: any = [{
-        'id'  : '30',
-        'name': 'deleteModifier'
-      }];
-
-      const input: BaseDto = {
+    it('should delete a single modifier by Id', async() => {
+      const params: BaseDto = {
+        'gameId'       : '1',
         'id'           : '20',
         'name'         : 'deleteModifier',
         'description'  : 'A test',
@@ -210,11 +221,16 @@ describe('ModifierService', () => {
         'lastChangedBy': 'spec'
       };
 
+      const result: any = [{
+        'id'  : '30',
+        'name': 'deleteModifier'
+      }];
+
       jest
         .spyOn(await modifierDao, 'deleteModifier')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await modifierService.deleteModifier(input)).toBe(result);
+      expect(await modifierService.deleteModifier(params)).toBe(result);
     });
   });
 
