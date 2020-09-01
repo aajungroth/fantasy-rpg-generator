@@ -28,6 +28,10 @@ describe('Ability Controller', () => {
 
   describe('findAllAbilities', () => {
     it('should return an array of abilities', async () => {
+      const params: Object = {
+        'gameId': '1'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '1',
         'name'         : 'findAllAbilities',
@@ -40,32 +44,40 @@ describe('Ability Controller', () => {
         .spyOn(abilityService, 'findAllAbilities')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityController.findAllAbilities()).toBe(result);
+      expect(await abilityController.findAllAbilities(params)).toBe(result);
     });
   });
 
-  describe('findAbilityByID', () => {
+  describe('findAbilityById', () => {
     it('should return a single ability by id', async () => {
+      const params: Object = {
+        'gameId': '1',
+        'id'    : '1'
+      };
+
       const result: BaseDto = {
         'id'           : '2',
-        'name'         : 'findAbilityByID',
+        'name'         : 'findAbilityById',
         'description'  : 'A test',
         'createdBy'    : 'spec',
         'lastChangedBy': 'spec'
       };
 
-      const id: string = '2';
-
       jest
-        .spyOn(abilityService, 'findAbilityByID')
+        .spyOn(abilityService, 'findAbilityById')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityController.findAbilityByID(id)).toBe(result);
+      expect(await abilityController.findAbilityById(params)).toBe(result);
     });
   });
 
   describe('findAbilityListByName', () => {
     it('should return a list of abilities by name', async() => {
+      const params: Object = {
+        'gameId': '1',
+        'name'  : 'findAbilityListByName'
+      };
+
       const result: BaseDto[] = [{
         'id'           : '2a',
         'name'         : 'findAbilityListByName',
@@ -74,13 +86,11 @@ describe('Ability Controller', () => {
         'lastChangedBy': 'spec'
       }];
 
-      const name: string = 'findAbilityListByName';
-
       jest
         .spyOn(abilityService, 'findAbilityListByName')
         .mockImplementation(() => Promise.resolve(result));
 
-      expect(await abilityController.findAbilityListByName(name)).toBe(result);
+      expect(await abilityController.findAbilityListByName(params)).toBe(result);
     });
   });
 
