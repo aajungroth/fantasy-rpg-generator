@@ -14,18 +14,18 @@ export class AbilityService {
   constructor(private readonly abilityDao: AbilityDao) {}
 
   // Get all abilities in the game
-  public findAllAbilities(): Promise<BaseDto[]> {
-    return this.abilityDao.findAllAbilities();
+  public findAllAbilities(gameId: string): Promise<BaseDto[]> {
+    return this.abilityDao.findAllAbilities(gameId);
   }
 
-  // Get one ability by ID
-  public findAbilityByID(abilityID: string): Promise<BaseDto> {
-    return this.abilityDao.findAbilityByID(abilityID);
+  // Get one ability by Id
+  public findAbilityById(gameId: string, abilityId: string): Promise<BaseDto> {
+    return this.abilityDao.findAbilityById(gameId, abilityId);
   }
 
   // Get a list of abilities by name
-  public findAbilityListByName(abilityName: string): Promise<BaseDto[]> {
-    return this.abilityDao.findAbilityListByName(abilityName);
+  public findAbilityListByName(gameId: string, abilityName: string): Promise<BaseDto[]> {
+    return this.abilityDao.findAbilityListByName(gameId, abilityName);
   }
 
   // Insert multiple abilities at once
