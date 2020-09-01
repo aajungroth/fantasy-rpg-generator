@@ -33,6 +33,7 @@ describe('Modifier Controller', () => {
       };
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '21',
         'name'         : 'findAllModifiers',
         'description'  : 'A test',
@@ -56,6 +57,7 @@ describe('Modifier Controller', () => {
       };
 
       const result: BaseDto = {
+        'gameId'       : '1',
         'id'           : '22',
         'name'         : 'findModifierById',
         'description'  : 'A test',
@@ -79,6 +81,7 @@ describe('Modifier Controller', () => {
       };
 
       const result: BaseDto[] = [{
+        'gameId'       : '1',
         'id'           : '22a',
         'name'         : 'findModifierListByName',
         'description'  : 'A test',
