@@ -12,21 +12,21 @@ export class AbilityController {
   constructor(private readonly abilityService: AbilityService) {}
 
   // Get all abilities in the game
-  @Get()
-  public findAllAbilities(): Promise<BaseDto[]> {
-    return this.abilityService.findAllAbilities();
+  @Get('gameId/:gameId')
+  public findAllAbilities(@Param() params): Promise<BaseDto[]> {
+    return this.abilityService.findAllAbilities(params.gameId);
   }
 
-  // Get one ability by ID
-  @Get('id/:abilityID')
-  public findAbilityByID(@Param() params): Promise<BaseDto> {
-    return this.abilityService.findAbilityByID(params.abilityID);
+  // Get one ability by Id
+  @Get('id/:abilityId')
+  public findAbilityById(@Param() params): Promise<BaseDto> {
+    return this.abilityService.findAbilityById(params.gameId, params.abilityId);
   }
 
   // Get a list of abilities by name
   @Get('name/:abilityName')
   public findAbilityListByName(@Param() params): Promise<BaseDto[]> {
-    return this.abilityService.findAbilityListByName(params.abilityName);
+    return this.abilityService.findAbilityListByName(params.gameId, params.abilityName);
   }
 
 }
