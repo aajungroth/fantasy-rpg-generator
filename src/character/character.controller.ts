@@ -101,10 +101,11 @@ export class CharacterController {
   @Post()
   public insertCharacter(@Param() params) {
     let character: BasePostDto = {
-      'name'       : 'Tester 3',
-      'description': 'A tester',
-      'createdBy': 'Post Route',
-      'lastChangedBy': 'Post Route',
+      'gameId'           : '1',
+      'name'             : 'Tester 3',
+      'description'      : 'A tester',
+      'createdBy'        : 'Post Route',
+      'lastChangedBy'    : 'Post Route',
       //'internalComment': 'A tester who tests'
     };
 
