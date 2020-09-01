@@ -12,21 +12,21 @@ export class ModifierController {
   constructor(private readonly modifierService: ModifierService) {}
 
   // Get all modifiers in the game
-  @Get()
-  public findAllModifiers(): Promise<BaseDto[]> {
-    return this.modifierService.findAllModifiers();
+  @Get('gameId/:gameId')
+  public findAllModifiers(@Param() params): Promise<BaseDto[]> {
+    return this.modifierService.findAllModifiers(params.gameId);
   }
 
-  // Get one modifier by ID
-  @Get('id/:modifierID')
-  public findModifierByID(@Param() params): Promise<BaseDto> {
-    return this.modifierService.findModifierByID(params.modifierID);
+  // Get one modifier by Id
+  @Get('gameId/:gameId/id/:modifierId')
+  public findModifierById(@Param() params): Promise<BaseDto> {
+    return this.modifierService.findModifierById(params.gameId, params.modifierId);
   }
 
   // Get a list of modifiers by name
-  @Get('name/:modifierName')
+  @Get('gameId/:gameId/name/:modifierName')
   public findModifierListByName(@Param() params): Promise<BaseDto[]> {
-    return this.modifierService.findModifierListByName(params.modifierName);
+    return this.modifierService.findModifierListByName(params.gameId, params.modifierName);
   }
 
 }
