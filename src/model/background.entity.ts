@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToMany, ManyToOne, JoinTable } from 'typeorm';
+import { Entity, Column, ManyToMany, ManyToOne, JoinTable, JoinColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { Ability } from './ability.entity';
 import { Passive } from './passive.entity';
@@ -21,6 +21,7 @@ export class Background extends BaseEntity {
   modifiers: Modifier[];
 
   @ManyToOne(type => Game, (game) => game.id, {nullable: false})
+  @JoinColumn({ name: 'gameId' })
   public gameId!: Game['id'];
 
 }
