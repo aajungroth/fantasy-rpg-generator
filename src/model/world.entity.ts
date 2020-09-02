@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToMany, ManyToOne, JoinTable } from 'typeorm';
+import { Entity, Column, ManyToMany, ManyToOne, JoinTable, JoinColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { Ancestry } from './ancestry.entity';
 import { Background } from './background.entity';
@@ -7,6 +7,7 @@ import { Game } from './game.entity';
 
 @Entity({ name: 'world' })
 export class World extends BaseEntity {
+
   @ManyToMany(type => Ancestry)
   @JoinTable()
   abilities: Ancestry[];
@@ -20,6 +21,7 @@ export class World extends BaseEntity {
   classes: Class[];
 
   @ManyToOne(type => Game, (game) => game.id, {nullable: false})
+  @JoinColumn({ name: 'gameId' })
   public gameId!: Game['id'];
 
 }
