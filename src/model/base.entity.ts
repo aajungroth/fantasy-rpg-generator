@@ -1,6 +1,7 @@
 import { PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
 
 export abstract class BaseEntity {
+
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -30,4 +31,5 @@ export abstract class BaseEntity {
 
   @Column({ type: 'varchar', length: 255, nullable: true })
   internalComment: string | null;
+
 }
