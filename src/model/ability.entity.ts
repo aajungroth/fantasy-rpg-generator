@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToOne } from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { Game } from './game.entity';
 
@@ -6,6 +6,7 @@ import { Game } from './game.entity';
 export class Ability extends BaseEntity {
 
   @ManyToOne(type => Game, (game) => game.id, {nullable: false})
+  @JoinColumn({ name: 'gameId' })
   public gameId!: Game['id'];
 
 }
