@@ -89,6 +89,8 @@ $ npm run start:dev
 $ npm run start:prod
 
 # clean and rebuild dist
+# migrations are generated based on the build files
+# so run this if incorrect migrations are being generated
 $ npm run build
 
 # Generates a new migration script
